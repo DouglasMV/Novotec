@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 3 - HTML</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">🞬</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+            <h2>Aula 3 - HTML</h2>
+
+            <h3>O que é HTML?</h3>
+
+            <p><strong>H</strong>yper<strong>t</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage (Linguagem de Marcação de Hipertexto) é a linguagem mais usada para se criar Websites.</p>
+
+            <p>Hipertexto refere-se a maneira que as páginas web ligam-se entre si, por isso as ligações (links) entre elas são chamados de Hyperlinks.</p>
+
+            <p>HTML é usado para marcar um documento com <strong>tags</strong> que os Navegadores (Chrome, Firefox, Safari, Internet Explore, etc) usam para determinar como as páginas web são estruturadas.</p>
+
+
+            <h3>Tags</h3>
+
+            <p>Como foi dito as tags são utilizadas para marcar o conteúdo das páginas, determinar o que é um título, um cabeçalho, um parágrafo, etc. Além disso os navegadores utilizam algumas tags para formatar o texto, deixar a fonte maior ou menor, o texto em negrito ou itálico, etc. Porém não é recomendado usar tags como o meio principal de formatação. Para isso é recomendado utilizar CSS, que estudaremos mais a fundo nas próximas aulas.</p>
+
+            <p>Vejamos um exemplo da estrutura básica de um documento HTML:</p>
+
+            <pre>
+                <code>
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+    
+                        &lt;head&gt;
+                            &lt;title&gt;Título da página&lt;/title&gt;
+                        &lt;/head&gt;
+                            
+                        &lt;body&gt;
+                            &lt;h1&gt;Um cabeçalho&lt;/h1&gt;
+                            &lt;p&gt;Um parágrafo.&lt;/p&gt;
+                            &lt;p>Outro parágrafo.&lt;/p&gt;
+                        &lt;/body&gt;
+                        
+                    &lt;/html&gt;
+                </code>
+            </pre>
+
+            <p>A maioria das tags têm uma tag de fechamento correspondente. Como por exemplo a tag <strong>&lt;h1&gt;</strong> tem a tag de fechamento <strong>&lt;/h1&gt;</strong>. Porém algumas tags não precisam ser fechadas, como por exemplo a tag <strong>&lt;!DOCTYPE html&gt;</strong>, chamamos essas tags de tags auto-fecháveis.</p>
+
+            <p>Para aprender HTML é preciso estudar várias tags e entender como elas se comportam. Por isso veremos algumas tags mais usadas em HTML. No final dessa aula você encontra uma lista de sites que contém mais tags, que podem não ser usadas com tanta frequência mas podem ser úteis em algumas situações.</p>
+
+
+            <h3>Elementos HTML</h3>
+
+            <p>Um elemento HTML é definido por uma tag de abertura. Se o elemento tem um conteúdo ele termina com uma tag de fechamento, semelhante a tag de abertura mas com uma barra "/" na frente do nome do elemento.</p>
+
+            <p>No exemplo anterior temos o elemento &lt;!DOCTYPE html&gt; que não possui conteúdo nem tag de fechamento, a tag de abertura é um elemento por si só.</p>
+
+            <p>Temos também o elemento: &lt;p&gt;Um parágrafo.&lt;/p&gt;. Que é composto por uma tag de abertura &lt;p&gt;, o conteúdo "Um parágrafo" e a tag de fechamneto &lt;/p&gt;.</p>
+
+            <p>É importante notar que o conteúdo não precisa ser necessariamente apenas texto, pode conter outros elementos, como por exemplo o elemento head, que contém o elemento title.</p>
+
+
+            <h3>Parentesco</h3>
+
+            <p>Existe um conceito de parentesco entre os elementos html. Se um elemento encontra-se "dentro" de outro, ele é chamada de filho (child). Já o elemento de "fora" é chamado de mãe ou pai (parent) do elemento de "dentro". No nosso exemplo o elemento <strong>body</strong> é pai dos elementos <strong>h1</strong> e <strong>p</strong>, que por sua vez são filhos de <strong>body</strong>.</p>
+            
+            <p>Repare que tanto a tag de abertura &lt;h1&gt; quanto a tag de fechamento &lt;/h1&gt; de <strong>h1</strong> estão dentro de <strong>body</strong>, algo como o código a seguir não é válido:</p>
+
+            <pre>
+                <code>
+                    &lt;body&gt;
+                        &lt;h1&gt;Um cabeçalho
+                    &lt;/body&gt;
+                        &lt;/h1&gt;
+                </code>
+            </pre>
+
+            <p>A maioria dos navegadores não interpeta o código acima como válido, podendo gerar resultados indesejáveis.</p>
+
+
+            <h3>Atributos</h3>
+
+            <p>As tags de abertura podem ter atributos, que são informações extra que definem caracteristicas dos elementos.</p>
+
+            <p>Um atributo é composto de duas partes, o nome e o valor. O nome identifica a propriedade do elemento, e o valor determina como essa propriedade será usada. Vejamos o exemplo abaixo.</p>
+
+            <pre>
+                <code>
+                    &lt;p id="meu-parágrafo" title="um parágrafo escrito por mim"&gt;
+                       Olá Mundo!
+                    &lt;/p&gt;
+                </code>
+            </pre>
+
+            <p>No exemplo acima o atributo <strong>id</strong> tem o valor "meu-paragrafo". Esse atributo é usado para identificar um único elemento. Serve para criar links internos na página e é usado em CSS e JavaScript.</p>
+
+            <p>Conforme aprendemos outros elementos HTML veremos mais atributos.</p>
+
+
+            <h3>!DOCTYPE</h3>
+
+            <p>No exemplo visto, a primeira tag que aparece é <strong>&lt;!DOCTYPE html&gt;</strong>. Essa é uma tag usada pelos Navegadores para determinar o tipo do documento, que no nosso cado é do tipo <strong>html</strong>, isso ajuda os navegadores a mostrarem o documento corretamente.</p>
+
+
+            <h3>hmtl</h3>
+
+            <p>A tag <strong>&lt;html&gt;</strong> engloba todo o documento html. E contém duas tags filhas principais: head e body.</p>
+
+
+            <h3>head</h3>
+
+            <p><strong>&lt;head&gt;</strong> é a tag que representa o cabeçalho do documento, ela contém outras tags que geralmente possuem metadados (dados sobre o próprio documento html) e não o conteúdo (visto pelo usuário) em si.</p>
+
+
+            <h3>body</h3>
+
+            <p><strong>&lt;body&gt;</strong> é o corpo do documento html. É nele que se encontra todo conteúdo da página visível pelo usuário.</p>
+            
+
+            <h3>title</h3>
+
+            <p><strong>&lt;title&gt;</strong> é a tag que contém o título da página. É uma tag filha da tag <strong>head</strong>. Geralmente esse título é mostrado no topo da janela ou de uma aba do Navegador.</p>
+
+
+            <h3>Tags de Heading</h3>
+
+            <p>As tags <strong>&lt;h1&gt;</strong> <strong>&lt;h2&gt;</strong> <strong>&lt;h3&gt;</strong> <strong>&lt;h4&gt;</strong> <strong>&lt;h5&gt;</strong> e <strong>&lt;h6&gt;</strong> são usadas para criar cabeçalhos no texto da página. A diferença entre os 6 é a importância ou destaque, sendo <strong>&lt;h1&gt;</strong> o cabeçalho com maior destaque e <strong>&lt;h6&gt;</strong> o com menor destaque. Importante não confundir com a tag <strong>&lt;head&gt;</strong> que é o cabeçalho do docomento em si, e não do texto/conteúdo da página.</p>
+
+
+            <h3>Parágrafo</h3>
+
+            <p>A tag <strong>&lt;p&gt;</strong> é usada para representar um parágrafo. Um texto sempre deve estar entre tags, seja de parágrafo, headings ou outra. Deixar um texto "solto", sem tags em volta, apesar de não causar um erro, é uma má prática, e pode deixar seu documento menos legível para outros desenvolvedores.</p>
+
+
+            <h3>pre</h3>
+
+            Tudo texto que estiver entre as tags <strong>&lt;pre&gt;</strong> <strong>&lt;/pre&gt;</strong> será mostrado como está escrito, ou seja, respeitando a formatação, espaços, quebra de lnhas, etc.
+
+            <h3>Tags de Frase</h3>
+
+            <p>Algumas tags são usadas para das destaque à palavras ou partes de uma frase. Apesar de a maioria deles mudar visualmente o texto entre as tags, não devem ser usados para essa finalidade. A função desses elementos é ajudar os Navegadores e moteres de busca (Google) a entenderem melhor o conteúdo da página. A tabela abaixo mostra algumas dessas tags e suas finalidades.</p>
+
+            <table>
+                <tr>
+                    <th>Tag</th>
+                    <th>Finalidade</th>
+                </tr>
+                <tr>
+                    <td>&lt;em&gt;</td>
+                    <td>A palavra é mostrada com ênfase, geralmente em itálico.</td>
+                </tr>
+                <tr>
+                    <td>&lt;mark&gt;</td>
+                    <td>A palavra é marcada com um fundo amarelo.</td>
+                </tr>
+                <tr>
+                    <td>&lt;strong&gt;</td>
+                    <td>A palavra é mostrada como um texto importante, geralmente em negrito.</td>
+                </tr>
+                <tr>
+                    <td>&lt;abbr&gt;</td>
+                    <td>A palavra é uma abreviação, deve conter o atributo title com o texto não abreviado.</td>
+                </tr>
+            </table>
+
+            <p><strong>Cuidado:</strong> existem várias tags e atributos que mudam visualmente os elementos html, porém não é recomendado usá-los com finalidade. O Recomendado é usar CSS que aprenderemos na próxima aula.</p>
+
+
+            <h3>Comentários</h3>
+
+            <p>Comentários são partes do documento que são ignoradas pelo Navegador, são uasados pelos desenvolvedores para escrever lembretes ou explicar o código. Os comentários devem estar entre <strong>&lt;!--</strong> e <strong>--&gt;</strong> vejamos um exemplo:</p>
+
+            <pre>
+                <code>
+                    &lt;p&gt;
+                       Olá Mundo!
+                       &lt;!-- Esta parte não será exibida! --&gt;
+                    &lt;/p&gt;
+                </code>
+            </pre>
+
+
+            <h3>Imagens</h3>
+
+            <p>Para exibir uma imagem utilizamos a tag auto-fechável &lt;img /&gt;. Existem dois atributos importante para essa tag: <strong>src</strong> e <strong>alt</strong>. O atributo src determina o caminho (link) para a imagem, que pode ser um endereço na web ou um caminho relativo ao documento HTML. O atributo alt é um texto alternativo que é exibido caso a imagem não carregue, e também é usado para acessibilidade de pessoas com algum tipo de deficiência visual.</p>
+
+            <pre>
+                <code>
+                    &lt;img src="https://i.imgur.com/CVarvWs.jpg" alt="Um gato"&gt;
+                </code>
+            </pre>
+
+
+            <h3>Links</h3>
+
+            <p>A tag &lt;a&gt; é usada para criar um link. Existem dois atributos importante para essa tag: href e taget. O atributo href recebe o link, já target especifica onde o link será aberto, "_self" é usado para abrir o link na própria página, "_blank" é usado para abrir o link em uma nova aba.</p>
+
+            <pre>
+                <code>
+                    &lt;a href="https://www.google.com" target="_blank"&gt;
+                        Clique para abrir o Google!
+                    &lt;/a&gt;
+                </code>
+            </pre>
+
+
+            <h3>Listas</h3>
+
+            <p>As tags &lt;ol&gt; e &lt;ul&gt; são usadas para criar listas ordenadas e não ordenadas respectivamente, a diferença é que as listas ordenadas são numeradas. As listas não ordenadas &lt;ul&gt; são mais usadas.</p>
+
+            <p>Para criar items em uma lista usamos a tag &lt;li&gt; veja no exemplo a seguir.</p>
+
+            <pre>
+                <code>
+                    &lt;ul&gt;
+                        &lt;li&gt;Item 1&lt;/li&gt;
+                        &lt;li&gt;Item 2&lt;/li&gt;
+                        &lt;li&gt;Item 3&lt;/li&gt;
+                    &lt;/ul&gt;
+                </code>
+            </pre>
+
+
+            <h3>Tabelas</h3>
+
+            <p>É possível criar tabelas entre as tags &lt;table&gt; &lt;/table&gt;. Para definir uma linha na tabela usamos a tag &lt;tr&gt;. Para definir uma célula usamos a tag &lt;td&gt;, ou &lt;th&gt; para uma célula de cabeçalho. As células podem recer os atributos rowspan e colspan que determinam o espaço de quantas céluals ela ocupa na linha e na coluna respectivamente. Veja o exemplo abaixo:</p>
+
+            <pre>
+                <code>
+                    &lt;table&gt;
+                        &lt;tr&gt;
+                            &lt;th&gt;Coluna 1&lt;/th&gt;
+                            &lt;th&gt;Coluna 2&lt;/th&gt;
+                            &lt;th&gt;Coluna 3&lt;/th&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td rowspan = "2"&gt;Linha 1 Célula 1&lt;/td&gt;
+                            &lt;td&gt;Linha 1 Célula 2&lt;/td&gt;&lt;td&gt;Linha 1 Célula 3&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td&gt;Linha 2 Célula 2&lt;/td&gt;
+                            &lt;td&gt;Linha 2 Célula 3&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td colspan = "3"&gt;Linha 3 Célula 1&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;
+                </code>
+            </pre>
+
+
+            <h3>Formulários</h3>
+
+            <p>Formulários são muito úteis em websites para que o usuário possa enviar informações. Porém a parte de receber e tratar essas informações é do backend. Com HTML apenas cuidamos da apresentação deste formulário ao usuário.</p>
+
+            <p>As tags &lt;form&gt; &lt;/form&gt; delimitam um formulário. Entra essas tags podemos colocar várias outras tags que correspondem aos elementos do formulário. Temos por exemplo entrada de texto, caixas de seleção, seleção de arquivos, botões, etc. Estudaremos como enviar os dados de um formulário em outra aula, quando já soubermos um pouco mais sobre backend. Por enquanto vejamos o exemplo abaixo:</p>
+
+
+            <pre>
+                <code>
+                     &lt;form&gt;
+                        Nome : &lt;input type = "text" name = "nome_usuario" &gt;
+                        E-mail: &lt;input type = "email" name = "e-mail" &gt;
+                        Senha: &lt;input type = "password" name = "senha" &gt;
+                    &lt;/form&gt;
+                </code>
+            </pre>
+
+
+            <h3>Sites para aprender mais</h3>
+
+            <p>Vamos listar aqui alguns sites que possuem muito mais informações sobre HTML. Não se assuste com a quantidade de informações, lembre-se que não é preciso decorar tudo, afinal esses sites e o nosso velho amigo Google sempre estarão lá para nos ajudar.</p>
+
+            <ul>
+                <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML">Mozilla Developers Network</a></li>
+                <li><a href="https://codecommit.com.br/html-referencia-de-elementos-cheatsheet">Code Commit</a></li>
+                <li><a href="https://learn.freecodecamp.org/">Free Code Camp</a></li>
+                <li><a href="https://www.w3schools.com/">W3 Schools</a></li>
+                <li><a href="https://www.tutorialspoint.com/html/index.htm">Tutorials Point</a></li>
+                <li><a href="https://www.codecademy.com/catalog/language/html-css">Codecademy</a></li>
+            </ul>
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>
