@@ -43,7 +43,7 @@ linkList.forEach((item) => {
 /* Toggle Menu */
 
 btn.onclick = () => {
-  if(btn.innerText === "🞬") {
+  if(btn.innerText === "X") {
     btn.innerText = "☰";
     btn.style.backgroundColor = "transparent";
     btn.style.borderBottom = "none";
@@ -51,7 +51,7 @@ btn.onclick = () => {
     menu.style.display = "none"
     main[0].style.padding = "20px 40px 20px 40px";
   } else {
-    btn.innerText = "🞬";
+    btn.innerText = "X";
     btn.style.backgroundColor = "#e5e5e5";
     btn.style.borderBottom = "1px solid black";btn.style.borderRight = "1px solid black";
     menu.style.display = "block";
