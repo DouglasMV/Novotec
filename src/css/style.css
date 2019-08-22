@@ -1,34 +1,33 @@
 body{
     margin: 0;
-   
     display: flex;
     font-family: 'Courier New', Courier, monospace;
 }
 
+/*----------------------------------*/
+
 #menu-btn{
-    text-align: left;
-    width: 250px;
-    background-color: #e5e5e5;
+    color: #404040;
+    background-color: transparent;
     position: fixed;
-    top: 0;
+    top: 50%;
     left: 0;
     margin: 0;
-    padding: 0 0 0 10px;
+    padding: 0;
     font-size: 3vh;
+    font-weight: bold;
     border: none;
     outline: none;
     cursor: pointer;
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
     z-index: 5;
 }
 
 nav{
-    min-width: 250px;
-    height: 100vh;
+    width: 250px;
+    min-height: 100vh;
     position: fixed;
     top: 0;
-    padding-top: 35px;
+    padding-top: 0px;
     overflow: auto;
 }
 
@@ -54,19 +53,21 @@ a{
     background-color: #e5e5e5;
     display: block;
     margin: 0;
-    padding: 0;
+    padding: 0 15px;
     flex-direction: column;
-    height: 99%;
-    border-bottom: 1px solid black;
+    min-height: 100vh;
+    height: 100%;
     border-right: 1px solid black;
 }
 
 #menu-ul li a:hover{
     background-color: #d0d0d0;
 }
+
+/*----------------------------------*/
   
 main{
-    width: 100%;
+    width: 100vw;
     padding: 20px 50px 20px 300px;
     overflow: auto;
 }
@@ -83,10 +84,19 @@ h1, h2 {
 
 h3 {
     margin-top: 70px;
+    font-size: 3vh;
+}
+
+h3::before {
+    width: 1px;
+    height: 3vh;
+    content: "> ";
+    text-align: left;
 }
 
 p {
     text-align: justify;
+    font-size: 2vh;
 }
 
 pre {
@@ -94,6 +104,7 @@ pre {
     color: #505050;
     border: 1px solid #909090;
     border-radius: 5px;
+    overflow: hidden;
 }
 
 td, th {
@@ -103,19 +114,16 @@ td, th {
 
 table{
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
 @media only screen and (max-width: 640px) {
     nav{
         width: 100%;
     }
-    #menu-btn{
-        width: 100%;
-    }
     #menu-ul{
         border-right: none;
-        min-height: 0;
+        min-height: 100vh;
     }
     body{
         display: inherit;

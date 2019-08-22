@@ -22,6 +22,10 @@ const linkList = [
   {
     text: "Aula 3: HTML",
     link: "aula3.html"
+  },
+  {
+    text: "Aula 4: CSS Básico",
+    link: "aula4.html"
   }
 ];
 
@@ -43,17 +47,12 @@ linkList.forEach((item) => {
 /* Toggle Menu */
 
 btn.onclick = () => {
-  if(btn.innerText === "X") {
-    btn.innerText = "☰";
-    btn.style.backgroundColor = "transparent";
-    btn.style.borderBottom = "none";
-    btn.style.borderRight = "none";
+  if(btn.innerText === "<") {
+    btn.innerText = ">";
     menu.style.display = "none"
     main[0].style.padding = "20px 40px 20px 40px";
   } else {
-    btn.innerText = "X";
-    btn.style.backgroundColor = "#e5e5e5";
-    btn.style.borderBottom = "1px solid black";btn.style.borderRight = "1px solid black";
+    btn.innerText = "<";
     menu.style.display = "block";
     main[0].style.padding = "20px 40px 20px 290px";
   }

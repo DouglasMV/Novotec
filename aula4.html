@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 4 - CSS Básico</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">&lt;</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+            <h2>Aula 4 - CSS</h2>
+
+
+            <h3>O que é CSS?</h3>
+
+            <p>CSS (Cascading Style Sheets) ou Folhas de Estilo em camadas, é uma linguagem de estilos, feita para facilitar o processo de fazer as páginas de website mais apresentáveis visualmente.</p>
+
+            <p>Usando CSS é possível mudar as cores do texto ou de fundo, o estilo e tamanho da fonte, o espaço entre os elementos, o tamanho e posição de cada elemento, entre outras coisas.</p>
+
+            <p>CSS dá um controle enorme para o desenvolvedor sobre a apresentação do site. Vamos ver agora como CSS funciona.</p>
+
+
+            <h3>Propriedade e Valor</h3>
+
+            <p>Cada elemento HTML possui várias <strong>propriedades</strong> que representam algo visualmente naquele elemento, por exemplo a propriedade <strong>color</strong> representa a cor do texto dentro daquele elemento.</p>
+
+            <p>Cada propriedade possui um valor associado, por exemplo podemos associar a propriedade <strong>color</strong> o valor <strong>red</strong>, isso faz com que a cor do texto dentro de um elemento seja vermelha.</p>
+
+            <p>Para dar um valor a uma propriedade usamos dois pontos (:) entre a propriedade e o valor, e no final usamos ponto e vírgula (;), por exemplo, <strong>color: red;</strong></p>
+
+            <p>Porém precisamos determinar qual elemento queremos mudar a propriedade, veremos a seguir como fazer isso.</p>
+
+
+            <h3>As 3 maneiras de incluir CSS</h3>
+
+            <h4>1 - Inline</h4>
+
+            <p>A primeira maneira de mudar uma propriedade de um elemento é chamada de Inline, pois mudamos o valor na própria linha em que o elemento HTML se encontra, utilizando o atributo style, veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    &lt;p style="color: red;"&gt;Este texto será vermelho!&lt;/p&gt;
+                </code>
+            </pre>
+
+            <p>Resultado:</p>
+
+            <p style="color: red;">Este texto será vermelho!</p>
+
+            <h4>2 - Embutido</h4>
+
+            <p>Outra maneira de alterar os estilos CSS é chamada de Embutida. Os estilos são embutidos no documento HTML utilizando-se a tag &lt;style&gt; dentro da tag &lt;head&gt;, o cabeçalho do documento.</p>
+
+            <p>Mas para isso precisamos de uma maneira de identificar o elemento que queremos estilizar. Para isso usamos seletores, que veremos melhor no próximo tópico.</p>
+
+            <pre>
+                <code>
+                    &lt;head&gt;
+                        &lt;style&gt;
+                            p {
+                                color: red;
+                            }
+                        &lt;/style&gt;
+                    &lt;/head&gt;
+
+                    &lt;body&gt;
+                        &lt;p&gt;Este texto será vermelho!&lt;/p&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <p>Resultado:</p>
+
+            <p style="color: red;">Este texto será vermelho!</p>
+
+            <h4>3 - Externo</h4>
+
+            <p>A terceira maneira de se usar CSS é chamada de Externa. Pois é criado um outro documento separado do documento HTML apenas para os estilos, esse documento tem a extensão .css e deve ser linkado ao arquivo HTML utilizando-se a tag &lt;link&gt; dentro da tag &lt;head&gt; vejamos o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    p {
+                        color: red;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;head&gt;
+                        &lt;link rel="stylesheet" href="/src/css/style.css"&gt;
+                    &lt;/head&gt;
+
+                    &lt;body&gt;
+                        &lt;p&gt;Este texto será vermelho!&lt;/p&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <p>Resultado:</p>
+
+            <p style="color: red;">Este texto será vermelho!</p>
+
+            <p>Repare que a tag <strong>&lt;link rel="stylesheet" href="/src/css/style.css"&gt;</strong> possui dois atributos: rel que determina o tipo de arquivo, nesse caso stylesheet ou folha de estilos; e href que determina o endereço do arquivo, neste caso o arquivo style.css está dentro de uma pasta chamada css que está dentro de outra pasta chamada src.</p>
+
+
+            <h3>Seletores</h3>
+
+            <p>Como vimos no tópico anterior, precisamos de uma maneira de identificar o elemento HTML que queremos alterar o estilo. Para isso usamos os chamados seletores. Existem muitos tipos de seletores e diversas regras e combinações para usá-los. Hoje veremos apenas alguns tipos mais simples, em uma próxima aula veremos outros mais complexos, como usar vários seletores em conjunto e algumas regras para determinar quais seletores tem prioridade.</p>
+
+            <h4>1 - Tag</h4>
+
+            <p>O seletor de Tag seleciona todos elementos declarados com aquela tag. Para usá-lo basta escrever o nome da tag e colocar as propriedas CSS entre colchetes:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    p {
+                        color: red;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;head&gt;
+                        &lt;link rel="stylesheet" href="/src/css/style.css"&gt;
+                    &lt;/head&gt;
+
+                    &lt;body&gt;
+                        &lt;p&gt;Este texto será vermelho!&lt;/p&gt;
+                        &lt;p&gt;Este texto também será vermelho!&lt;/p&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <p>Resultado:</p>
+
+            <p style="color: red;">Este texto será vermelho!</p>
+            <p style="color: red;">Este texto também será vermelho!</p>
+
+
+            <h4>2 - Id</h4>
+
+            <p>O seletor por Id utiliza o atributo <strong>id</strong> em uma tag HTML para selecionar aquele elemento. O atributo id deve ser único, ou seja, se existe um elemento com id="meuID", não pode existir outro elemento com o mesmo id.</p>
+
+            <p>Para selecionar um elemento por id, utilizamos a hashtag (#) seguida do id, veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #paragrafo1 {
+                        color: red;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;head&gt;
+                        &lt;link rel="stylesheet" href="/src/css/style.css"&gt;
+                    &lt;/head&gt;
+
+                    &lt;body&gt;
+                        &lt;p id="paragrafo1"&gt;Este texto será vermelho!&lt;/p&gt;
+                        &lt;p&gt;Este texto não será vermelho!&lt;/p&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <p>3 - Resultado:</p>
+
+            <p style="color: red;">Este texto será vermelho!</p>
+            <p>Este texto não será vermelho!</p>
+
+
+
+            <h4>4 - Class</h4>
+
+            <p>O seletor por Classe utiliza o atributo <strong>class</strong> em uma tag HTML para selecionar aquele elemento. O atributo class não precisa deve ser único, ou seja, podem existir vários elemento com class="minhaClasse".</p>
+
+            <p>Para selecionar um elemento por class, utilizamos o ponto (.) seguido do nome da classe, veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    .texto-vermelho {
+                        color: red;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;head&gt;
+                        &lt;link rel="stylesheet" href="/src/css/style.css"&gt;
+                    &lt;/head&gt;
+
+                    &lt;body&gt;
+                        &lt;p class="texto-vermelho"&gt;Este texto será vermelho!&lt;/p&gt;
+                        &lt;p class="texto-vermelho"&gt;Este texto também será vermelho!&lt;/p&gt;
+                        &lt;p&gt;Este texto não será vermelho!&lt;/p&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <p>Resultado:</p>
+
+            <p style="color: red;">Este texto será vermelho!</p>
+            <p style="color: red;">Este texto também será vermelho!</p>
+            <p>Este texto não será vermelho!</p>
+
+
+            <h4>5 - Universal</h4>
+
+            <p>O seletor universal, como o próprio nome sugere, seleciona todos elementos HTML da página, independente de tag, clase ou id, sem exceção.</p>
+
+            <p>Para usar o seletor universal, utilizamos o asterístico (*), veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    * {
+                        color: red;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;head&gt;
+                        &lt;link rel="stylesheet" href="/src/css/style.css"&gt;
+                    &lt;/head&gt;
+
+                    &lt;body&gt;
+                        &lt;p&gt;Este texto será vermelho!&lt;/p&gt;
+                        &lt;h6&gt;Este texto também será vermelho!&lt;/h6&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <p>Resultado:</p>
+
+            <p style="color: red;">Este texto será vermelho!</p>
+            <h6 style="color: red;">Este texto também será vermelho!</h6>
+
+            <p>Agora que já aprendemos a usar alguns seletores, vamos ver mais algumas propriedades de estilo que podemos mudar.</p>
+
+            <h3>Cor do Texto</h3>
+
+            <p>Como já vimos podemos mudar a cor do texto utilizando a propriedade color. Veja o exemplo abaixo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    p {
+                        color: red;
+                    }
+
+                    h6 {
+                        color: blue;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;head&gt;
+                        &lt;link rel="stylesheet" href="/src/css/style.css"&gt;
+                    &lt;/head&gt;
+
+                    &lt;body&gt;
+                        &lt;p&gt;Este texto será vermelho!&lt;/p&gt;
+                        &lt;h6&gt;Este texto será azul!&lt;/h6&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <p>Resultado:</p>
+
+            <p style="color: red;">Este texto será vermelho!<p>
+            <h6 style="color: blue;">Este texto será azul!<h6>
+
+
+            <h3>Cor de Fundo</h3>
+
+            <p>Semelhante a cor do texto, podemos mudar também a cor do fundo, utilizando a propriedade <strong>background-color</strong>. Veja o exemplo abaixo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    p {
+                        background-color: red;
+                    }
+
+                    h6 {
+                        background-color: blue;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;head&gt;
+                        &lt;link rel="stylesheet" href="/src/css/style.css"&gt;
+                    &lt;/head&gt;
+
+                    &lt;body&gt;
+                        &lt;p&gt;Este fundo será vermelho!&lt;/p&gt;
+                        &lt;h6&gt;Este fundo será azul!&lt;/h6&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <p>Resultado:</p>
+
+            <p style="background-color: red;">Este fundo será vermelho!<p>
+            <h6 style="background-color: blue;">Este fundo será azul!<h6>
+
+
+            <h3>Fontes</h3>
+
+            <p>Existem algumas propriedades que mudam o visual da fonte. Veja a tabela abaixo:</p>
+
+            <table>
+                <tr>
+                    <th>Propriedade</th>
+                    <th>Utilidade</th>
+                </tr>
+                <tr>
+                    <td>font-family</td>
+                    <td>Muda o tipo da fonte</td>
+                </tr>
+                <tr>
+                    <td>font-style</td>
+                    <td>Deixa a fonte itálica</td>
+                </tr>
+                <tr>
+                    <td>font-weight</td>
+                    <td>Deixa a fonte em negrito ou mais fina</td>
+                </tr>
+                <tr>
+                    <td>font-size</td>
+                    <td>Muda o tamanho da letra</td>
+                </tr>
+            </table>
+
+            Veja o exemplo:
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    .arial {
+                        font-family: Arial;
+                    }
+
+                    .italico {
+                        font-style: italic;
+                    }
+                    .negrito {
+                        font-weight: bold;
+                    }
+
+                    .tamanho32 {
+                        font-size: 32px;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;head&gt;
+                        &lt;link rel="stylesheet" href="/src/css/style.css"&gt;
+                    &lt;/head&gt;
+
+                    &lt;body&gt;
+                        &lt;p class="arial"&gt;A fonte é Arial&lt;/p&gt;
+                        &lt;p class="italico"&gt;A fonte está em itálico&lt;/p&gt;
+                        &lt;p class="negrito"&gt;A fonte está em negrito&lt;/p&gt;
+                        &lt;p class="tamanho32"&gt;A fonte está em tamanho 32px &lt;/p&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <p>Resultado:</p>
+
+            <p style="font-family: Arial;">A fonte é Arial</p>
+            <p style="font-style: italic;">A fonte está em itálico</p>
+            <p style="font-weight: bold;">A fonte está em negrito</p>
+            <p style="font-size: 32px;">A fonte está em tamanho 32px </p>
+
+
+
+            <h3>text-align</h3>
+
+            <p>Uma propriedade muito utilizada é <strong>text-align</strong> que determina o alinhamento do texto. Pode ser left (esquerda), right (direita), justify (justificado) ou center (centralizado). Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+            
+            <pre>
+                <code>
+                    .esquerda {
+                        text-align: left;
+                    }
+                    .direita {
+                        text-align: right;
+                    }
+                    .justificado {
+                        text-align: justify;
+                    }
+                    .centralizado {
+                        text-align: center;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;head&gt;
+                        &lt;link rel="stylesheet" href="/src/css/style.css"&gt;
+                    &lt;/head&gt;
+
+                    &lt;body&gt;
+                        &lt;p class="esquerda"&gt;Texto alinhado a esquerda&lt;/p&gt;
+                        &lt;p class="direita"&gt;Texto alinhado a direita&lt;/p&gt;
+                        &lt;p class="justificado"&gt;Texto justificado&lt;/p&gt;
+                        &lt;p class="centralizado"&gt;Texto centralizado&lt;/p&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <p>Resultado:</p>
+
+            <p style="text-align: left;">Texto alinhado a esquerda</p>
+            <p style="text-align: right;">Texto alinhado a direita</p>
+            <p style="text-align: justify;">Texto justificado</p>
+            <p style="text-align: center;">Texto centralizado</p>
+
+
+            <p>É mais fácil de visualizar a diferença entre os alinhamentos em textos mais longos (mais de duas linha) tente escrever um texto maior e ver a diferença entre os tipos de alinhamento.</p>
+
+            <h3>text-decoration</h3>
+
+            <p>Uma propriedade muito usada em links é <strong>text-decoration: none;</strong> para remover o sublinhado dos links. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    a {
+                        text-decoration: none;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;head&gt;
+                        &lt;link rel="stylesheet" href="/src/css/style.css"&gt;
+                    &lt;/head&gt;
+
+                    &lt;body&gt;
+                        &lt;a href="https://www.google.com" target="_blank"&gt;Ir para o Google&lt;/a&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <p>Resultado:</p>
+
+            <a href="https://www.google.com" target="_blank" style="text-decoration: none">Ir para o Google</a>
+
+            <h3>list-style-type</h3>
+
+            <p>Uma propriedade muito usada é <strong>list-style-type: none;</strong> para remover os pontos na frente de cada item de uma lista. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    ul {
+                        list-style-type: none;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;head&gt;
+                        &lt;link rel="stylesheet" href="/src/css/style.css"&gt;
+                    &lt;/head&gt;
+
+                    &lt;body&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;Item 1&lt;/li&gt;
+                            &lt;li&gt;Item 2&lt;/li&gt;
+                            &lt;li&gt;Item 3&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <p>Resultado:</p>
+
+            <ul style="list-style-type: none">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+
+            <h3>Tabelas</h3>
+
+            <p>Em tabelas é comum utilizar a propriedade <strong>border-collapse: collapse;</strong> para que as bordas se juntem e não tenham espaço entre si. Para fazer as bordas é preciso usar a propriedade <strong>border: 1px solid black;</strong> nas céluas da tabela <strong>td</strong>. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+            
+            <pre>
+                <code>
+                    td {
+                        border: 1px solid black;
+                    }
+                    table {
+                        border-collapse: collapse;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;head&gt;
+                        &lt;link rel="stylesheet" href="/src/css/style.css"&gt;
+                    &lt;/head&gt;
+
+                    &lt;body&gt;
+                        &lt;table&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;Célula 1&lt;/td&gt;
+                                &lt;td&gt;Célula 2&lt;/td&gt;
+                                &lt;td&gt;Célula 3&lt;/td&gt;
+                            &lt;tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;Célula 4&lt;/td&gt;
+                                &lt;td&gt;Célula 5&lt;/td&gt;
+                                &lt;td&gt;Célula 6&lt;/td&gt;
+                            &lt;tr&gt;
+                        &lt;/table&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <p>Resultado:</p>
+
+            <table style="border-collapse: collapse;">
+                <tr>
+                    <td style="border: 1px solid black">Célula 1</td>
+                    <td style="border: 1px solid black">Célula 2</td>
+                    <td style="border: 1px solid black">Célula 3</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black">Célula 4</td>
+                    <td style="border: 1px solid black">Célula 5</td>
+                    <td style="border: 1px solid black">Célula 6</td>
+                </tr>
+            </table>
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>
