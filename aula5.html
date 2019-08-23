@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 5 - CSS Cores</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">&lt;</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+
+            <h2>Aula 5  - CSS Cores</h2>
+
+
+            <h3>Cores</h3>
+
+            <p>Cores em CSS são usadas para mudar a cor do texto, a cor do fundo, a cor da borda e outroas caracteristicas dos elementos.</p>
+
+            <p>Já vimos, por exemplo, como mudar a cor de fundo de um elemento, usando a propriedade <strong>background-color</strong>, seguida do nome de uma cor, veja abaixo.</p>
+
+            <pre>
+                <code>
+                    p {
+                        background-color: red;
+                    }
+                </code>
+            </pre>
+
+            <p>Porém existem outas tipos de valores de cor, que estudaremos agora.</p>
+
+
+            <h3>Cores RGB</h3>
+
+            <p>Uma maneira de representar os valores de cores é utilizar valores numéricos RGB (Red, Green, Blue). Esse valor consiste em 3 valores numéricos que representam a quantidade de cores Vermelha, Verde e Azul respectivamente. Esses valores vão de 0 à 255, e a mistura dos 3 cria uma cor. Vejamos os exemplos abaixo.</p>
+
+            <pre>
+                <code>
+                    h1 {
+                        background-color: rgb(255, 0, 0);
+                    }
+                    h2 {
+                        background-color: rgb(0, 255, 0);
+                    }
+                    h3 {
+                        background-color: rgb(0, 0, 255);
+                    }
+                    h4 {
+                        background-color: rgb(255, 255, 0);
+                    }
+                    h5 {
+                        background-color: rgb(50, 50, 50);
+                    }
+                    h6 {
+                        background-color: rgb(138, 110, 230);
+                    }
+                </code>
+            </pre>
+
+            Resultado:
+
+            <h1 style="background-color: rgb(255, 0, 0)" class="hcores">h1</h1>
+            <h2 style="background-color: rgb(0, 255, 0)" class="hcores">h2</h2>
+            <h3 style="background-color: rgb(0, 0, 255)" class="hcores">h3</h3>
+            <h4 style="background-color: rgb(255, 255, 0)">h4</h4>
+            <h5 style="background-color: rgb(50, 50, 50)">h5</h5>
+            <h6 style="background-color: rgb(138, 110, 230)">h6</h6>
+
+
+            <p>Repare que no h1 demos valor 255 para vermelho, 0 para verde e 0 para azul, resultando na cor vermelha. Semelhante nas tags h2 e h3 temos tudo verde e tudo azul respectivamente. Na tag h4 usamos 255 de vermelho, 255 de verde e 0 de azul, resultando em amarelo.</p>
+            
+            <p>Na tag h5 usamos o valor 50 para as três cores, resultando em um cinza escuro. Sempre que os 3 valores são iguais temos um tom de cinza, sendo que quanto menor o valor mais escuro, e quanto maior o valor mais claro. Para obter a cor preta basta colocar os 3 valores como 0, e para obter a cor branca todos valores devem ser 255.</p>
+           
+            <p>Na tag h6 usamos os valores rgb(138, 110, 230) criando uma cor diferente. Isso mostra como temos muito mais possibilidades de criar cores dessa maneira em comparação com os valores de nome de cores. Com valores RGB podemos criar mais de 16 milhões de cores diferentes, enquanto cores com nome (red, blue, yellow, orange, etc) existem menos de 150.</p>
+
+            <p>Crie um elemento e de a ele a propriedade background-color, use valores RGB, mude os 3 valores (Vermelho, Verde, Azul) usando números de 0 à 255, tente descobrir novas cores.</p>
+
+
+            <h3>Cores Hexadecimais</h3>
+
+            <p>Outra maneira de dar valores as cores é utilizando valores hexadecimais. Essa é a maneira mais usada, pois é mais curta e é o padrão de alguns programas de edição de imagens. É semelhante ao RGB, porém aqui os valores de cada cor vão de 00 até FF. Sim podemos usar números (de 0 a 9) e letras (A, B, C, D, E, F) sendo que cada letra tem um valor. O A vale 10, B vale 11, e assim por diante, vejamos:</p>
+
+            <table>
+                <tr>
+                    <th>Letra</th>
+                    <th>Valor</th>
+                </tr>
+                <tr>
+                    <td>A</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>D</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>E</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>15</td>
+                </tr>
+            </table>
+
+            <p>Cada cor (Vermelho, Verde e Azul) é representada por dois dígitos (números ou letras). Para representar a combinação das três cores usamos uma hashtag seguida de 6 dígitos, onde os dois primeiros representam a quantidade de vermelho, os dois do meio a quantidade de verde e os dois últimos a quantidade de azul. Por exemplo, #FF0000 tem o valor máximo de vermelho (pois F vale 15) e 0 para verde e azul, resultando na cor vermelha.</p>
+
+            <p>Vamos escrever o mesmo exemplo usado em RGB mas usando cores hexadecimais:</p>
+
+            <pre>
+                <code>
+                    h1 {
+                        background-color: #FF0000;
+                    }
+                    h2 {
+                        background-color: #00FF00;
+                    }
+                    h3 {
+                        background-color: #0000FF;
+                    }
+                    h4 {
+                        background-color: #FFFF00;
+                    }
+                    h5 {
+                        background-color: #323232;
+                    }
+                    h6 {
+                        background-color: #8A6EE6;
+                    }
+                </code>
+            </pre>
+
+            Resultado:
+
+            <h1 style="background-color: #FF0000" class="hcores">h1</h1>
+            <h2 style="background-color: #00FF00" class="hcores">h2</h2>
+            <h3 style="background-color: #0000FF" class="hcores">h3</h3>
+            <h4 style="background-color: #FFFF00">h4</h4>
+            <h5 style="background-color: #323232">h5</h5>
+            <h6 style="background-color: #8A6EE6">h6</h6>
+
+            <p>Crie um elemento e de a ele a propriedade background-color, use valores hexadecimais, mude os valores usando valores de 0 à F, tente descobrir novas cores.</p>
+
+
+            <h3>Mais sobre Cores</h3>
+
+            <p>Existe mais uma maneira de criar cores em CSS, chamada HSL (Hue, Saturation, Lightness). Não estudaremos aqui pois não é muito utilizada, mas pode ser útil em algumas situações. Pesquise sobre essa maneira de representar cores para ampliar seus conhecimentos.</p>
+
+            <p>Outro elemento de cores é a opacidade, quando usamos valores RGB, podemos incluir um quarto valor que vai de 0 a 100 e representa a opacidade da cor, ou seja, o quanto ela é visível. Podemos usar isso para criar elementos semi-transparentes, ou seja, que é possível ver o que há atrás deles. Pesquise sobre isso.</p>
+
+
+            <h2 style="margin-top: 80px;">Exercícios</h2>
+
+
+            <h3>Meu animal favorito</h3>
+
+            <p>Faça uma lista não ordenada com o nome de pelo menos 10 animais diferentes.</p>
+            <p>Deixe todos nomes da lista com fonte tamanho 20px.</p>
+            <p>Escolha um animal favorito e deixe o nome dele com uma cor verde escura, e a cor de fundo do nome dele com um azul bem claro.</p>
+
+
+            <h3>Cores e Tamanhos das Frutas</h3>
+
+            <p>Faça uma lista não ordenada com pelo menos 20 frutas.</p>
+            <p>Crie 3 classes: pequena, media e grande. Atribua uma classe para cada fruta de acordo com o tamanho delas.</p>
+            <p>Na classe pequena utilize fonte de tamanho 16px.</p>
+            <p>Na classe media utilize fonte de tamanho 24px.</p>
+            <p>Na classe grande utilize fonte de tamanho 32px.</p>
+            <p>Mude a cor do fundo de cada fruta de acordo com a cor da fruta, todas devem ter cores diferente, utilize cores RGB ou hexadecimais.</p>
+
+
+            <h3>Nascimento e Altura</h3>
+
+            <p>Faça uma tabela com 3 colunas: Nome, Data de Nascimento, Altura.</p>
+            <p>Preencha a tabela com pelo menos 5 linhas.</p>
+            <p>Para as pessoas fazem aniversário nos meses de Janeiro até Junho, deixe a linha inteira (as 3 colunas) dela com uma cor de fundo amarela.</p>
+            <p>Para as pessoas fazem aniversário nos meses de Julho até Dezembro, deixe a linha inteira (as 3 colunas) dela com uma cor de fundo azul claro.</p>
+            <p>Para as pessoas que tem mais de 1,60m de altura deixe a cor do texto da linha toda (as 3 colunas) em verde escuro.</p>
+            <p>Para as pessoas que tem menos de 1,60m de altura deixe a cor do texto da linha toda (as 3 colunas) em vermelho escuro.</p>
+            <p>Deixe a tabela com uma borda de 1px sólida e preta em todas células. Sem espaços entre as bordas das células.</p>
+
+
+
+            <h3>Questões para casa</h3>
+
+            <p><strong>1 - </strong>Explique a diferença em um elemento HTML auto-fechável e um elemento que possui uma tag de abertura e uma tag de fechamento.</p>
+
+            <p><strong>2 - </strong>Dê 3 exemplos diferentes de elementos HTML auto-fecháveis.</p>
+            
+            <p><strong>3 - </strong>Qual elemento HTML representa o cabeçalho do documento HTML? Qual a função do cabeçalho do documento HTML? Dê 2 exemplos de elementos que podem ser filhos do cabeçalho.</p>
+            
+            <p><strong>4 - </strong>Qual elemento HTML representa o corpo do documento HTML? Qual a função do corpo do documento HTML?</p>
+            
+            <p><strong>5 - </strong>Quantos e quais são os elementos usados para criar cabeçalhos no corpo do documento HTML?</p>
+            
+            <p><strong>6 - </strong>O que são atributos de um elemento HTML? Dê um exemplo de elemento HTML com atributos.</p>
+            
+            <p><strong>7 - </strong>Qual elemento HTML é usado para criar uma tabela? E para criar uma linha na tabela? E para criar uma célula de cabeçalho da tabela? E para criar uma célula normal da tabela?</p>
+            
+            <p><strong>8 - </strong>Explique as 3 maneiras de incluir CSS.</p>
+            
+            <p><strong>9 - </strong>Explique os 5 tipos de seletores CSS vistos em aula.</p>
+            
+            <p><strong>10 - </strong>Como fazer uma tabela ter bordas sólidas de 1px da cor preta em volta de todas células, sem espaço entre as bordas de uma célula para outra?</p>
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>

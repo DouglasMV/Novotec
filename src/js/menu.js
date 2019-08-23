@@ -26,6 +26,10 @@ const linkList = [
   {
     text: "Aula 4: CSS Básico",
     link: "aula4.html"
+  },
+  {
+    text: "Aula 5: CSS Cores",
+    link: "aula5.html"
   }
 ];
 

@@ -129,3 +129,12 @@ table{
         display: inherit;
     }
 }
+
+.hcores {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.hcores::before {
+    content: none;
+}
