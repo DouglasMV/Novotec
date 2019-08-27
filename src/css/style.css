@@ -1,3 +1,7 @@
+* {
+    transition: linear;
+}
+
 body{
     margin: 0;
     display: flex;
@@ -7,11 +11,11 @@ body{
 /*----------------------------------*/
 
 #menu-btn{
-    color: #404040;
+    color: rgb(12, 72, 163);
     background-color: transparent;
     position: fixed;
-    top: 50%;
-    left: 0;
+    top: 10px;
+    left: 10px;
     margin: 0;
     padding: 0;
     font-size: 3vh;
@@ -53,7 +57,7 @@ a{
     background-color: #e5e5e5;
     display: block;
     margin: 0;
-    padding: 0 15px;
+    padding: 50px 0 0 0;
     flex-direction: column;
     min-height: 100vh;
     height: 100%;
@@ -68,7 +72,7 @@ a{
   
 main{
     width: 100vw;
-    padding: 20px 50px 20px 300px;
+    padding: 20px 70px 20px 320px;
     overflow: auto;
 }
 
@@ -80,11 +84,12 @@ article {
 
 h1, h2 {
     text-align: center;
+    font-size: 6vh;
 }
 
 h3 {
     margin-top: 70px;
-    font-size: 3vh;
+    font-size: 5vh;
 }
 
 h3::before {
@@ -96,7 +101,7 @@ h3::before {
 
 p {
     text-align: justify;
-    font-size: 2vh;
+    font-size: 3.5vh;
 }
 
 pre {
@@ -137,4 +142,9 @@ table{
 
 .hcores::before {
     content: none;
+}
+
+.link {
+    color: rgb(151, 2, 151);
+    font-weight: bold;
 }

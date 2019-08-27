@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 6 - VS Code</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+            <h2>Aula 6 - Visual Studio Code</h2>
+
+
+            <h3>O que é o VS Code?</h3>
+
+            <p>Visual Studio Code é um editor de código leve porém poderoso. Ele vem com diversas ferramentas que facilitam a escrita de código em várias linguagens. Além disso conta com uma enorme biblioteca de extensões que adicionam mais funcionalidades e suporte a mais linguagens de programação.</p>
+
+
+            <h3>Abrindo uma pasta</h3>
+
+            <p>Após iniciar o programa, no canto esquerdo superior, clique em <strong>File</strong> e depois em <strong>Open a Folder</strong>. Então escolha a pasta que deseja abrir para trabalhar. Isso é importante pois trabalhando na pasta onde estão os arquivos que queremos editar facilita encontrar e abrir esses arquivos.</p>
+
+            <p>Após isso uma barra lateral aparecerá com todos arquivos dentro da pasta que você acabou de abrir. Se você posicionar o cursosr do mouse sobre o nome da pasta na barra lateral, aperecem alguns icones. O primeiro é um atalho para criar um novo arquivo dentro da pasta, e o segundo para criar uma sub-pasta.</p>
+
+
+            <h3>Emmet</h3>
+
+            <p>Emmet é uma ferramenta que já vem instalada no VS Code. Ele serve para facilitar a escrita de códigos repetitivos. Vejamos alguns exemplos.</p>
+
+            <p>Primeiro crie um arquivo chamado <strong>index.html</strong> e um arquivo chamado <strong>style.css</strong> na sua pasta.</p>
+
+            <p>Agora no arquivo index.html digite <strong>!</strong> e aperte a tecla <strong>Tab</strong>.</p>
+
+            <p>Isso gera um esqueleto padrão para um documento html. A maioria das tags você já conhece de aulas passadas, pesquise para que servem as tags que você não conhece.</p>
+
+            <p>Agora dentro da tag body digite o seguinte: <strong>ul>li*5</strong> e aperte Tab. Isso cria uma tag ul com 5 tags li dentro. Bem mais rápido que digitar certo?</p>
+
+            <p>Agora digite <strong>table>(tr>th*4)+(tr>td*4)*10</strong> e aperte Tab. Isso cria uma tabela com 11 linhas e 4 colunas. Impossível fazer isso mais rápido digitando linha por linha.</p>
+
+            <p>Agora digite <strong>ul>li{Item $}*10</strong> e aperte Tab. Isso criar uma lista de 10 items, repare que o que estava entre {} aparece como o conteúdo de cada tag li, e no lugar do $ temos números de 1 a 10.</p>
+
+            <p>Agora digite <strong>p.azul</strong> e aperte Tab. Isso cria uma tag p com a classe "azul". Semelhnatemente se digitarmos <strong>h3#titulo</strong> e Tab, criamos uma tag h3 com o id "titulo".</p>
+
+
+            <p>Além de todos esses exemplos, se digitarmos apenas o nome da tag, por exemplo <strong>h1</strong> e apertarmos Tab uma tag h1 é automaticamente criada, com a tag de abertura e de fechamento! Ainda repare que quando estamos digitando aparecem sugestões, podemos selecionar dentre elas usando as setas para cima e para baixo do teclado e apertar Tab para auto-completar. Repare que isso também funciona para propriedades e valores em CSS.</p>
+
+            <p>Emmet tem muitas funcionalidades para diversas linguagens. É impossível listar todas aqui. A melhor maneira de aprender é experimentando e praticando. Após algum tempo de prática você vai saber alguns atalhos de cabeça e isso economizará tempo na escrita de código.</p>
+
+
+            <h3>Atalhos</h3>
+
+            <p>Existem vários atalhos úteis em VS Code que podem facilitar tarefas e otimizar o seu tempo de trabalho. Veremos algumas aqui, para uma lista mais completa acesse  <a class="link" target="_blank" href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">essa lista</a>.</p>
+
+            <table>
+                <tr>
+                    <th>Atalho</th>
+                    <th>Funcionalidade</th>
+                </tr>
+                <tr>
+                    <td>Home</td>
+                    <td>Vai para o início da linha</td>
+                </tr>
+                <tr>
+                    <td>End</td>
+                    <td>Vai para o final da linha</td>
+                </tr>
+                <tr>
+                    <td>Crtl → ou ←</td>
+                    <td>Avança o cursor uma palavra</td>
+                </tr>
+                <tr>
+                    <td>Shift → ou ←</td>
+                    <td>Seleciona uma letra</td>
+                </tr>
+                <tr>
+                    <td>Ctrl Shift → ou ←</td>
+                    <td>Seleciona uma palavra</td>
+                </tr>
+                <tr>
+                    <td>Ctrl L</td>
+                    <td>Seleciona uma linha inteira</td>
+                </tr>
+                <tr>
+                    <td>Alt ↑ ou ↓</td>
+                    <td>Mover a linha para cima ou para baixo</td>
+                </tr>
+                <tr>
+                    <td>Ctrl ] ou [</td>
+                    <td>Alinha o código para direita ou para esquerda</td>
+                </tr>
+                <tr>
+                    <td>Ctrl F2</td>
+                    <td>Seleciona todas ocorrências iguaisao que está selecionado</td>
+                </tr>
+                <tr>
+                    <td>Alt Click</td>
+                    <td>Cria multiplos cursores</td>
+                </tr>
+                <tr>
+                    <td>Ctrl /</td>
+                    <td>Comenta ou descomenta uma linha</td>
+                </tr>
+                <tr>
+                    <td>Ctrl ,</td>
+                    <td>Abre as opções de configuração</td>
+                </tr>
+                <tr>
+                    <td>Ctrl B</td>
+                    <td>Abre ou Fecha a barra lateral</td>
+                </tr>
+                <tr>
+                    <td>Ctrl Shift ´</td>
+                    <td>Abre ou Fecha o terminal de comandos</td>
+                </tr>
+            </table>
+
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>

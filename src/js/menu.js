@@ -51,13 +51,13 @@ linkList.forEach((item) => {
 /* Toggle Menu */
 
 btn.onclick = () => {
-  if(btn.innerText === "<") {
-    btn.innerText = ">";
+  if(btn.innerText === "X") {
+    btn.innerText = "☰";
     menu.style.display = "none"
-    main[0].style.padding = "20px 40px 20px 40px";
+    main[0].style.padding = "20px 60px 20px 60px";
   } else {
-    btn.innerText = "<";
+    btn.innerText = "X";
     menu.style.display = "block";
-    main[0].style.padding = "20px 40px 20px 290px";
+    main[0].style.padding = "20px 70px 20px 320px";
   }
 }
