@@ -30,6 +30,14 @@ const linkList = [
   {
     text: "Aula 5: CSS Cores",
     link: "aula5.html"
+  },
+  {
+    text: "Aula 6: VS Code",
+    link: "aula6.html"
+  },
+  {
+    text: "Aula 7: Git e GitHub",
+    link: "aula7.html"
   }
 ];
 

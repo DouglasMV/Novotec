@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 7 - Git e GitHub</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Git e GitHub</h2>
+
+            <h3>Git</h3>
+
+            <p>Git é um programa que ajuda os desenvolvedores a gerenciar e controlar versões do seu código. Com Git é possível: salvar diversar etapas mudanças no código; Voltar o código para uma dessas etapas salvas; Permitir que mais de um desenvolvedor trabalhe no mesmo código; Resolver conflitos de código; Criar várias ramificações das versões do código; Juntar essas ramificações, resolvendo possíveis conflitos; Criar repositórios locais ou remotos que recebem as modificações; Facilita a identificação de o quê foi mudado  e quem mudou o código. Dentre outros</p>
+
+            <p>Git possui várias funcionalidades, não aprenderemos todas, apenas as essenciais por agora. Porém com o passar do tempo outras necessidades podem surgir e você pode pesquisar mais sobre as capacidades do Git.</p>
+
+            <p>Como qualquer outro programa, Git precisa ser instalado em seu computador. Para ver as instruções de como instalar entre no <a class="link" href="https://git-scm.com/">site oficial do git</a>.</p>
+
+
+            <h3>GitHub</h3>
+
+            <p><a href="https://github.com/" class="link">GitHub</a> é um website onde é possível criar repositórios Git online. A vantagem de ter um repositório online é que você pode acessá-lo de qualquer computador conectado a internet. Além disso, se você estiver trabalhando com outras pessoas, elas também podem acessar o repositório.</p>
+
+            <p>O primeiro passo para começar a usar o GitHub é <a href="https://github.com/join" class="link">criar uma conta no site.</a></p>
+
+
+            <h3>Criando um novo repositório</h3>
+
+            <p>Após criar sua conta e logar no GitHub, na página inicial, você pode clicar no canto direito superior em uma seta para baixo, ao lado de sua foto. Isso abrirá um menu com várias opções. Clicaremos em "Your Repositories" que abrirá uma página com todos seus repositórios, se estiver fazendo isso pela primeira vez não terá nenhum repositório. Deixamos para você pesquisar e aprender para que as outras opções do menu servem.</p>
+
+            <p>Nessa página temos um botão verde escrito "New", clique nele para criar um novo repositório.</p>
+
+            <p>Na página de criação do novo repositório temos algumas opções:</p>
+
+            <ul id="lista-github">
+                <li><strong>Repository name:</strong> é o nome que você quiser escolher para seu projeto.</li>
+                <li><strong>Description:</strong> é uma descrição opcional do repositório.</li>
+                <li><strong>Public/Private:</strong> escolher se o repositório será público (todos podem ver) ou privado (só você e quem você autorizar podem ver)</li>
+                <li><strong>Initialize this repository with a README:</strong> se marcar essa opção, o repositório inicia automaticamente com um arquivo chamado README.md que contém um texto que é mostrado quando alguém visualiza o repositório. Esse texto pode ser alterado por você posteriormente.</li>
+            </ul>
+
+            <p>Pronto seu repositório foi criado, vamos aprender agora como trabalhar com esse repositório.</p>
+
+
+            <h3>Trabalhando com um repositŕio.</h3>
+
+            <p>Agora vamos aprender um passo-a-passo de como trabalhar com um repositório.</p>
+
+            <p><strong>1 - Criando e abrindo uma pasta:</strong> primeiramente temos que criar uma pasta no nosso computador, de preferência em um lugar de fácil localização (por exemplo Desktop ou Documentos). E precisamos abrir essa pasta no Visual Studio Code.</p>
+
+            <p><strong>2 - Clonando o repositório:</strong> no site do GitHub, na página de seu repositório, você verá um botão verde escrito "Clone or Download", clique nele, tenha certeza de que está na opção "Clone with HTTPS" e copie o link que aparece abaixo dessa opção. (Por exemplo: https://github.com/DouglasMV/Home.git) Agora no VS Code abra o terminal de comandos (Ctrl Shift ´). No terminal de comandos digite: <em>git clone https://github.com/DouglasMV/Home.git</em>. Mas claro use o seu link que você copiou. Isso vai criar uma pasta com o nome do seu repositório que contém todos arquivos do repositório online.</p>
+
+            <p><strong>3 - Acessando a pasta do repositório:</strong> agora você precisa entrar na pasta criada com o nome do seu repositório, pois os próximos comandos devem ser utilizados nela. Digite o comando <em>ls</em>. Esse comando lista todoas pastas e arquivos dentro da pasta atual. Isso deve mostrar uma pasta com o nome do seu repositório. Agora digite o comando <em>cd nome_do_repositorio</em>. Mas claro com o nome da pasta do seu repositorio. Agora, se tudo foi feito corretamente, estamos dentro da pasta local do repositório. Assim podemos começar a mudar os arquivos e utilizar outros comandos, como veremos a seguir.</p>
+
+            <p><strong>4 - Modificando arquivos:</strong> agora que você tem os arquivos do seu repositório na sua pasta local do seu computador, você pode mudá-los e até criar novos arquivos! Vá em frente, modifique algum arquivo e crie outros!</p>
+            
+            <p><strong>5 - Git Status:</strong> após modificar e adicionar novos arquivos use o comando <em>git status</em>. Isso mostra os arquivos que foram modificados. Esse comando é muito útil, pode ser usado a qualquer momento para verificar o estado dos arquivos.</p>
+            
+            <p><strong>6 - Git Add:</strong> agora que vimos a lista de arquivos modificados e novos vamos escolher quais arquivos salvar as modificações. O comando <em>git add nome_do_arquivo</em> adiciona um arquivo para o que chamamos de "stage" ou palco, que é o lugar onde os arquivos prontos para terem suas modficações salvas. Caso queira que todos arquivos modificados vão para o "stage", use o comando <em>git add .</em> isso adiciona todos arquivos, sem precisar escrever nome por nome. Agora use o comando <em>git status</em> novamente e veja que o nome dos arquivos aparecem de outra cor, pois estão no "stage", prontos para o próximo passo que é o compromisso ou "commit".</p>
+            
+            <p><strong>7 - Git commit:</strong> agora que já temos arquivos prontos para terem suas modificações salvas, usaremos o commando de comprometimento, ou seja, estamos comprometidos com as mudanças realizadas nos arquivos. Para isso usamos o comando <em>git commit -m "mensagem descritiva"</em>. Aqui a "mensagem descritiva" deve estar entre aspas e deve ser uma breve descrição do que foi alterado, por exemplo "adicionado o arquivo index.html" ou "modificado o arquivo style.css". Essa mensagem é obrigatória, sem ela o comando não funciona. E ela ajuda você e outros desenvolvedores a saber o que foi modificado naquele commit.</p>
+
+            <p><strong>8 - Git Push Origin Master:</strong> agora que as mudanças já foram compromissadas no repositório local, precisamos enviar essas mudanças para o repositório online. Fazemos isso com o comando <em>git push origin master</em>. Então serão requisitados o seu login e senha do GitHub, pois você precisa de permissão para mudar o repositório online. Após digitar seu login e senha, as mudanças serão enviadas ao repositório online. Geralmente dentro de poucos segundos já é possível ver as mudanças.</p>
+
+            <p><strong>9 - Repita os passoas de 4 a 8:</strong> agora você pode modificar e criar outros arquivos, verificar o status, adicionar arquivos ao stage, dar commit nos arquivos do stage e enviar as mudanças pro repositório online. E repitir isso várias vezes enquanto você cria seus websites. Os passos 1 a 3 só precisam ser repetidos no começo da aula. Não se preocupe em decorar os passos, com a prática você irá se acostumar, e você sempre pode pedir ajuda ao professor ou a um colega, e também ajudar um colega é uma ótima maneira de aprender.</p>
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>

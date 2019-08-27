@@ -148,3 +148,12 @@ table{
     color: rgb(151, 2, 151);
     font-weight: bold;
 }
+
+#lista-github {
+    list-style-type: none;
+    font-size: 3vh;;
+}
+
+em {
+    color: rgb(190, 86, 1);
+}
