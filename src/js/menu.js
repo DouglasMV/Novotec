@@ -38,6 +38,10 @@ const linkList = [
   {
     text: "Aula 7: Git e GitHub",
     link: "aula7.html"
+  },
+  {
+    text: "Aula 8: Box Model",
+    link: "aula8.html"
   }
 ];
 
