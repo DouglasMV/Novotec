@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 8 - Box Model</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Box Model</h2>
+
+            <p>Nas aulas anteriores você deve ter visto coisas não muito intuitivas, como por exemplo quando mudamos a cor de fundo de um elemento h1, a cor é aplicada na largura inteira da página, não apenas onde existe o texto. Ou então quanto usamos a propriedade text-align o texto é alinhado em relação a algo, o que exatamente?</p>
+
+            <p>Todos elementos HTML são interpretados pelo navegador como se eles existissem dentro de uma caixa (um retângulo). É isso que representa o "Box Model" ou Modelo de Caixa em português.</p>
+
+            <p>O Box Model é responsável por: determinar a largura e a altura de um elemento; a borda de um elemento; o espaçamento interno de um elemento; e o espaçamento externo do elelemnto, em relação a outros elementos.</p>
+
+
+            <h3>Height e Width</h3>
+
+            <p><strong>Height</strong> é a propriedade que determina a altura de um elemento. <strong>Width</strong> determina a largura. Crie um elemento HTML, por exemplo um parágrafo, e dê a ele as seguintes propriedades e valores CSS:</p>
+
+            <pre>
+                <code>
+                    p {
+                        <strong>height: 100px;</strong>
+                        <strong>width: 300px;</strong>
+                        background-color: rgb(255, 0, 0);
+                    }
+                </code>
+            </pre>
+
+            <p>Mude os valores da altura (height) e da largura (width) e veja o resultado. Não se preocupe com a unidade de medida (px) agora, veremos mais sobre isso em uma próxima aula.</p>
+
+
+            <h3>Border</h3>
+
+            <p>A próxima propriedade é <strong>border</strong>. Já vimos essa propriedade em aulas anteriores aplicada às células de uma tabela. Porém essa propriedade pode ser aplicadas a outros elementos. E como já vimos essa propriedade recebe 3 valores: a grossura da borda; o estilo; e a cor. Você pode encontrar uma lista com todos estilos de borda <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/border-style#Values">aqui</a>. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    p {
+                        <strong>border: 3px solid rgb(0, 255, 0);</strong>
+                        height: 100px;
+                        width: 300px;
+                        background-color: rgb(255, 0, 0);
+                    }
+                </code>
+            </pre>
+
+
+            <h3>Border-radius</h3>
+
+            <p>Outra propriedade relacionada a borda é <strong>border-radius</strong>. Ela serve para criar cantos arredondados nas bordas. Veja o exemplo:</p>
+            
+            <pre>
+                <code>
+                    p {
+                        <strong>border-radius: 10px;</strong>
+                        border: 3px solid rgb(0, 255, 0);
+                        height: 100px;
+                        width: 300px;
+                        background-color: rgb(255, 0, 0);
+                    }
+                </code>
+            </pre>
+
+            <p>Dica: deixe os valores de height e width iguais, e mude o valor de border-radius para 100%. O que aconteceu?</p>
+
+            <h3>Padding</h3>
+
+            <p>Outra propriedade relacionada ao Box Model é <strong>padding</strong>. Que representa o espaçamento interno do elemento, ou seja, o espaço entre a borda e o conteúdo do elelmento. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    p {
+                        <strong>padding: 30px;</strong>
+                        border-radius: 10px;
+                        border: 3px solid rgb(0, 255, 0);
+                        height: 100px;
+                        width: 300px;
+                        background-color: rgb(255, 0, 0);
+                    }
+                </code>
+            </pre>
+
+
+            <h3>Margin</h3>
+
+            <p>Já <strong>margin</strong> muda o espaçamento do elemento em relação a outros elementos. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    p {
+                        <strong>margin: 150px;</strong>
+                        padding: 30px;
+                        border-radius: 10px;
+                        border: 3px solid rgb(0, 255, 0);
+                        height: 100px;
+                        width: 300px;
+                        background-color: rgb(255, 0, 0);
+                    }
+                </code>
+            </pre>
+
+            <h3>Padding e Margin em lados específicos</h3>
+
+            <p>Como vimos, todos elementos HTML moram dentro de uma caixa, que é nada mais que um retângulo. Um retângulo possui 4 lados: cima (top); direito (right); baixo (bottom); e esquerdo (left).</p>
+
+            <p>Então você pode estar se perguntando: "Será que posso mudar o padding ou a margin de cada lado com valores diferentes?". E claro que a resposta é SIM! Existem 3 maneiras de fazer isso, a primeira é usando o nome das propriedades com um hífen (-) e o nome do lado (em inglês sempre). Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    p {
+                        <strong>margin-top: 150px;</strong>
+                        <strong>margin-right: 160px;</strong>
+                        <strong>margin-bottom: 170px;</strong>
+                        <strong>margin-left: 180px;</strong>
+                        <strong>padding-top: 30px;</strong>
+                        <strong>padding-right: 40px;</strong>
+                        <strong>padding-bottom: 50px;</strong>
+                        <strong>padding-left: 60px;</strong>
+                        border-radius: 10px;
+                        border: 3px solid rgb(0, 255, 0);
+                        height: 100px;
+                        width: 300px;
+                        background-color: rgb(255, 0, 0);
+                    }
+                </code>
+            </pre>
+
+            <p>Como podemos ver a primeira maneira é um pouco extensa, digitamos 4 linhas para padding e 4 para margin. Porém existe uma maneira mais curta de escrever tudo isso, veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    p {
+                        <strong>margin: 150px 160px 170px 180px;</strong>
+                        <strong>padding: 30px 40px 50px 60px;</strong>
+                        border-radius: 10px;
+                        border: 3px solid rgb(0, 255, 0);
+                        height: 100px;
+                        width: 300px;
+                        background-color: rgb(255, 0, 0);
+                    }
+                </code>
+            </pre>
+
+            <p>Essa segunda maneira gera o mesmo resultado que a primeira. É importante notar que a ordem dos valores correspondem respectivamente aos lados: top; right; bottom; e left. Ou seja, seguem o sentido horário (vocês já viram um relógio analógico certo?). Essa ordem sempre deve ser respeitada.</p>
+
+            <p>A terceira maneira é um caso especial que ocorre frequentemente quando estamos criando websites: os valores dos lados de cima e de baixo são iguais, e os valores dos lados esquerdo e direito são iguais. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    p {
+                        <strong>margin: 100px 200px;</strong>
+                        <strong>padding: 20px 80px;</strong>
+                        border-radius: 10px;
+                        border: 3px solid rgb(0, 255, 0);
+                        height: 100px;
+                        width: 300px;
+                        background-color: rgb(255, 0, 0);
+                    }
+                </code>
+            </pre>
+
+            <p>Nesse exemplo as margins de cima e de baixo terão o valor 100px cada, enquanto as margins da direita e da esquerda terão valor 200px cada. Semelhantemente para o padding, cima e baixo valem 20px, direita e esqueda valem 80px. Aqui a ordem também é importante, o primeiro valor corresponde aos lados de cima e de baixo, e o segundo valor aos lados direito e esquerdo.</p>
+
+
+            <h3>Centralizando com margin: auto</h3>
+
+            <p>Uma das mais usadas utilidades de margin é centralizar um elemento horizontalmente. Para isso você deve fazer duas coisas: 1 - garantir que o elemento tenha um valor fixo de width (largura); 2 - usar o valor <strong>auto</strong> nas margins direita e esqueda. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    p {
+                        <strong>margin: 100px auto;</strong>
+                        padding: 20px 80px;
+                        border-radius: 10px;
+                        border: 3px solid rgb(0, 255, 0);
+                        height: 100px;
+                        width: 300px;
+                        background-color: rgb(255, 0, 0);
+                    }
+                </code>
+            </pre>
+
+            <p>Você pode usar qualquer um dos 3 tipos de maneiras de mudar a margin que vimos, desde que as margins direta e esquerda tenham o valor <strong>auto</strong>. As margins de cima e de baixo pode ter qualquer valor. E se você está se questionando se é possível centralizar um elemento verticalmente utilizando margins de cima e de baixo com o valor auto, infelismente a resposta é não. Aprenderemos a centralizar elementos verticalmente, e outras formas horizontalmente, em outras aulas.</p>
+
+
+            <h3>Comportamento das margins</h3>
+
+            <p>As margins tem um comportamento que talvez não seja intuitivo. Se você tiver dois elementos um do lado do outro (pode ser lado esquerod-direito ou lado cima-baixo) e ambos tiverem valores de margin, o maior valor de margin será o usado. Talvez sua intuição tenha feito você pensar que os valores se somariam, mas não é o que acontece. Tente criar um exemplo para visualizar isso.</p>
+            
+
+            <h3>Resetando valores padrões</h3>
+
+            <p>Uma prática muito comum é resetar os valores de margin e padding padrões dos navegadores. Pois a maioria dos navegadores tem valores padrões para magin e padding de alguns elementos, e isso pode gerar problemas. Os padrões podem ser diferentes em navegadores diferentes, o que faz com que seu website pareça diferente em cada navegador. Ou também pode ser que algum valor de margin padrão não seja previsto pelo desenvolvedor e pode criar problemas, por isso é muito comum usar o seletor universal (*) para resetar esses valores para 0. Vamos entender como mudar os valores de margin e padding dos elementos mesmo com esses valores já estabelecidos no seletor universal. Veremos isso na aula de seletores avançados.</p>
+
+            <pre>
+                <code>
+                    * {
+                        margin: 0;
+                        padding: 0;
+                    }
+                </code>
+            </pre>
+
+
+            <h3>Altura e Largura, min e max</h3>
+
+            <p>Além de height e width temos outras 4 propriedades relacionadas a altura e largura: <strong>min-widht, max-width, min-height, max-height.</strong> Os nomes são bem auto-explicativos, min-width é a largura mínima, max-width é a largura máxima, min-height é a altura mínima, e max-height é a altura máxima. Essas propriedades serão mais importantes quando estudarmos design responsivo. Tente criar um elemento com essas propriedades e mudar o tamanho da janela do seu navegador para ver o que acontece.</p>
+
+            <h3>Overflow</h3>
+
+            <p>A propriedade <strong>overflow</strong> modifica o comportamento em casos de um elemento exceder o tamanho do seu elemento pai. Existem 3 valores principais para essa propriedade:</p>
+
+            <p>1 - hidden: esse valor faz com que a parte excedende do elemento não apareça.</p>
+
+            <p>2 - scroll: esse valor faz com que uma barra de rolagem apareça e permita ver o conteúdo excedente.</p>
+
+            <p>3 - visible: esse valor faz com que o conteúdo fique visível excedendo os limites do elemento pai.</p>
+
+            <p>Tente criar exemplos com essa propriedade e brincar com os valores para ver os resultados.</p>
+
+
+            <h3>Visibility</h3>
+
+            <p>Essa é uma propriedade que podemos usar para fazer elementos "invisíveis". Eles continuam ocupando o espaço da sua caixa(box) no site, mas o conteúdo, background e tudo mais não é visível se usarmos o valor <strong></strong>visibility:hidden;</strong></p>
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>
