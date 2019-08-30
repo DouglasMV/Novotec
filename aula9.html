@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 9 - Unidades</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Aula 9 - Unidades</h2>
+
+            <p>Já vimos várias propriedades de CSS cujos valores recebem um valor numérico com uma unidade, por exemplo: <strong>height: 200px;</strong> Nesse caso a unidade que usamos é px (pixels), uma das unidades mais usadas. Porém existem outras que veremos a seguir.</p>
+
+            <h3>Unidades absolutas</h3>
+
+            <p>Unidades absolutas são aquelas que não são relativas a nada, sempre são do mesmo tamanho, por exemplo 1px sempre será do mesmo tamanho. Além de px temos nessa categoria centímetros (cm), milimetros (mm), polegadas (in), entre outras. Raramente usamos outra unidade absoluta além de pixels (px). Para estudar mais sobre outras unidades absolutas clique <a href="https://developer.mozilla.org/pt-BR/docs/Learn/CSS/Building_blocks/Values_and_units#Lengths">aqui</a>.</p>
+
+            <h3>Unidades relativas</h3>
+
+            <p>Unidades relativas são relativas a algo, por exemplo o tamanho da fonte do elemento pai, ou ao tamanho da tela. Um conceito novo importante é <strong>viewport</strong> que é o tamanho da janela do navegador onde se encontra o conteúdo da página. Veja a tabela abaixo com algumas unidades relativas:</p>
+
+            <table>
+                <tr>
+                    <th>Unidade</th>
+                    <th>Relativa à</th>
+                </tr>
+                <tr>
+                    <td>em</td>
+                    <td>Tamanho da fonte do elemento pai</td>
+                </tr>
+                <tr>
+                    <td>rem</td>
+                    <td>Tamanho da fonte do elemento raíz (&lt;html&gt;)</td>
+                </tr>
+                <tr>
+                    <td>vw</td>
+                    <td>1% da largura do viewport</td>
+                </tr>
+                <tr>
+                    <td>vh</td>
+                    <td>1% da altura do viewport</td>
+                </tr>
+                <tr>
+                    <td>vmin</td>
+                    <td>1% da menor dimensão do viewport</td>
+                </tr>
+                <tr>
+                    <td>vmax</td>
+                    <td>1% da maior dimensão do viewport</td>
+                </tr>
+            </table>
+
+            <p>Essas unidades relativas serão muito importantes quando aprendermos design responsivo, pois podemos mudar o tamanho da fonte, altura, largura e outros em relação ao tamanho da tela.</p>
+
+
+            <h3>Porcentgem</h3>
+
+            <p>Outra unidade de medida é a porcentagem (%). Ela é relativa a medida da mesma propriedade do elemento pai. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    &lt;p&gt;
+                        Texto &lt;a&gt;link&lt;/a&gt; texto.
+                    &lt;/p&gt;
+                </code>
+            </pre>
+            
+            <pre>
+                <code>
+                    p {
+                        font-size: 40px;
+                    }
+
+                    a {
+                        font-size: 50%;
+                    }
+                </code>
+            </pre>
+
+            <p>No exemplo acima o elemento &lt;a&gt; tem o tamanho da fonte com valor 50%, o que significa que será metade do tamanho da fonte do elemento pai, que nesse caso vale 40px, ou seja &lt;a&gt; terá fonte de 20px. Crie outros exemplos, com outras propriedades, como por exemplo height, width, margin, padding e border.</p>
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>

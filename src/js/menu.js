@@ -42,6 +42,10 @@ const linkList = [
   {
     text: "Aula 8: Box Model",
     link: "aula8.html"
+  },
+  {
+    text: "Aula 9: Unidades",
+    link: "aula9.html"
   }
 ];
 
