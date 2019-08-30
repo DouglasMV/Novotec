@@ -145,7 +145,7 @@ table{
     content: none;
 }
 
-.link {
+p>a {
     color: rgb(151, 2, 151);
     font-weight: bold;
 }

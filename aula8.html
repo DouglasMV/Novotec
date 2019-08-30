@@ -238,6 +238,42 @@
             <h3>Visibility</h3>
 
             <p>Essa é uma propriedade que podemos usar para fazer elementos "invisíveis". Eles continuam ocupando o espaço da sua caixa(box) no site, mas o conteúdo, background e tudo mais não é visível se usarmos o valor <strong></strong>visibility:hidden;</strong></p>
+
+
+            <h3>Box-sizing</h3>
+
+            <p>Você deve ter reparado que as propriedades border e padding alteram o tamanho da box de um elemento. Isso pode causar algumas dores de cabeça as vezes, pois o elemento não vai ocupar exatamente a altura e largura que você usou, é preciso somar o padding e a border. Para resolver esse problema existe uma propriedade chamada <strong>box-sizing</strong>. O valor padrão dela é content-box, mas se mudarmos o valor para <strong>box-sizing: border-box</strong> o comportamento muda. Com essa configuração a altura e a largura do elemento serão sempre o que você usar nas propriedades height e width. Os valores de border e padding serão adicionados dentro dessas medidas, e não expandir a box como antes. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    p {
+                        <strong>box-sizing: border-box;</strong>
+                        border: 3px solid rgb(0, 0, 0);
+                        padding: 30px;
+                        height: 100px;
+                        width: 300px;
+                        background-color: rgb(255, 0, 0);
+                    }
+                </code>
+            </pre>
+
+            <p>Uma prática muito comum é utilizar essa propriedade no seletor universal, deixando todos elementos da página com esse formato de box-sizing. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    * {
+                        <strong>box-sizing: border-box;</strong>
+                    }
+                    p {
+                        border: 3px solid rgb(0, 0, 0);
+                        padding: 30px;
+                        height: 100px;
+                        width: 300px;
+                        background-color: rgb(255, 0, 0);
+                    }
+                </code>
+            </pre>
+
         </article>
     </main>
 
