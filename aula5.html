@@ -199,27 +199,63 @@
 
 
 
-            <h3>Questões para casa</h3>
+            <h3 id="tarefa_de_casa">Questões para casa</h3>
 
             <p><strong>1 - </strong>Explique a diferença em um elemento HTML auto-fechável e um elemento que possui uma tag de abertura e uma tag de fechamento.</p>
 
+            <p><strong>Resposta:</strong> um elemento auto-fechável possui apenas a tag de abertura e seus atributos. Um elemento com tag de abertura e de fechamento, além dessas duas tags possui um contéudo (texto) entre as tags, e também pode possuir atributos na tag de abertura.</p>
+
             <p><strong>2 - </strong>Dê 3 exemplos diferentes de elementos HTML auto-fecháveis.</p>
             
+            <p><strong>Resposta:</strong></p>
+            <ul>
+                <li>&lt;!DOCTYPE html&gt;</li>
+                <li>&lt;img src="./img/imagem.jpg" alt="minha imagem"&gt;</li>
+                <li>&lt;link rel="stylesheet" href="style.css"&gt;</li>
+            </ul>   
+
             <p><strong>3 - </strong>Qual elemento HTML representa o cabeçalho do documento HTML? Qual a função do cabeçalho do documento HTML? Dê 2 exemplos de elementos que podem ser filhos do cabeçalho.</p>
             
+            <p><strong>Resposta:</strong> &lt;head&gt; é o elemento que representa o cabeçalho do documento HTML. A função dele é conter metadados, ou seja dados sobre o próprio documento. Exemplos: &lt;title&gt; &lt;link&gt; &lt;meta&gt;</p>
+
             <p><strong>4 - </strong>Qual elemento HTML representa o corpo do documento HTML? Qual a função do corpo do documento HTML?</p>
             
+            <p><strong>Resposta:</strong> &lt;body&gt; representa o corpo do documento HTML. A função dele é envolver todo conteúdo visível da página.</p>
+
             <p><strong>5 - </strong>Quantos e quais são os elementos usados para criar cabeçalhos no corpo do documento HTML?</p>
             
+            <p><strong>Resposta:</strong> São 6: &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt; </p>
+
             <p><strong>6 - </strong>O que são atributos de um elemento HTML? Dê um exemplo de elemento HTML com atributos.</p>
             
+            <p><strong>Resposta:</strong> São informações extras sobre o elemento, que podem ser usadas para alterá-los de alguma forma. Exemplo: &lt;a href="google.com" target="_blank"&gt;Clique aqui&lt;/a&gt; </p>
+
             <p><strong>7 - </strong>Qual elemento HTML é usado para criar uma tabela? E para criar uma linha na tabela? E para criar uma célula de cabeçalho da tabela? E para criar uma célula normal da tabela?</p>
             
+            <p><strong>Resposta:</strong> Para criar uma tabela usamos &lt;table&gt;. Para criar uma linha na tabela usamos &lt;tr&gt;. Para criar uma célula de cabeçalho usamos &lt;th&gt;. Para criar uma célula normal usamos &lt;td&gt;</p>.
+
             <p><strong>8 - </strong>Explique as 3 maneiras de incluir CSS.</p>
             
-            <p><strong>9 - </strong>Explique os 5 tipos de seletores CSS vistos em aula.</p>
+            <p><strong>Resposta:</strong> Inline: os estilos são escritos como atributo style de uma tag. Interno: os estilos são escritos dentro da tag &lt;style&gt; que é filha do cabeçalho &lt;head&gt;. Externo: os estilos são escritos em um documento externo com a extensão .css, e esse documento deve ser linkado ao documento HTML com a tag &lt;link&gt;.</p>
+
+            <p><strong>9 - </strong>Explique os 4 tipos de seletores CSS vistos em aula.</p>
             
+            <p><strong>Resposta:</strong> Seletor de tag: seleciona todos elementos com a tag usada. (exemplo: p {}); Seletor de id: seleciona o elemento com o id usado. (exemplo: #meuId {}); Seletor de classe: seleciona todos elementos que possuem aquela classe. (exemplo .minhaClasse {}); Seletor universal: seleciona todos elementos. (exemplo: * {})</p>
+
             <p><strong>10 - </strong>Como fazer uma tabela ter bordas sólidas de 1px da cor preta em volta de todas células, sem espaço entre as bordas de uma célula para outra?</p>
+
+            <p><strong>Resposta:</strong> Basta usar os seguinte estilos:</p>
+
+            <pre>
+                <code>
+                    table {
+                        border-collapse: collapse;
+                    }
+                    td, th {
+                        border: 1px solid black;
+                    }
+                </code>
+            </pre>
 
         </article>
     </main>
