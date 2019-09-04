@@ -12,6 +12,10 @@ const linkList = [
     link: "index.html"
   },
   {
+    text: "Projeto Integrador",
+    link: "projeto.html"
+  },
+  {
     text: "Aula 1: Web",
     link: "aula1.html"
   },
