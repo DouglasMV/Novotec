@@ -50,6 +50,14 @@ const linkList = [
   {
     text: "Aula 9: Unidades",
     link: "aula9.html"
+  },
+  {
+    text: "Aula 10: Layout",
+    link: "aula10.html"
+  },
+  {
+    text: "Aula 11: Seletores",
+    link: "aula11.html"
   }
 ];
 

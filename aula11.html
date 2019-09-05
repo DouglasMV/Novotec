@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Novotec - Criação de Sites e Plataformas Digitais</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Seletores</h2>
+
+            <p>Na aula 4 já vimos 4 tipos de seletores: tag, id, class e universal. Vamos relembrá-los rapidamente.</p>
+
+            <h4>Tag</h4>
+
+            <p>O seletor de Tag seleciona todos elementos declarados com aquela tag. Para usá-lo basta escrever o nome da tag e colocar as propriedas CSS entre colchetes:</p>
+
+            <pre>
+                <code>
+                    p {
+                        color: red;
+                    }
+                </code>
+            </pre>
+
+
+            <h4>Id</h4>
+
+            <p>O seletor por Id utiliza o atributo <strong>id</strong> em uma tag HTML para selecionar aquele elemento. O atributo id deve ser único, ou seja, se existe um elemento com id="meuID", não pode existir outro elemento com o mesmo id.</p>
+
+            <p>Para selecionar um elemento por id, utilizamos a hashtag (#) seguida do id, veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    #paragrafo1 {
+                        color: red;
+                    }
+                </code>
+            </pre>
+
+
+            <h4>Class</h4>
+
+            <p>O seletor por Classe utiliza o atributo <strong>class</strong> em uma tag HTML para selecionar aquele elemento. O atributo class não precisa deve ser único, ou seja, podem existir vários elemento com class="minhaClasse".</p>
+
+            <p>Para selecionar um elemento por class, utilizamos o ponto (.) seguido do nome da classe, veja o exemplo:</p>
+
+
+            <pre>
+                <code>
+                    .texto-vermelho {
+                        color: red;
+                    }
+                </code>
+            </pre>
+
+
+            <h4>Universal</h4>
+
+            <p>O seletor universal, como o próprio nome sugere, seleciona todos elementos HTML da página, independente de tag, clase ou id, sem exceção.</p>
+
+            <p>Para usar o seletor universal, utilizamos o asterístico (*), veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    * {
+                        color: red;
+                    }
+                </code>
+            </pre>
+
+            <p>Agora que já revimos esses seletore, vamos aprender outros.</p>
+
+
+            <h3>Agrupando Seletores</h3>
+
+            <p>É comum existirem situações que queremos usar uma mesma propriedade CSS em vários elementos diferentes, é claro que podemos criar uma classe e usá-la em todos elementos. Porém às vezes é mais fácil agrupar seletores, para isso basta escrever vários seletores separados por vírgula. Veja o exemplo abaixo, onde queremos selecionar todos elementos de cabeçalho (h1 à h6) e aplicar uma mesma cor de texto à eles:</p>
+
+            p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    h1, h2, h3, h4, h5, h6 {
+                        color: red;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;h1&gt;Olá do h1&lt;/h1&gt;
+                    &lt;h2&gt;Olá do h2&lt;/h2&gt;
+                    &lt;h3&gt;Olá do h3&lt;/h3&gt;
+                    &lt;h4&gt;Olá do h4&lt;/h4&gt;
+                    &lt;h5&gt;Olá do h5&lt;/h5&gt;
+                    &lt;h6&gt;Olá do h6&lt;/h6&gt;
+                </code>
+            </pre>
+
+
+            <h3>Combinando Seletores</h3>
+
+            <p>Podemos combinar seletores, basta usar dois ou mais seletores escritos juntos (sem espaço), veja o exemplo: </p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    p.red {
+                        color: red;
+                    }
+                    p#paragrafo2 {
+                        background-color: orange;
+                    }
+                    p.bg-purple{
+                        background-color: purple;
+                    }
+                    p.red.bg-purple {
+                        font-size: 40px;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;p&gt;p sem class e sem id&lt;/p&gt;
+                    &lt;p id="paragrafo2"&gt;p sem class e com id="paragrafo2"&lt;/p&gt;
+                    &lt;p class="red"&gt;p com class="red"&lt;/p&gt;
+                    &lt;p class="bg-purple"&gt;p com class="bg-purple"&lt;/p&gt;
+                    &lt;p class="red bg-purple"&gt;p com class="red bg-purple"&lt;/p&gt;
+                    &lt;div class="red bg-purple"&gt;div com class="red bg-purple"&lt;/div&gt;
+                    
+                </code>
+            </pre>
+
+            <p>Nesse exemplo podemos reparar que: se quisermos usar duas ou mais classes em um elemento HTML basta separar o nome das classes com um espaço no atributo class (&lt;p class="red bg-purple"&gt;); o seletor p.red seleciona todos parágrafos com a classe red; o seletor p#paragrafo2 seleciona o paragrafo com id paragrafo2, não muito útil já que o id deve ser único de qualquer maneira, ou seja só o seletor #paragrafo2 teria o mesmo resultado; o seletor p.bg-purple seleciona todos parágrafos com a classe bg-purple; o seletor p.red.bg-purple seleciona apenas os parágrafos que tem ambas classes red e bg-purple ao mesmo tempo; repare que a div com classes red e bg-purple não é selecionada por nenhum dos seletores usados, pois todos começam com p, ou seja, apenas selecionam parágrafos com aquelas classes, não selecionam nenhuma outra tag (div nesse exemplo) mesmo que tenham as classes usadas.</p>
+
+            <h3>Seletor de Descendentes</h3>
+
+            <p>O seletor de descendentes seleciona todos elementos que são descendentes de outro elemento. Basta escrever um seletor (tag, id ou class) do elemento "de fora", seguido de um espaço e depois um seletor do elemento "de dentro", o descendente. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    div p {
+                        color: red;
+                    }
+
+                    div .fundo-azul {
+                        background-color: blue;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div&gt;
+                        &lt;p&gt;Sou descendente de div (filho)&lt;/p&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;
+                                &lt;p class="fundo-azul"&gt;Sou descendente de div ("bisneto") e tenho class="fundo-azul"&lt;/p&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+
+                    &lt;p class="fundo-azul"&gt;Não sou descendente de div e tenho class="fundo-azul"&lt;/p&gt;
+                </code>
+            </pre>
+
+            <p>Repare que o descendente não precisa ser filho direto, pode ser filho do filho do filho...</p>
+
+
+            <h3>Seletor de Filho</h3>
+
+            <p>O seletor de filho é semelhante ao seletor de descendente, porém é necessário que o descendente seja filho direto do primeiro elemento. Basta escrever um seletor (tag, id ou class) do elemento pai, seguido de um sinal de maior (>) e depois um seletor do elemento filho. Veja o exemplo: </p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    div>p {
+                        color: red;
+                    }
+
+                    div>.fundo-azul {
+                        background-color: blue;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div&gt;
+                        &lt;p&gt;Sou descendente de div (filho)&lt;/p&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;
+                                &lt;p class="fundo-azul"&gt;Sou descendente de div ("bisneto") e tenho class="fundo-azul"&lt;/p&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+
+                    &lt;p class="fundo-azul"&gt;Não sou descendente de div e tenho class="fundo-azul"&lt;/p&gt;
+                </code>
+            </pre>
+
+            <p>Repare que apenas o parágrafo (p) que é filho direto de uma div teve a cor do texto alterada. E nenhum parágrafo teve a cor de fundo alterada, pois nenhum elemento com classe="fundo-azul" é filho (descendente direto) de uma div.</p>
+
+            
+            <h3>Pseudo-class</h3>
+
+            <p>Em css temos as chamadas pseudo-classes, elas correespondem a estados dos eslementos, por exemplo a pseudo-classe <strong>hover</strong> corresponde ao estado de um elemento quando o cursosr do mouse está sobre ele. Para usar uma pseudo-classe basta selecionar o elemento com um dos seletores já vistos, e depois usar dois ponto (:) e o nome da pseudo-classe. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+            
+            <pre>
+                <code>
+                    p:hover {
+                        background-color: blue;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;p&gt;Coloque o cursor do mouse em cima de mim!&lt;/p&gt;
+                </code>
+            </pre>
+
+            <p>Passe o mouse por cima do paragrafo e veja o que acontece.</p>
+
+            <p>Um truque comum com a pseudo-classe hover é utilizá-la pra esconder/mostrar um elemento, alterando a propriedade display do mesmo. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+            
+            <pre>
+                <code>
+                    div {
+                        height: 300px;
+                        width: 300px;
+                        background-color: yellow;
+                    }
+                    p {
+                        display: none;
+                    }
+                    div:hover p{
+                        display: block;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div&gt;
+                        &lt;p&gt;Apareci!&lt;/p&gt;
+                    &lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Para uma lista de mais pseudo-classes clique <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/Pseudo-classes#%C3%8Dndice_de_pseudo-classes_padr%C3%A3o">aqui</a>.</p>
+
+
+            <h3>Outros seletores</h3>
+
+            <p>Vimos alguns dos mais usados tipos de seletores, porém existem muitos outras, pouco usados, mas que podem ser úteis em algumas situações.</p>
+
+            <p>Clique <a href="https://developer.mozilla.org/pt-BR/docs/Glossario/CSS_Selector">aqui</a> para estudar mais sobre seletores CSS.</p>
+        
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>
