@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 10 - Layout</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Aula 10 - Layout</h2>
+
+            <p>Layout é a forma com que os elementos de uma página web são distribuídos. O posicionamento dos elementos. Nesta aula aprenderemos algumas propriedades de CSS que nos permitem controlar como cada elemento da página é posicionado. </p>
+
+
+            <h3>Fluxo</h3>
+
+            <p>Um navegador mostra os elementos de uma página HTML, que não possui propriedades CSS, da esquerda para direita, de cima para baixo, na ordem em que existem no documento HTML. Isso é chamado de fluxo dos elementos em HTML.</p>
+
+            <p>CSS possui propriedades que mudam o posicionamento, ou o fluxo, de elementos HTML. Nessa aula veremos apenas 5 dessas propriedades: position; display; z-index; flot; clear. Em aulas futuras veremos também FlexBox e Grid, que também são propriedades de posicionamento de elementos.</p>
+
+
+            <h3>Display</h3>
+
+            <p>Todo elemento HTML tem um modo de exibição (display) padrão. Alguns elementos ocupam a largura total de seu elemento pai, independente do tamanho de seu conteúdo e portanto não possuem nenhum elemento ao seu lado, por exemplo um cabeçalho &lt;h1&gt;. Outros elementos ocupam apenas o tamanho horizontal necessário para exibir seu conteúdo e podem ser colocados diretamente do lado de outros elementos, como por exemplo &lt;em&gt;.</p>
+
+            <p>Nessa aula estudaremos 4 valores possíveis para propriedade display: inline; block; inline-block; none. E conheceremos as tags &lt;div&gt; e &lt;span&gt;.</p>
+
+
+            <h3>display: inline;</h3>
+
+            <p>O valor inline na propriedade display faz com que o elemento ocupe apenas a largura necessária para exibir seu conteúdo (é impossível mudar a largura, a propriedade width não muda nada), e não exige que o elemento esteja em uma nova linha, ou seja podem haver outros elementos ao lado dele. Alguns exemplos de tags que tem display: inline como valor padrão são: &lt;em&gt;, &lt;a&gt;, &lt;strong&gt; e a tag <strong>&lt;span&gt;</strong> é usada como um elemento inline genérico, ou seja, que não tem uma função ou significado específico definido na navegador, ao contrário por exemplo da tag &lt;a&gt; que tem a função específica de conter um link. Veja o exemplo abaixo e repare como os elementos são exibidos por padrão:</p>
+
+            <pre>
+                <code>
+                    &lt;p&gt;
+                        Esse parágrafo têm um &lt;a href="#"&gt;link&lt;/a&gt;
+                        e também uma palavra em &lt;strong&gt;destaque&lt;/strong&gt;!
+                    &lt;/p&gt;
+                </code>
+            </pre>
+
+
+            <h3>display: block;</h3>
+
+            <p>Alguns elementos não são exibidos na mesma linha que outros elementos próximos a ele. Esse tipo de elemento ocupa toda linha por padrão, mas pode ser mudado com a propriedade width, que vimos na aula 8. Eles são chamods de elementos em bloco, pois tem a propriedade display: block como padrão. Alguns exemplos de tags que tem display: block como valor padrão são: &lt;p&gt;, &lt;h1&gt; a &lt;h6&gt;, &lt;ul&gt; e a tag <strong>&lt;div&gt;</strong> é usada como um elemento block genérico, ou seja, que não tem uma função ou significado específico definido na navegador. Veja o exemplo abaixo e repare como os elementos são exibidos por padrão:</p>
+
+            <pre>
+                <code>
+                    &lt;p&gt;
+                        Esse parágrafo é um bloco.
+                    &lt;/p&gt;
+                    &lt;div&gt;
+                        Essa div é um outro bloco.
+                    &lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Agora usando CSS tente mudar a propriedade display dos dois exemplos anteriores e repare o que acontece. Tente também mudar a propriedade width dos elementos que tem display: inline e repare que nada acontece.</p>
+
+
+            <h3>display: inline-block;</h3>
+
+            <p>O valor inline-block na propriedade display mistura características dos dois outros valores vistos (inline e block). Elementos inline-block podem ser exibidos na mesma linha que outros (característica de inline), mas pode ter sua largura (width) alterada(característica de block). O melhor exemplo de elemento inline-block é a tag &lt;img&gt;. Veja o exemplo abaixo:</p>
+
+            <pre>
+                <code>
+                    &lt;img src="https://i.imgur.com/CVarvWs.jpg" alt="Um gato"&gt;
+                    &lt;img src="https://i.imgur.com/CVarvWs.jpg" alt="Um gato"&gt;
+                    &lt;img src="https://i.imgur.com/CVarvWs.jpg" alt="Um gato"&gt;
+                </code>
+            </pre>
+
+            <p>Altere a propriedade width das imagens e veja o que acontece.</p>
+
+
+            <h3>display: none;</h3>
+
+            <p>Usar o valor none na propriedade display faz com que o elemento não seja exibido. Já vimos algo parecido com visibility: hidden; aula passada. A grande diferença aqui é que com dispaly: none; o elemento não ocupa o espaço que ele ocupava antes na tela, já com visibility: hidden; ele continua ocupando o espsço, mas fica invisível.</p>
+
+            <p>Tente mudar essas propriedades nos exemplos anteriores e repare na diferença entre as duas.</p>
+            
+
+            <h3>Position</h3>
+
+            <p>A propriedade <strong>position</strong> determina a posição do elemento em relação ao fluxo. Ou seja, existe uma ordem em que os elementos são exibidos (o fluxo), caso queira que um elemento esteja em uma posição diferente da padrão, é preciso alterar a propriedade position. Veremos 5 valores para essa propriedade: static; relative; absolute; fixed; e sticky.</p>
+
+
+            <h3>position: static;</h3>
+
+            <p>É o valor padrão. Não muda nada. existe apenas ara casos de conflito de seletores CSS (veremos em outra aula).</p>
+
+
+            <h3>position: relative;</h3>
+
+            <p>Esse valor permite que o elemento seja posicionado relativamente a sua posição padrão (static). Isso é feito usando as propriedades: <strong>top; bottom; left; right.</strong> Essas propriedades movem o elemento para direção oposta ao seu nome. é mais fácil entender com um exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+            
+            <pre>
+                <code>
+                    #div1 {
+                        height: 300px;
+                        width: 300px;
+                        background-color: red;
+                    }
+                    #div2 {
+                        height: 300px;
+                        width: 300px;
+                        background-color: blue;
+                        <strong>position: relative;
+                        top: 50px;
+                        left: 100px;</strong>
+                    }
+                    #div3 {
+                        height: 300px;
+                        width: 300px;
+                        background-color: green;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="div1"&gt;&lt;/div&gt;
+                    &lt;div id="div2"&gt;&lt;/div&gt;
+                    &lt;div id="div3"&gt;&lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Tente mudar os valores e usar várias combinações dessas propriedades. Repare que valores negativos podem ser usados. E repare que Top e Left tem prioridade sobre Bottom e Right respectivamente. Repare que a posição da #div3 não muda, continua respetando o espaço "original" ocupado pela #div2.</p>
+
+
+            <h3>position: absolute;</h3>
+
+            <p>Quando usar position: absolute; em um elemento ele será ignorado pelos outros elementos dentro do fluxo. E o elemento será posicionado em relação a posição do seu elemento pai (usando as propriedades top, left, bottom e right). Veja o exemplo abaixo:</p>
+
+            <p>No arquivo style.css:</p>
+            
+            <pre>
+                <code>
+                    #div1 {
+                        height: 300px;
+                        width: 300px;
+                        background-color: red;
+                    }
+                    #div2 {
+                        height: 300px;
+                        width: 300px;
+                        background-color: blue;
+                        <strong>position: absolute;
+                        top: 50px;
+                        left: 100px;</strong>
+                    }
+                    #div3 {
+                        height: 300px;
+                        width: 300px;
+                        background-color: green;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="div1"&gt;&lt;/div&gt;
+                    &lt;div id="div2"&gt;&lt;/div&gt;
+                    &lt;div id="div3"&gt;&lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Repare que a #div3 ignora o espaço "original" da #div2, e toma seu lugar no fluxo como se #div2 não existisse. Tente alterar os valores de top e left. Tente usar bottom e right também. No arquivo HTML, coloque a #div2 dentro da #div3 e repare que agora a posição da #div2 é em relação a #div3 que é sua tag pai.</p>
+
+
+            <h3>position: fixed;</h3>
+
+            <p>Quando usamos position: fixed; em um elemento, ele é posicionato em relação ao viewport (a parte da tela onde encontra-se o conteúdo visível do site). E ainda o elemento é fixado (por isso o nome fixed) naquela posição da tela, ou seja, mesmo que o usuário role a tela para baixo o elemento não sai do lugar. Veja o exemplo:</p>
+
+
+            <p>No arquivo style.css:</p>
+            
+            <pre>
+                <code>
+                    #div1 {
+                        height: 100vh;
+                        width: 100vw;
+                        background-color: red;
+                    }
+                    #div2 {
+                        height: 50px;
+                        width: 100vw;
+                        background-color: blue;
+                        <strong>position: fixed;
+                        top: 0;
+                        left: 0;</strong>
+                    }
+                    #div3 {
+                        height: 100vh;
+                        width: 100vw;
+                        background-color: green;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="div1"&gt;&lt;/div&gt;
+                    &lt;div id="div2"&gt;&lt;/div&gt;
+                    &lt;div id="div3"&gt;&lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Hmmm... Essa barra azul fixa no topo da página te lembra de algo?</p>
+
+            <h3>position: sticky;</h3>
+
+            <p>Quando usamos position: sticky; é como se o elemento atera-se entre position: relative; e position: fixed. Ou seja, ele começa posicionado em relação a sua posição "original", e quando o usuário rola o site para baixo o elemento se fixa naquela posição. Veja o exemplo para entender melhor:</p>
+
+            <p>No arquivo style.css:</p>
+            
+            <pre>
+                <code>
+                    #div1 {
+                        height: 30vh;
+                        width: 100vw;
+                        background-color: red;
+                    }
+                    #div2 {
+                        height: 50px;
+                        width: 100vw;
+                        background-color: blue;
+                        <strong>position: sticky;
+                        top: 0;
+                        left: 0;</strong>
+                    }
+                    #div3 {
+                        height: 100vh;
+                        width: 100vw;
+                        background-color: green;
+                    }
+                    #div4 {
+                        height: 100vh;
+                        width: 100vw;
+                        background-color: purple;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="div1"&gt;&lt;/div&gt;
+                    &lt;div id="div2"&gt;&lt;/div&gt;
+                    &lt;div id="div3"&gt;&lt;/div&gt;
+                    &lt;div id="div4"&gt;&lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Parece útil para um site com um banner ou cabeçalho principal e um menu abaixo desse banner que fica fixo conforme rolamos para baixo, não é mesmo?</p>
+
+
+            <h3>Z-index</h3>
+
+            <p>A propriedade z-index serve para deixar elementos na frente, ou atrás de outros elementos que o sobrepõem. Ela recebe como valor um número inteiro, quanto maior o número mais a frente o elemento será exibido. Um fato importante é que a propriedade z-index não funciona em elementos com a propriedade position: static; (o valor padrão), por isso é preciso mudar a position para outro valor (relative, absolute, fixed ou sticky). Veja o exemplo abaixo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    div {
+                        height: 300px;
+                        width: 300px;
+                        position: absolute;
+                    }
+                    #div1 {
+                        background-color: red;
+                        top: 10px;
+                        left: 10px;
+                        <strong>z-index: -10;</strong>
+                    }
+                    #div2 {
+                        background-color: blue;
+                        top: 20px;
+                        left: 20px;
+                        <strong>z-index: 0;</strong>
+                    }
+                    #div3 {
+                        background-color: green;
+                        top: 30px;
+                        left: 30px;
+                        <strong>z-index: 6;</strong>
+                    }
+                    #div4 {
+                        background-color: purple;
+                        top: 40px;
+                        left: 40px;
+                        <strong>z-index: 9999;</strong>
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="div1"&gt;&lt;/div&gt;
+                    &lt;div id="div2"&gt;&lt;/div&gt;
+                    &lt;div id="div3"&gt;&lt;/div&gt;
+                    &lt;div id="div4"&gt;&lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Mude os valores de z-index, veja o que acontece.</p>
+
+
+            <h3>Float</h3>
+
+            <p>Até agora aprendemos como posicionar um elemento exatamente onde queremos. Mas se você quiser apenas mover um elemento o mais possível para a esquerda, ou o mais possível para direita, podemos usar a propriedade float. Além disso os elementos devem ter a propriedade width, e usando float os elementos podem ocupar a mesma linha, mesmo sendo display: block. Porém apenas é possível usar essa propriedade para elementos com a propriedade position com os valores static (padrão) ou relative. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+            
+            <pre>
+                <code>
+                    div {
+                        height: 300px;
+                        width: 300px;
+                        position: static; /*Não necessário, só para ficar claro*/
+                    }
+                    #div1 {
+                        background-color: red;
+                        <strong>float: left;</strong>                        
+                    }
+                    #div2 {
+                        background-color: blue;
+                        <strong>float: right;</strong>                        
+                    }
+                    #div3 {
+                        background-color: green;
+                        <strong>float: left;</strong>                        
+                    }
+                    #div4 {
+                        background-color: purple;
+                        <strong>float: right;</strong>
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="div1"&gt;&lt;/div&gt;
+                    &lt;div id="div2"&gt;&lt;/div&gt;
+                    &lt;div id="div3"&gt;&lt;/div&gt;
+                    &lt;div id="div4"&gt;&lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Repare que os elementos com float: left; são posicionados da esquerda para a direita de acordo com a ordem deles no documento HTML. Já os elementos com float: right; são posicionados da direita para esquerda segundo a ordem que aparecem no documento HTML.</p>
+
+            <p>Se float parecer um pouco confuso no começo não se preocupe, essa é uma daquelas situações que temos uma boa e uma má notícia. A má notícia é que sim é um pouco confuso e nem sempre o resultado que obtemos é o que esperavamos na nossa cabeça. A boa notícia é que existem novas maneiras mais fáceis para fazer isso, usando Flex e Grid, que aprenderemos em aulas futuras.</p>
+
+
+            <h3>Clear</h3>
+
+            <p>A propriedade clear é usada juntamente com a propriedade float, quando existem vários elementos com a propriedade float, e queremos que um certo elemento não tenha outros elementos de um ou dos dois lados. Veja o exemplo, isso ficará bem mais claro.</p>
+
+            <p>No arquivo style.css:</p>
+            
+            <pre>
+                <code>
+                    div {
+                        height: 300px;
+                        width: 300px;
+                        position: static; /*Não necessário, só para ficar claro*/
+                    }
+                    #div1 {
+                        background-color: red;
+                        float: left;                        
+                    }
+                    #div2 {
+                        background-color: blue;
+                        float: left;
+                        <strong>clear: left;</strong>
+                    }
+                    #div3 {
+                        background-color: green;
+                        float: right;                        
+                    }
+                    #div4 {
+                        background-color: purple;
+                        float: right;
+                        <strong>clear: right;</strong>
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="div1"&gt;&lt;/div&gt;
+                    &lt;div id="div2"&gt;&lt;/div&gt;
+                    &lt;div id="div3"&gt;&lt;/div&gt;
+                    &lt;div id="div4"&gt;&lt;/div&gt;
+                </code>
+            </pre>
+
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>
