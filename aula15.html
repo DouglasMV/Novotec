@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 15 - Scroll-behavior</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Aula 15 - Scroll-behavior</h2>
+
+            <p>A propriedade scroll-behavior define o comportamento da rolagem da página quando clicamos em um link interno (aqueles usando o #id). Ela possui dois valores possíveis:</p>
+
+            <h3>scroll-behavior: auto;</h3>
+
+            <p>Esse é o valor padrão. O comportamento desse valor é o padrão, ou seja, quando clicar em um link interno a caixa de rolamegem vai instantaneamente para aquele elemento.</p>
+
+
+            <h3>scroll-behavior: smooth;</h3>
+
+            <p>Esse valor faz com que o comportamento da rolagem seja mais suave, ou seja, não é instantâneo. Quando clicar no link interno a caixa de rolagem irá rolar até o elemento.  Veja o exemplo abaixo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    *{
+                        margin: 0;
+                        padding: 0;
+                        <strong>scroll-behavior: smooth;</strong> 
+                    }
+                    div {
+                        height: 100vh;
+                        text-align: center;
+                        padding-top: 50%;
+                        font-size: 50px;
+                    }
+                    #div1, #div3{
+                        background-color: purple;
+                    }
+                    nav {
+                        position: fixed;
+                        top: 0;
+                        background-color: lightblue;
+                        width: 100vw;
+                        height: 30px;
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;nav>
+                        &lt;a href="#div1"&gt;div 1&lt;/a&gt;
+                        &lt;a href="#div2"&gt;div 2&lt;/a&gt;
+                        &lt;a href="#div3"&gt;div 3&lt;/a&gt;
+                    &lt;/nav>
+                    &lt;div id="div1"&gt;Essa é a div 1&lt;/div&gt;
+                    &lt;div id="div2"&gt;Essa é a div 2&lt;/div&gt;
+                    &lt;div id="div3"&gt;Essa é a div 3&lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Mude o valor do scroll-behavior para auto, ou simplesmente apague a linha que tem essa propriedade. Compare o valor padrão (auto) com o valor smooth.</p>
+
+            <p>Não é possível mudar a velocidade ou outros efeitos da rolagem apenas com CSS. Isso é possível usando JavaScript, mas geralmente não vale a pena, a não ser que mudar o tempo da animação seja muito importante.</p>
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 13 - Shadow</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Aula 13 - Shadow</h2>
+
+            <p>Em CSS existem duas propriedades que podem criar sombras: text-shadow e box-shadow. Ambas propriedades recebem 4 valores. O primeiro valor corresponde a distância horizontal da sombra, da esquerda para a direita (para fazer sombra a esquerda use valores negativos). O segundo valor corresponde a distância vertical da sombra, de cima para baixo (para fazer sombra para cima use valores negativos). O terceiro valor corresponde ao desfoque da sombra, quanto maior o valor mais desfocada a sombra aparenta. O quarto valor é a cor da sombra.</p>
+
+
+            <h3>Text-shadow</h3>
+
+            <p>A propriedade text-shadow aplica uma sombra no texto do elemento, veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    h1 {
+                        text-shadow: 5px 5px 0 red;
+                    }
+                    h2 {
+                        text-shadow: -5px -5px 4px;
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;h1&gt;Olá do h1!&lt;/h1&gt;
+                    &lt;h2&gt;Olá do h2!&lt;/h2&gt;
+                </code>
+            </pre>
+
+            <p>Repare algumas coisas no h1: o valor da distância horizontal é positivo, por isso a sombra está à direita do texto; o valor da distância vertical é positivo, por isso a sombra está abaixo do texto; o valor do desfoque é 0, por isso a sombra não tem desfoque; o valor da cor é red, por isso a sombra é vermelha.</p>
+
+            <p>Repare algumas coisas no h2: o valor da distância horizontal é negativo, por isso a sombra está à esquerda do texto; o valor da distância vertical é negativo, por isso a sombra está acima do texto; o valor do desfoque é 4px, por isso a sombra tem desfoque; o valor da cor não foi dado, por isso por padrão foi usada a mesma cor da fonte.</p>
+
+            <p>Tente mudar os valores para ver o que acontece. Tente por exemplo mudar a cor da letra de h2, e veja se a cor da sombra também muda. Tente usar um valor rgb para a cor com opacidade, como vimos aula passada, veja o que acontece.</p>
+
+
+            <h3>Box-shadow</h3>
+
+            <p>A propriedade box-shadow é semelhante a text-shadow, porém dessa vez a sombra é aplicada em volta da borda do elemento todo. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    #div1 {
+                        height: 300px;
+                        width: 300px;
+                        border-radius: 100%;
+                        background-color: blue;
+                        box-shadow: -5px -5px 4px;
+                    }
+                    #div2 {
+                        height: 300px;
+                        width: 300px;
+                        background-color: green;
+                        box-shadow: 5px 5px 0 red;
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="div1"&gt;&lt;/div&gt;
+                    &lt;div id="div2"&gt;&lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Mude os valores e veja o que acontece!</p>
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>

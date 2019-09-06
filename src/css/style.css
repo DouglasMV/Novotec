@@ -1,9 +1,10 @@
 * {
-    transition: linear;
+    box-sizing: border-box;
 }
 
 body{
     margin: 0;
+    padding: 0;
     display: flex;
     font-family: 'Courier New', Courier, monospace;
 }
@@ -28,11 +29,11 @@ body{
 
 nav{
     width: 250px;
-    min-height: 100vh;
+    height: 100vh;
     position: fixed;
     top: 0;
     padding-top: 0px;
-    overflow: auto;
+    overflow-y: scroll;
 }
 
 #menu-ul li{
@@ -55,13 +56,12 @@ a{
 
 #menu-ul{
     background-color: #e5e5e5;
-    display: block;
     margin: 0;
     padding: 50px 0 0 0;
-    flex-direction: column;
     min-height: 100vh;
     height: 100%;
     border-right: 1px solid black;
+    
 }
 
 #menu-ul li a:hover{
@@ -74,6 +74,7 @@ main{
     width: 100vw;
     padding: 20px 70px 20px 320px;
     overflow: auto;
+    margin: 0;
 }
 
 article {

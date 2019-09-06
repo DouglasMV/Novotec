@@ -58,6 +58,26 @@ const linkList = [
   {
     text: "Aula 11: Seletores",
     link: "aula11.html"
+  },
+  {
+    text: "Aula 12 - Opacity",
+    link: "aula12.html"
+  },
+  {
+    text: "Aula 13 - Shadow",
+    link: "aula13.html"
+  },
+  {
+    text: "Aula 14 - Column",
+    link: "aula14.html"
+  },
+  {
+    text: "Aula 15 - Scroll-behavior",
+    link: "aula15.html"
+  },
+  {
+    text: "Aula 16 - Background",
+    link: "aula16.html"
   }
 ];
 

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 12 - Opacity</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Aula 12 - Opacity</h2>
+
+            <p>A propriedade <strong>opacity</strong> determina a opacidade/transparência de um elemento. Ela recebe um valor entre 0 e 1. Quanto maior o valor mais opaco (visível) é o elemento. Quanto menor o valor mais transparente (invisível) é o elemento. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #div1 {
+                        height: 300px;
+                        width: 300px;
+                        background-color: red;
+                        z-index: 1;
+                    }
+                    #div2 {
+                        height: 300px;
+                        width: 300px;
+                        background-color: blue;
+                        z-index: 2;
+                        <strong>opacity: 0.5;</strong>
+                        position: absolute;
+                        top: 50px;
+                        left: 50px;
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="div1"&gt;&lt;/div&gt;
+                    &lt;div id="div2"&gt;Olá Mundo!&lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Repare que a div com fundo azul tem opacidade 0.5, assim podemos ver a div vermelha atras dela.</p>
+
+            <p>Podemos combinar opacity com o pseudo-seletor hover, que vimos aula passada, para criar um efeito legal. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    img {
+                        width: 400px;
+                        <strong>opacity: 0.3;</strong>
+                    }
+                    img:hover {
+                        <strong>opacity: 1;</strong>
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;img src="https://i.imgur.com/CVarvWs.jpg" alt="Um gato"&gt;
+                </code>
+            </pre>
+
+            <p>Passe o mouse em cima da imagem e veja o que acontece.</p>
+
+
+            <h3>Opacidade em cores</h3>
+
+            <p>Além de alterar a opacidade de todo elemento com a propriedade opacity, podemos alterar a opacidade apenas das cores, nos lugares onde usamos cores, por exemplo: color, background-color, border. Para isso precisamos usar cores no formato rgb mas com um quarto valor, esse quarto valor é a opacidade. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #div1 {
+                        height: 300px;
+                        width: 300px;
+                        background-color: red;
+                        z-index: 1;
+                    }
+                    #div2 {
+                        height: 300px;
+                        width: 300px;
+                        <strong>background-color: rgb(0, 0, 255, 0.5);</strong>
+                        z-index: 2;
+                        position: absolute;
+                        top: 50px;
+                        left: 50px;
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="div1"&gt;&lt;/div&gt;
+                    &lt;div id="div2"&gt;Olá Mundo!&lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Repare que o resultado é parecido com o primeiro exemplo. A diferença é que o conteúdo, o texto, não sofreu efeito de opacidade dessa vez, apenas a cor do fundo.</p>
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>

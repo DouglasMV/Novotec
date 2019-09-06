@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 16 - Background</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Aula 16 - Background</h2>
+
+            <p>Já conhecemos a propriedade <strong>background-color</strong> para mudar a cor de fundo de um elemento. Agora vamos aprender como utilizar gradientes e imagens no fundo (background) de um elemento.</p>
+
+
+            <h3>Gradient</h3>
+
+            <p>Também é possível usar gradientes no background de um elemento. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    body{
+                        height: 100vh;
+                        background: linear-gradient(90deg, purple, violet);
+                    }
+                </code>
+            </pre>
+
+            <p>O primeiro valor é o ângulo de inclinação do gradiente, os outros valores são cores, que podem ser mais do que duas. Mude o valor do ângulo e as cores para ver o que acontece.</p>
+
+            <p>Existem outros tipos de gradient, para estudar mais sobre isso clique <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/gradient">aqui</a>.</p>
+
+
+            <h3>background-image</h3>
+
+            <p>Podemos usar uma imagem como o fundo de um elemento, utilizando a propriedade background-image. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    body{
+                        background-image: url(https://i.imgur.com/X8ywn07.png);
+                    }
+                </code>
+            </pre>
+
+
+            <h3>background-repeat</h3>
+
+            <p>Por padrão as imagens de fundo se repetem horizontalmente e verticalmente. Mas podemos mudar isso com a propriedade <strong>background-repeat</strong>. Se queremos repetir apenas horizontalmente usamos: <strong>background-repeat: repeat-x;</strong> Se queremos repetir apenas verticalmente usamos: <strong>background-repeat: repeat-y;</strong> Se não queremos repetir a imagem usamos: <strong>background-repeat: no-repeat;</strong></p>
+
+            <p>No exemplo anterior adicione a propriedade background-repeat e altere entre os valores citados acima. Veja a diferença entre cada valor.</p>
+
+            <h3>Múltiplos Backgrounds</h3>
+
+            <p>É possível utilizar múltiplos backgrounds, várias imagens e até mesmo imagens com uma cor de fundo. No próximo exemplo usamos duas imagens e uma cor de fundo, que só aparece pelo fato das imagens terem fundo transparente. Para isso simplesmente usamos dois valores de url na propriedade background-image, separados por vírgula, assim usamos duas imagens. A propriedade background-repeat também pode receber dois valores, separados por vírgula, caso queira repetir uma imagem e a outra não, por exemplo. Preste atenção na ordem, pois ela é importante, a primeira imagem ficará na frente da segunda. E a cor sempre ficará atrás de todas imagens.</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    body{
+                        background-image: url(https://i.imgur.com/jy775z2.png) url(https://i.imgur.com/X8ywn07.png);
+
+                        background-repeat: repeat-x, no-repeat;
+
+                        background-color: lightblue;
+                    }
+                </code>
+            </pre>
+
+
+            <h3>background-size: cover;</h3>
+
+            <p>Podemos mudar o tamanho da imagem de fundo com a propriedade background-size. Podemos usar dois valores absolutos, um para a largura e outro para a altura. Ou apenas um valor absoluto que será a largura, e a altura se ajustará automaticamente. Mas o mais interessante é o valor <strong>cover</strong>. esse valor faz a imagem ocupar todo o background. É muito usado para criar fundos bem bonitos. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    body{
+                        min-height: 100vh;
+                        background-image: url(https://i.imgur.com/Xq1IzlO.jpg);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                    }
+                </code>
+            </pre>
+
+
+            <h3>background-attachment: fixed;</h3>
+
+            <p>A propriedade background-attachment: fixed; faz com que a imagem de fundo não role junto com a página. É um efeito muito usado também em websites modernos. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    * {
+                        margin: 0;
+                        padding: 0;
+                    }
+                    div {
+                        height: 100vh;
+                        background-color: purple;
+                    }
+                    #div2 {
+                        background-image: url(https://i.imgur.com/Xq1IzlO.jpg);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-attachment: fixed;
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div&gt;&lt;/div&gt;
+                    &lt;div id="div2"&gt;&lt;/div&gt;
+                    &lt;div&gt;&lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Existem outras propriedades e valores para imagens de background, vimos apenas as principais, mais usadas. Para estudar mais sobre isso, clique <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/background">aqui</a>.</p>
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>

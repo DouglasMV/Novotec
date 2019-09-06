@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 14 - Column</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Aula 14 - Column</h2>
+
+            <p>CSS possui algumas propriedades que facilitam a criação de textos em múltiplas colunas, parecido com um jornal ou uma revista. Veja abaixo:</p>
+
+            <div style="column-count: 3">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima, harum expedita totam alias eaque facilis optio accusamus doloremque iste magnam modi sed ad quos dicta nam, ratione labore numquam ipsam!
+            </div>
+
+            <p>Vejamos agora essas propriedades e como usá-las:</p>
+
+
+            <h3>colum-count</h3>
+
+            <p>A propriedade column-count especifica o número de colunas em que o texto de um elemento deve ser dividido. Veja o exemplo abaixo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    div {
+                        column-count: 2;
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div&gt;Escreva um texto longo aqui!&lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>No exemplo anterior escreva um texto longo dentro da div para facilitar a visualização das colunas. Uma dica: no Visual Studio Code, digite <strong>lorem100</strong> e aperte tab (ou enter), isso cria um texto aleatório com 100 palavras.</p>
+
+            <p>Mude o número de colunas e veja o resultado.</p>
+
+
+            <h3>column-gap</h3>
+
+            <p>A propriedade column-gap define a distância entre as colunas. No exemplo anterior adicione a propriedade <strong>column-gap: 40px;</strong> na div. Mude o valor e veja o que acontece.</p>
+
+
+            <h3>column-rule</h3>
+
+            <p>A propriedade column-rule cria uma divisória entre as colunas e define o estilo, a espessura e a cor dessa divisória. Muito parecida com a propriedade border que já conhecemos.</p>
+
+            <p>No exemplo anterior adicione a propriedade <strong>column-rule: 1px solid black;</strong> a div. Mude os valores, veja o que acontece.</p>
+
+
+            <h3>column-span</h3>
+
+            <p>A propriedade column-span pode fazer um elemento ocupar todas colunas. Essa propriedade não é usada no elemento que define as colunas, e sim nos elementos filhos dele. Veja o exemplo a seguir para esclarecer isso:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    div {
+                        column-count: 4;
+                    }
+                    h2 {
+                        column-span: all;
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div&gt;
+                        &lt;h2&gt;Um título que ocupa todas colunas!&lt;/h2&gt;
+                        &lt;p&gt;
+                           Um texto longo aqui!
+                        &lt;/p&gt;
+                    &lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Infelizmente existem dois problemas com essa propriedade:</p>
+
+            <p>O primeiro é que assim como várias propriedades de CSS mais novas, essa propriedade não funciona em todos navegadores. Column-span por exemplo não funciona no navegar Mozilla Firefox.</p>
+
+            <p>Outro problema é que os únicos valores possíveis para essa propriedade são: all e none. All faz o elemento ocupar todas colunas e none faz ele ocupar apenas uma. Seria bom se pudessemos escolher exatamente quantas colunas o elemento ocuparia, por exemplo ocupar 2 de 4 colunas, mas não é possível.</p>
+
+
+            <h3>column-width</h3>
+
+            <p>A propriedade column-width define a largura das colunas. Infelizmente o valor é único, ou seja, o mesmo para todas colunas. Não é possível dar um valor para cada coluna. No exemplo anterior adicione a propriedade <strong>column-width: 100px;</strong> na div. Altere o valor e veja o que muda.</p>
+
+            <p>O próximo exemplo mostra uma técnica de design responsivo (o layout muda de acordo com o tamanho da tela, estudaremos isso em breve) usando colunas. Usando um valor fixo para o tamanho das colunas, 200px por exemplo, e usando o column-count: auto; o número de colunas muda de acordo com o tamanho da tela, veja:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    div {
+                        column-rule: 3px solid purple;
+                        column-count: auto;
+                        <strong>column-width: 200px;</strong> 
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div&gt;
+                        Um texto longo aqui!
+                    &lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Mude o tamanho da largura da janela do seu navegador e observe o número de colunas.</p>
+
+            <p>Em aulas futuras veremos outras maneiras de criar layouts responsivos. Essas outras maneiras em geral são melhores que colunas, porém colunas tem uma característica única que pode ser usada como vantagem: colunas apenas afetam o texto, se colocarmos imagens ou outros tipos de elementos eles não serão afetados pelas colunas. Isso pode ser o que queremos em alguma situação específica, por isso é bom ter essa carta na manga.</p>
+
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>
