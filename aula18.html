@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 18 - Transition</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Aula 18 - Transition</h2>
+
+            <p>Transition é usada para criar uma transição gradual entre valores de certas propriedades CSS. Podemos controlar 4 coisas nas transições: qual propriedade é afetada; o tempo de espera (delay) para a transição começar; o tempo total da transição; e uma função que muda o comportamento da transição.</p>
+
+            <p>Para realizar a transição em si precisamos de uma mudança de estado no elemento. Um exemplo de mudança de estado que aprendemos é <strong>hover</strong>. Assim para realizar uma transição precisamos ter valores diferente de uma propriedade no seletor normal de um elemento e no pseudo-seletor do estado hover. E usar as propriedades de transição para ter o efeito da transição. Veja o exemplo abaixo, sem transição ainda:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    div {
+                        height: 300px;
+                        width: 300px;
+                        background-color: lightblue;
+                        transform: rotate(0deg);
+                    }
+                    div:hover {
+                        transform: rotate(315deg);
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div&gt;Passe o mouse aqui!&lt;/div&gt;
+            </pre>
+
+            <p>Repare que quando colocamos o mouse sobre a div ela gira instantaneamente. Não seria mais agradável se ela girasse aos poucos? É isso que faremos com transition.</p>
+
+
+            <h3>transition-property</h3>
+
+            <p>Usamos transition-property para selecionar a propriedade que queremos aplicar a transição. No nosso exemplo: <strong>transition-property: transform;</strong> Mas podemos usar isso para diversos outros tipos de propriedades, como por exemplo: color, backgroundcolor, height, width, border, e praticamente qualquer outra propriedade que receba valores numéricos. Para aprender mais sobre essa propriedade clique <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/transition-property">aqui</a>.</p>
+
+
+            <h3>transition-delay</h3>
+
+            <p>A propriedade transition-delay defina o tempo de espera para a transição começar. Por exemplo se usarmos 2s a transição começará 2 segundos após colocarmos o mouse sobre a div. Para aprender mais sobre essa propriedade clique <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/transition-delay">aqui</a>.</p>
+
+
+            <h3>transition-duration</h3>
+
+            <p>transition-duration define o tempo total que a transição leva para ocorrer completamente, ou seja, o tempo que leva para sair do estado inicial e chegar no estado final. Para aprender mais sobre essa propriedade clique <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/transition-duration">aqui</a>.</p>
+
+
+            <h3>transition-timing-function</h3>
+
+            <p>transition-timing-function define uma função que controla como a transformação ocorre. Por exemplo se ela começa devagar e termina rápida, ou se ela começa rápida, fica devager e termina rápida denovo. Isso ficará mais claro nos próximos exemplos. Para aprender mais sobre essa propriedade clique <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/transition-timing-function">aqui</a>.</p>
+
+            <p>Vamos agora pegar aquele primeiro exemplo que vimos e aplicar todas essas propriedades de transição na nossa div.</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    div {
+                        height: 300px;
+                        width: 300px;
+                        background-color: lightblue;
+                        transform: rotate(0deg);
+                        transition-property: transform;
+                        transition-delay: 1s;
+                        transition-duration: 3s;
+                        transition-timing-function: ease-in-out;
+                    }
+                    div:hover {
+                        transform: rotate(315deg);
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div&gt;Passe o mouse aqui!&lt;/div&gt;
+            </pre>
+
+            <p>Passe um tempo brincando com os valores, mude-os, experimente novos valores, mude outras propriedades. Use sua criatividade.</p>
+
+
+            <h3>transition</h3>
+
+            <p>A propriedade <strong>transition</strong> é uma abreviatura para as 4 propriedades de transição que vimos. Com ela podemos usar os 4 valores de uma vez, na ordem: transition-property; transition-duration;transition-timing-function; transition-delay; No exemplo anterior podemos apagar as 4 linhas das propriedades de transição e substituir por apenas uma linha assim: <strong>transition: transform 3s ease-in-out 1s;</strong> e temos o mesmo resultado.</p>
+
+
+            <h3>transition: all 1s;</h3>
+
+            <p>Já percebemos que as transições são ótimas para dar vida ao nosso site, mas se tivermos vários elementos com mudança de estado (hover ou outros) ou várias propriedades de um elemento mudando, isso pode tomar muito tempo nosso escrevendo as transiçoes. Por sorte temos uma maneira muito usada entre os desenvolvedores frontend para definir transições para todos elementos e todas propriedades ao mesmo tempo. Veja o exemplo a seguir:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    * {
+                        transition: all 1s;
+                    }
+                    div {
+                        height: 300px;
+                        width: 300px;
+                        transform: rotate(0deg);
+                        background-color: lightblue;
+                    }
+                    div:hover {
+                        height: 500px;
+                        width: 500px;
+                        transform: rotate(315deg);
+                        background-color: blue;
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div&gt;Passe o mouse aqui!&lt;/div&gt;
+            </pre>
+
+            <p>Repare em 3 coisas importante aqui:</p>
+
+            <p>1 - usamos o seletor universal (*), isso faz com que essas transições valham para todos elementos da página. Adicione novos elementos e mude as propriedades dele no estado hover. Verifique se eles também usam a transição.</p>
+
+            <p>2 - usamos apenas 2 valores, o primeiro corresponde a propriedade e o segundo a duração. Omitimos os valores da função e do delay, isso faz com que eles usem seus valores padrão, linear para a função, e 0 para o delay. </p>
+
+            <p>3 - no primeiro valor, onde selecionamos a propriedade, usamos "all" isso significa "todas". Ou seja, todas propriedades (transform, width, heigth, background-color, etc...) serão afeadas por essa transição.</p>
+
+            <p>Agora você pode brincar à vontade, mudar valores de todas propriedades que quiser, adicionar outras propriedades, outros elementos, seja feliz!</p>
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 17 - Transform</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Aula 17 - Transform</h2>
+
+            <p>Nessa aula falaremos sobre uma única propriedade CSS: <strong>transform</strong>. Mas essa propriedade pode receber diversos valores que "transformam" o elemento. É possível Mover o elemento de lugar, rotacionar o elemento, aumentar ou diminuir a escala (tamanho) do elemento, e inclinar o elemento.</p>
+
+
+            <h3>Translate</h3>
+
+            <p>O primeiro valor que estudaremos é translate. Com ele é possível transladar (mover) o elemento. Precisamos usar dois valores, o primeiro é a distância transladada para a direita (use valores negativo para mover para esquerda) e o segundo é a distância transladada para baixo (use valores negativos para mover para cima). Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    div {
+                        height: 300px;
+                        width: 500px;
+                        background-color: purple;
+                        transform: translate(200px, 200px);
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div&gt;Olá Mundo!&lt;/div&gt;
+            </pre>
+
+            <p>Mude os valores e veja o que acontece.</p>
+
+            <h3>Rotate</h3>
+
+            <p>O próximo valor que estudaremos é rotate. Com ele é possível rotacionar (girar) o elemento. Para isso é preciso fornecer um valor do ângulo que será usado para girar o elemento, geralmente entre 0 e 360deg. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    div {
+                        height: 300px;
+                        width: 500px;
+                        background-color: purple;
+                        transform: translate(200px, 200px) rotate(45deg);
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div&gt;Olá Mundo!&lt;/div&gt;
+            </pre>
+
+            <p>Repare que para usamos dois transforms nesse exemplo: translate e rotate. Para isso basta separar os dois com um espaço. Podemos fazer isso para usar diversos valores de transform em um mesmo elemento.</p>
+
+            <p>Mude os valores do exemplo anterior, veja o que acontece.</p>
+
+
+            <h3>Scale</h3>
+
+            <p>Esse valor aumenta ou diminui o tamanho de um elemento. ele recebe dois valores, o primeiro é a proporção que será usada na largura, e o segundo a proporção usada na altura. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    div {
+                        height: 300px;
+                        width: 300px;
+                        background-color: purple;
+                        transform: translate(0, 200px) scale(0.5, 2);
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div&gt;Olá Mundo!&lt;/div&gt;
+            </pre>
+
+            <p>No exemplo temos uma div com 300px de altura e largura (ou seja um quadrado), mas usamos scale para deixar a largura 0.5 vezes a largura original, ou seja, metade do valor original, resultando em 150px. E usamos 2 na escala vertical, deixando a altura com o dobro do original, ou seja, 600px. Repare que usamos um translate também para mover a div um pouco para baixo, se você retirar esse translate perceberá que parte da div ficará "para fora" da tela. Isso é porque as transformações são realizadas em relação ao centro do elemento. Então nesse caso quando aumentamos a altura de 300px para 600px, o elemento aumentou 150px para cima e 150px para baixo.</p>
+
+
+            <h3>Skew</h3>
+
+            <p>O próximo valor é skew. com ele é possível inclinar o elemento em um certo ângulo. Semelhante aos outros, ele recebe dois valores, o primeiro inclina o elemento na horizontal e o segundo na vertical. Veja o exemplo:</p>
+
+
+            <pre>
+                <code>
+                    div {
+                        height: 300px;
+                        width: 300px;
+                        background-color: purple;
+                        transform: translate(200px, 200px) skew(45deg, 15deg);
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div&gt;Olá Mundo!&lt;/div&gt;
+            </pre>
+
+            <p>Mude os valores, tente usar valores negativos, tente usar 0 em dos valores, veja o que acontece.</p>
+
+            <p>Repare também que em todos tipos de transforms o conteúdo (texto) do elemento também é tranformado. Existem outros valores para transform. Para aprender mais sobre transforms clique <a href="https://developer.mozilla.org/pt-BR/docs/Web/SVG/Attribute/transform">aqui</a>.</p>
+
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>
