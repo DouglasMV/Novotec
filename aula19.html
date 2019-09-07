@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 19 - Animation</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2 id="titulo-aula-19">Aula 19 - Animation</h2>
+
+            <p>Aula passada aprendemos a fazer transições, que criam uma sensação de movimento quando mudamos o estado de um elemento (com hover por exemplo).</p>
+
+            <p>Nesta aula aprenderemos a criar animações com CSS. Animações são semelhantes a transições pelo fato de que podemos mudar várias propriedades (cores, dimensões, transforms, etc...). A diferença é que animações não necessitam que o elemento mude de estado, basta que o elemento possua as propriedades de animação e ela será exibida. Além disso animações nos dão muito mais controle sobre o que é possível fazer. Podemos repetir a animação por várias vezes seguidas, inclusive infinitamente, e muito mais.</p>
+
+            <p>Mas tome cuidado com animações, elas podem ser muito chamativas e desviar o usuário do foco do website. Elas devem ser usadas com cuidado, devem ser descretas e agradáveis.</p>
+
+
+            <h3>@keyframes</h3>
+
+            <p>@keyframes é uma "regra" de CSS que guarda quais estilos o elemento terá em cada etapa da animação. É parecido com uma propriedade mas escrito de uma maneira diferente. Não se preocupe ficará mais fácil de entender com os exemplos.</p>
+
+            <p>Quando você define propriedades de estilos CSS dentro de uma @keyframes a animação muda gradualmente entre os estilos no tempo definido. Vejamos um exemplo:</p>
+
+            <pre>
+                <code>
+                    @keyframes mudar-cor {
+                        from {color: red;}
+                        to {color: blue;}
+                    }
+                </code>
+            </pre>
+
+            <p>Essa @keyframes cria uma animação que muda a cor do texto de vermelho para azul gradualmente. Mas para visualizar a animação precisamos adicioná-la a um elemento, veremos como fazer isso a seguir.</p>
+
+            
+            <h3>animation-name</h3>
+
+            <p>Para adicionar uma animação a um elemento, usamos a propriedade animation-name, ela deve receber como valor o nome da animação criada com a @keyframes.</p>
+
+            <p>Mas apenas adicionar a animação ao elemento não fará nada ainda. Precisamos também definir o tempo de duração da animação. Vamos ver como fazr isso com a próxima propriedade.</p>
+
+
+            <h3>animation-duration</h3>
+
+            <p>A propriedade animation-duration define o tempo de duração da animação. Se ela não for definida não ocorrerá animação, pois o valor padrão é 0 segundos. Veja o exemplo a seguir:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    @keyframes mudar-cor {
+                        from {color: red;}
+                        to {color: blue;}
+                    }
+                    h1 {
+                        animation-name: mudar-cor;
+                        animation-duration: 5s;
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;h1&gt;Texto animado!&lt;/h1&gt;
+            </pre>
+
+            <p>Repare que a animação aconteceu uma vez apenas e após ela o texto voltou a ser preto (a cor padrão) de uma vez. Geralmente queremos que o elemento permaneça com o estilo do final da animação, veremos como fazer isso. Veremos também como fazer a animação repetir várias vezes, ou até infinitamente.</p>
+
+            <h3>Dividindo a animação em vários estágios.</h3>
+
+            <p>No nosso primeiro exemplo, dentro da @keyframes, usamos as palavras "from" e "to" que siginificam que a animação vai do primeiro estilo (from) até o segundo (to). Ou seja, a animação tem 2 estágios. Porém podemos criar animações com mais estágios. Para isso, ao invés de usar "from" e "to" utilizamos porcentagens. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    @keyframes mudar-cor-e-tamanho-girando {
+                        0% {color: red; font-size: 10px;}
+                        20% {color: green;}
+                        40% {color: yellow;  transform: rotate(360deg);}
+                        75% {color: magenta;}
+                        100% {color: blue; font-size: 100px;}
+                    }
+                    h1 {
+                        animation-name: mudar-cor-e-tamanho-girando;
+                        animation-duration: 5s;
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;h1&gt;Texto animado!&lt;/h1&gt;
+            </pre>
+
+            <p>Repare que o início da animação é 0% e o final é 100%. E entre esses dois valores podemos adicionar quantos quisermos.</p>
+
+            <p>Repare também que podemos mudar várias propriedades na mesma animação. Nesse caso, além da cor do texto mudamos o tamanho da fonte e usamos o transform: rotate() para girar o elemento. Repare que não é necessário ter todas propriedades em todos estágios. Cada propriedade muda independentemente das outras, de acordo com os estágios aos quais ela pertence.</p>
+
+
+            <h3>animation-delay</h3>
+
+            <p>A propriedade animation-delay determina um tempo de espera até a animação começar. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    @keyframes aumentar-fonte {
+                        from {font-size: 5px;}
+                        to {font-size: 100px}
+                    }
+                    h1 {
+                        animation-name: aumentar-fonte;
+                        animation-duration: 5s;
+                        animation-delay: 2s;
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;h1&gt;Texto animado!&lt;/h1&gt;
+            </pre>
+
+            <p>Percebeu como demorou um pouco para a animação começar? Mude o valor e veja o que acontece. O que acontece se usarmos um valor negativo? Qual o valor padrão dessa popriedade?</p>
+
+
+            <h3>animation-iteration-count</h3>
+
+            <p>A propriedade animation-iteration-count determina quantas vezes uma animação deve se repetir. Ela pode receber um valor inteiro, ou o valor "infinite" que faz a animação se repetir infinitamente. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    @keyframes aumentar-fonte {
+                        from {font-size: 5px;}
+                        to {font-size: 100px}
+                    }
+                    h1 {
+                        animation-name: aumentar-fonte;
+                        animation-duration: 2s;
+                        animation-iteration-count: 3;
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;h1&gt;Texto animado!&lt;/h1&gt;
+            </pre>
+
+            <p>Repare que a animação se repetiu 3 vezes e depois parou. Mude o valor e veja o que acontece. O que acontece se usarmos um valor infinite? Qual o valor padrão dessa popriedade?</p>
+
+
+            <h3>animation-direction</h3>
+
+            <p>A propriedade animation-direction define se a animação deve ser executada normalmente: do começo (0%) até o final (100%); reversamente do final até o começo; alternadamente: do começo até o final e depois do final até o começo; ou alternadamente na ordem reversa: do final até o começo e depois do começo até o final. Os valores possíveis para essa propriedade são respectivamente: normal; reverse; alternate; alternate-reverse. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    @keyframes aumentar-fonte {
+                        from {font-size: 5px;}
+                        to {font-size: 100px}
+                    }
+                    h1 {
+                        animation-name: aumentar-fonte;
+                        animation-duration: 2s;
+                        animation-iteration-count: infinite;
+                        animation-direction: reverse;
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;h1&gt;Texto animado!&lt;/h1&gt;
+            </pre>
+
+            <p>Altere o valor para os outros valores possíveis e veja o que acontece.</p>
+
+
+            <h3>animation-fill-mode</h3>
+
+            <p>Você deve ter percebido em alguns exemplos anteriores que após o final da animação o elemento volta a ter suas propriedades padrões. Geralmente não é isso que queremos. Queremos que após a animação o elemento continue com os estilos que tinha no final da animação (100%). E queremos que antes da animação (no tempo de delay) o elemento tenha os estilos do início (0%) da animação.</p>
+
+            <p>É exatamente isso que a propriedade animation-fill-mode faz. O valor padrão é <strong>none</strong>. Para o elemento manter os estilos do final da animação após a mesma usamos o valor <strong>forwards</strong>. Para o elemento ter os estilos do começo da animação (0%) durante o tempo de delay usamos o valor <strong>backwards</strong>. Para aplicar ambos usamos o valor <strong>both</strong>. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    @keyframes aumentar-fonte {
+                        from {font-size: 5px;}
+                        to {font-size: 100px}
+                    }
+                    h1 {
+                        animation-name: aumentar-fonte;
+                        animation-duration: 5s;
+                        animation-delay: 2s;
+                        animation-fill-mode: none;
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;h1&gt;Texto animado!&lt;/h1&gt;
+            </pre>
+
+            <p>Mude o valor de animation-fill-mode no exemplo para os outros valores possíveis e veja a diferença.</p>
+
+
+            <h3>animation-timing-function</h3>
+
+            <p>A propriedade animation-timing-function define o comportamento da velocidade da animação. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    @keyframes corrida {
+                        from {left: 0;}
+                        to {left: 300px;}
+                    }
+                    div {
+                        width: 100px;
+                        height: 50px;
+                        background-color: lightblue;
+                        position: relative;
+                        animation: corrida 5s infinite;
+                        animation-fill-mode: both;
+                    }
+                    #div1 {animation-timing-function: linear;}
+                    #div2 {animation-timing-function: ease;}
+                    #div3 {animation-timing-function: ease-in;}
+                    #div4 {animation-timing-function: ease-out;}
+                    #div5 {animation-timing-function: ease-in-out;}
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="div1"&gt;linear&lt;/div&gt;
+                    &lt;div id="div2"&gt;ease&lt;/div&gt;
+                    &lt;div id="div3"&gt;ease-in&lt;/div&gt;
+                    &lt;div id="div4"&gt;ease-out&lt;/div&gt;
+                    &lt;div id="div5"&gt;ease-in-out&lt;/div&gt;
+            </pre>
+
+            <p>O exemplo acima é uma ótima maneira de comparar as funções.</p>
+
+
+            <h3>animation</h3>
+
+            <p>A propriedade animation é uma abreviação para usarmos todas propriedades que vimos. Por exemplo se temos um elemento com essas propriedades de animação:</p>
+
+            <pre>
+                <code>
+                    @keyframes example {
+                        0% {color: red;}
+                        25% {color: blue;}
+                        50% {color: green;}
+                        75% {color: yellow;}
+                        100% {color: magenta;}
+                    }
+                    h1{
+                        animation-name: example;
+                        animation-duration: 5s;
+                        animation-timing-function: linear;
+                        animation-delay: 2s;
+                        animation-iteration-count: infinite;
+                        animation-direction: alternate;
+                        animation-fill-mode: both;
+                    }
+                </code>
+            </pre>
+
+            <p>Podemos escrever isso de maneira mais compacta usando a propriedade animation:</p>
+
+            <pre>
+                <code>
+                    example {
+                        0% {color: red;}
+                        25% {color: blue;}
+                        50% {color: green;}
+                        75% {color: yellow;}
+                        100% {color: magenta;}
+                    }
+                    h1 {
+                        animation: example 5s linear 2s infinite alternate both;
+                    }
+                </code>
+            </pre>
+
+            <p>Também podemos omitir valores que desejamos deixar como padrão.</p>
+
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>

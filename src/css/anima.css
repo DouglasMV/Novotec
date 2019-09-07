@@ -1,0 +1,8 @@
+@keyframes titulo {
+  from  {color: black;}
+  to  {color: orange;}
+}
+
+#titulo-aula-19 {
+    animation: titulo 5s linear 0s infinite alternate;
+}
