@@ -1,0 +1,12 @@
+@media only screen and (max-width: 640px) {
+    nav{
+        width: 100%;
+    }
+    #menu-ul{
+        border-right: none;
+        min-height: 100vh;
+    }
+    body{
+        display: inherit;
+    }
+}

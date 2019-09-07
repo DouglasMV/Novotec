@@ -1,0 +1,76 @@
+main{
+    width: 100vw;
+    padding: 20px 70px 20px 320px;
+    overflow: auto;
+    margin: 0;
+}
+
+article {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 300px;
+}
+
+h1, h2 {
+    text-align: center;
+    font-size: 3vmax;
+}
+
+h3 {
+    margin-top: 70px;
+    font-size: 2.5vmax;
+}
+
+h3::before {
+    width: 1px;
+    height: 3vh;
+    content: "> ";
+    text-align: left;
+}
+
+p {
+    text-align: justify;
+    font-size: 2vmax;
+}
+
+pre {
+    background-color: #f5f8e2;
+    color: #505050;
+    border: 1px solid #909090;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 1vmax;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+table{
+    border-collapse: collapse;
+    margin: 30px 0;
+}
+
+.hcores {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.hcores::before {
+    content: none;
+}
+
+p>a {
+    color: rgb(151, 2, 151);
+    font-weight: bold;
+}
+
+#lista-github {
+    list-style-type: none;
+    font-size: 1.5vmax;
+}
+
+em {
+    color: rgb(190, 86, 1);
+}
