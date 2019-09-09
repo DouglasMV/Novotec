@@ -86,6 +86,14 @@ const linkList = [
   {
     text: "Aula 18 - Transition",
     link: "aula18.html"
+  },
+  {
+    text: "Aula 19 - Animation",
+    link: "aula19.html"
+  },
+  {
+    text: "Aula 20 - Design Responsivo",
+    link: "aula20.html"
   }
 ];
 

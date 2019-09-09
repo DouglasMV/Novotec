@@ -39,7 +39,7 @@ pre {
     border: 1px solid #909090;
     border-radius: 5px;
     overflow: hidden;
-    font-size: 1vmax;
+    font-size: 0.8vw;
 }
 
 td, th {

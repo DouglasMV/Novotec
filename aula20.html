@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 20 - Design Responsivo</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Aula 20 - Design Responsivo</h2>
+
+            <p>Design responsivo faz seu website ter um design bonito e agradável em todos tamanhos de tela. Consiste em técnicas e conhecimentos de HTML e CSS para fazer com que o layout da página altere-se dependendo do tamanho da tela do usuário.</p>
+
+            
+            <h3>Viewport</h3>
+
+            <p>O viewport é a área da página visível para o usuário. Ele muda de acordo com o dispositivo, por exemplo é menor em um smartphone do que em uma monitor.</p>
+
+            <p>Quando criamos um documento HTML no Visual Studio Code e usamos o atalho ! Tab (ou ! Enter), criamos um esqueleto básico de uma página HTML. Uma das tags que é criada automaticamente dessa maneira é a tag meta com o atributo name="viewport". Veja abaixo como essa tag se parece:</p>
+
+            <pre>
+                <code>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                </code>
+            </pre>
+
+            <p>Meta tags servem para indicar metadados, doados sobre o próprio documento HTML. Nesse caso indicamos dados sobre o viewport. No atributo content temos duas informações.</p>
+
+            <p>Primeiramente width=device-width diz para o navegador usar como a largura visível da página (largura do viewport) a largura do dispositivo.</p>
+
+            <p>A segunda parte, initial-scale=1.0, define o zoom inicial da página quando é carregada pelo navegador como 1, ou seja 100%.</p>
+
+
+            <h3>Sem rolagem horizontal!</h3>
+
+            <p>Os usuários estão acostumados a rolar a página para baixo ou para cima, mas não para a esquerda ou direita. Então se o usuário for obrigado a rolar a página horizontalmente para poder ver o conteúdo isso é um defeito muito grande e causa uma péssima experiência do usuário (UX). Para isso devemos seguir algumas dicas:</p>
+
+            <p><strong>Não use valores fixos muito grandes para a largura dos elementos.</strong> Alguns dispositivos podem ter telas com larguras bem pequenas, geralmente a menor largura é de aproximadamente 320px. Então qualquer elemento com tamanho fixo maior que 320px irá criar uma barra de rolagem horizontal em dispositivos pequenos. A solução para isso pode ser mudar o tamanho do elemento de acordo com o tamanho da tela (usando seletor de mídia, veremos adiante) ou usar unidades relativas (%, vw, vh, vmax, vmin).</p>
+
+            <p><strong>Não deixe que o conteúdo dependa de uma largura específica para parecer bonito.</strong> Nunca crie um elemento que fica bom em certas larguras de tela e ruim em outras. Por exemplo uma imagem com bastante detalhes ou uma tabela com muitas colunas podem ser bonitas em telas grandes, mas impossíveis de compreender em telas pequenas. A solução para isso seria mostrar outra imagem ou uma tabela com menos conteúdo em telas menores, ou simplesmente não mostrar. Veremos como fazer isso.</p>
+
+            <p><strong>Use seletor de mídia para usar estilos diferentes para telas grandes e pequenas.</strong> Veremos o que é seletor de mídia e como usá-lo daqui a pouco, mas basicamente serve para mudar as propriedades CSS de acordo com o tamanho da tela. Isso é muito útil principalmete para propriedades de posição, pois se não mudarmos pode ser que um elemento esteja posicionado fora do viewport em dispositivos menores.</p>
+
+
+            <h3>Seletor de Mídia</h3>
+
+            <p>Seletor de Mídia é uma técnica de CSS que utiliza a regra <strong>@media</strong> para usar algumas propriedades CSS somente se algumas condições forem satisfeitas. Geralmente a condição que usamos é o tamanho da tela. Ou seja, podemos usar certos estilos só para telas maiores (ou menores) que um certo valor definido por nós. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    body {
+                        background-color: red;
+                    }
+                    @media only screen and (min-width: 600px) {
+                        body {
+                          background-color: lightblue;
+                        }
+                    }
+                </code>
+            </pre>
+
+            <p>Mude o tamanho da tela de seu navegador e veja o que acontece com a cor de fundo da página.</p>
+
+            <p>Vamos prestar atenção na linha <strong>@media only screen and (min-width: 600px)</strong>, esse é o nosso seletor de mídia. A parte "only screen" quer dizer "apenas tela", pois temos outros tipos de mídia que podem visualizar a página, por exemplo "print" para impressão. A segunda parte "(min-width: 600px)" quer dizer no mínimo 600px de largura, ou seja, os estilos CSS que escrevermos dentro dessa regra só serão aplicados em telas maiores que 600px.</p>
+            
+            <p>Também podemos usar "(max-width: 600px)" que significa no máximo 600px de largura, ou seja, os estilos seriam aplicados apenas para dispostivos com tela menor que 600px. Geralmente é preferível utilizar o min-width, veremos por que mais adiante.</p>
+
+            <p>Mas é claro que a cor de fundo não é a propriedade mais interessante que podemos mudar de acordo com o tamanho da tela. As propriedades que queremos mudar geralmente são as relacionadas com o tamanho e posicionamento dos elementos. Veja o exemplo abaixo que é um pouco mais complexo, porém bem mais perto do que usariamos na realidade:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                    }
+                    img {
+                        width: 100vw;
+                    }
+                    li {
+                        display: inline-block;
+                        text-align: center;
+                        width: 32%;
+                        color: red;
+                        font-weight: bold;
+                        font-family: Verdana, Geneva, Tahoma, sans-serif;
+                    }
+                    li:hover {
+                        background-color: red;
+                        color: white;
+                    }
+        
+                    @media only screen and (min-width: 600px) {
+                        img {
+                            height: 20px;
+                            width: auto;
+                            float: left;
+                        }
+                        ul {
+                            height: 20px;
+                            width: 60vw;
+                            float: right;
+                        }
+                    }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;img src="https://i.imgur.com/IYI0sjD.png"&gt;
+    
+                    &lt;ul&gt;
+                        &lt;li&gt;Home&lt;/li&gt;
+                        &lt;li&gt;Sobre&lt;/li&gt;
+                        &lt;li&gt;Contato&lt;/li&gt;
+                    &lt;/ul&gt;
+                </code>
+            </pre>
+
+            <p>Veja como o menu e o logo mudam de acordo com o tamanho da tela!</p>
+
+
+            <h3>Mobile First</h3>
+
+            <p>O conceito de "Mobile First", em português "Dispositivos Móveis Primeiro" significa que devemos desenvolver os estilos do nosso website primeiramente para dispositivos móveis (com tela menor), e depois usando os seletores de mídia fazemos os estilos para telas maiores.</p>
+
+            <p>Você consegue adivinhar qual o motivo para isso? O motivo é que geralmente os dispositivos móveis possuem conexões com a internet mais lentas do que os desktops. E escrevendo o código para dispositivos menores primeiro faz com que eles não carreguem os estilos que estão dentro dos seletores de mídia, pois eles não satisfazem a condição de tamanho mínimo da tela. Carregar menos dados pode fazer muita diferença para dispositivos móveis, não só na velocidade para abrir a página mas também na economia de bateria, pois uso de dados 3G ou WiFi podem consumir bastante bateria.</p>
+
+            <p>É por isso que nos seletores de mídia devemos sempre que possível utilizar <strong>min-width</strong> e evitar max-width.</p>
+
+            <p>Uma dica é quando for começar a desenvolver um site use o "Responsive Design Mode" do Google Chrome (Ctrl Shift M), nele é possível aumentar ou diminuir a tela. Deixe a tela do tamanho do menor dispositivo que seus usuários possuem, desenvolva o site nesse tamanho e depois aumente o tamanho e faça as mudanças necessárias utilizando seletores de mídia.</p>
+
+
+            <h3>Pontos de Quebra típicos</h3>
+
+            <p>Nos exemplo anteriores você deve ter reparado que utilizamos <strong>min-width: 600px</strong> nos seletores de mídia. Isso é chamado de ponto de quebra. É o ponto a partir do qual o website começa a utilizar os estilos dentro daquele seletor de mídia.</p>
+
+            <p>No próximo exemplo veremos duas coisas: primeiro é o fato de que podemos utilizar vários seletores de mídia com pontos de quebra diferentes num mesmo arquivo CSS; e também veremos alguns pontos de quebra típicos, não são nenhum padrão ou regra, apenas uma boa referência. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    @media only screen and (max-width: 600px) {
+                        div::after {
+                            content: "Dispositivos extra pequenos: Smartphone.";
+                        }
+                    }
+        
+                    @media only screen and (min-width: 600px) {
+                        div::after {
+                            content: "Dispositivos pequenos: Tablets, Smartphones grandes";
+                        }
+                    }
+        
+                    @media only screen and (min-width: 768px) {
+                        div::after {
+                            content: "Dispositivos médios: Tablets no modo paisagem.";
+                        }
+                    }
+        
+                    @media only screen and (min-width: 992px) {
+                        div::after {
+                            content: "Dispositivos grandes: Notebooks e Desktops.";
+                        }
+                    }
+        
+                    @media only screen and (min-width: 1200px) {
+                        div::after {
+                            content: "Dispositivos extra grandes: Notebooks e Desktops com telas maiores.";
+                        }
+                    } 
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div&gt;&lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Repare que temos vários seletores de mídia. o Primeiro usa max-width: 600px, para dispositivos com no máximo 600px de lagura. Mas poderia ser removido e como é escrito primeiro seria o padrão, respeitando o princípo "Mobile First". Todos outros usam min-width, ou seja, no mínimo aquela largura, então conforme a tela aumenta o último estilo que tem o tamanho mínimo satisfeito será usado.</p>
+
+            <p>Percebeu que a ordem também é importante? altere a ordem dos seletores e veja como o resultado não é exatamente o que queremos.</p>
+
+            <p>Você pode usar seletores de mídia para mudar quaisquer propriedades CSS. Porx exemplo: mudar a imagem de background, mudar o display de algum elemento para "none", assim ele desaparece em dispositivos de certo tamanho, e muito mais.</p>
+
+            <p>Existe uma desvantagem em usar seletores de mídia: precisamos escrever os estilos várias vezes para tamanhos diferentes. Às vezes é possível utilizar outros truques, como usar unidades relativas (%, vh, vw, vmax, vmin) ou usar flexbox e grid (que veremos em aulas futuras).</p>
+
+
+            <h3>Imagens Responsivas</h3>
+
+            <p>Agora veremos uma técnica para deixar uma imagem responsiva. Talvez você tenha pensado em usar algo como width: 100%; De certa forma isso funciona, mas se a tela for muito grande a imagem pode ficar maior do que seu tamanho original, e geralmente isso faz a imagem perder qualidade. Por isso usamos max-width ao invés de width, assim a imagem para de aumentar quando chega em seu tamanho original, veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                   img {
+                       max-width: 100%;
+                       height: auto;
+                   }
+                </code>
+            </pre>
+    
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;img src="https://i.imgur.com/BdCM08L.jpg"&gt;
+                </code>
+            </pre>
+
+            <p>A imagem usada no exemplo tem 800px de largura, repare que se aumentarmos a tela para mais de 800px de largura a imagem não muda de tamanho, porém se diminuir-mos para menos de 800px ela automaticamente muda de tamanho.</p>
+
+            <p>Temos também a tag <strong>&lt;picture&gt;</strong> que pode receber várias imagens e mostra apenas uma, a primeira que satisfaz as condições, veja o exemplo:</p>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;picture&gt;
+                        &lt;source srcset="https://i.imgur.com/u8zM6O4.jpg" media="(max-width: 730px)"&gt;
+                        &lt;source srcset="https://imgur.com/a/RjVfS00" media="(max-width: 1100px)"&gt;
+                        &lt;source srcset="https://i.imgur.com/iT8DCUf.jpg" media="(max-width: 400px)"&gt;
+                        &lt;source srcset="img_flowers.jpg"&gt;
+                        &lt;img src="https://i.imgur.com/iT8DCUf.jpg" alt="Flowers"&gt;
+                    &lt;/picture>&gt;
+                </code>
+            </pre>
+
+            <p>Aumente e diminua o tamanho da tela e veja como as imagens mudam. É sempŕe bom ter uma tag img no final, além das tags source, pois alguns navegadores não reconhecem as tags picture nem source, assim eles utilizaram a imagem da tag img.</p>
+
+            <p>Repare que aqui usamos "max-width" ao contrário dos seletores de mídia (@media) onde preferimos usar "min-width". Isso é porque a tag picture usa a primeira imagem que satisfaz as condições, já o @media utilizia sempre o último bloco que satisfaz o tamanho.</p>
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>
