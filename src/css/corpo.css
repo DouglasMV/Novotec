@@ -38,8 +38,8 @@ pre {
     color: #505050;
     border: 1px solid #909090;
     border-radius: 5px;
-    overflow: hidden;
-    font-size: 0.8vw;
+    overflow: scroll;
+    font-size: 2vmax;
 }
 
 td, th {

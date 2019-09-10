@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 21 - Flexbox</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Aula 21 - Flexbox</h2>
+
+            <p>O Flexbox permite a criação de layouts responsivos sem o uso de float ou position.</p>
+
+
+            <h3>Container (Pai)</h3>
+
+            <p>Para utilizar Flexbox, primeiro precisamos de um container. O container nada mais é do que um elemento que é pai de todos items. Veja o exemplo:</p>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="itens"&gt;1&lt;/div&gt;
+                        &lt;div class="itens"&gt;2&lt;/div&gt;
+                        &lt;div class="itens"&gt;3&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Agora para que o container se torne um Flexbox, utilizamos a propriedade <strong>display</strong>, com o valor <strong>flex</strong>. Assim:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    .itens {
+                        background-color: lightblue;
+                        width: 100px;
+                        text-align: center;
+                        padding: 20px 0;
+                        border: 1px solid black;
+                    }
+                    #meu-container {
+                        <strong>display: flex;</strong> 
+                    }
+                </code>
+            </pre>
+
+            <p>O container pode receber 6 propriedades:</p>
+
+            <ul>
+                <li>flex-direction</li>
+                <li>flex-wrap</li>
+                <li>flex-flow</li>
+                <li>justify-content</li>
+                <li>align-items</li>
+                <li>align-content</li>
+            </ul>
+
+            <p>Estudaremos cada uma delas agora.</p>
+
+
+            <h3>flex-direction (container)</h3>
+
+            <p>Flexbox organiza os item em apenas uma direção, porém você pode escolher qual delas (horizontal ou vertical), usando a propriedade flex-direction. Ela pode receber 4 valores:</p>
+
+            <ul>
+                <li>row (horizontal da esquerda para a direita, valor padrão)</li>
+                <li>row-reverse (horizontal da direita para a esquerda)</li>
+                <li>column (vertical de cima para baixo)</li>
+                <li>column-reverse (vertical de baixo para cima)</li>
+            </ul>
+
+            <p>Em inglês row significa linha e column coluna. Então você pode escolher entre mostrar seus itens em uma linha ou em uma coluna. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    .itens {
+                        background-color: lightblue;
+                        width: 100px;
+                        text-align: center;
+                        padding: 20px 0;
+                        border: 1px solid black;
+                    }
+                    #meu-container {
+                        display: flex;
+                        <strong>flex-direction: column-reverse;</strong> 
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="itens"&gt;1&lt;/div&gt;
+                        &lt;div class="itens"&gt;2&lt;/div&gt;
+                        &lt;div class="itens"&gt;3&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Mude o valor de flex-direction para os outros valores possíveis e veja os resultados.</p>
+
+
+            <h3>flex-wrap (container)</h3>
+
+            <p>A propriedade flex-wrap determina se os items criam uma nova linha (ou coluna) caso o tamanho deles exceda o tamanho do elemento container ou da tela. Existem dois valores possíveis: <strong>wrap</strong> que cria uma nova linha caso precise; e <strong>nowrap</strong> que não cria uma nova linha, e sim diminue os elementos para que todos possam caber na mesma linha, esse é o valor padrão. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    .itens {
+                        background-color: lightblue;
+                        width: 100px;
+                        text-align: center;
+                        padding: 20px 0;
+                        border: 1px solid black;
+                    }
+                    #meu-container {
+                        display: flex;
+                        <strong>flex-wrap: wrap;</strong> 
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="itens"&gt;1&lt;/div&gt;
+                        &lt;div class="itens"&gt;2&lt;/div&gt;
+                        &lt;div class="itens"&gt;3&lt;/div&gt;
+                        &lt;div class="itens"&gt;4&lt;/div&gt;
+                        &lt;div class="itens"&gt;5&lt;/div&gt;
+                        &lt;div class="itens"&gt;6&lt;/div&gt;
+                        &lt;div class="itens"&gt;7&lt;/div&gt;
+                        &lt;div class="itens"&gt;8&lt;/div&gt;
+                        &lt;div class="itens"&gt;9&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Mude o valor para nowrap (ou apague a propriedade pois esse é o valor padrão) e veja o que acontece.</p>
+
+
+            <h3>flex-flow (container)</h3>
+
+            <p>A propriedade flex-flow é uma abreviação para as propriedades flex-direction e flex-wrap. ela recebe dois valores, o primeiro é o valor da direção (row, row-reverse, column, column-reverse) e o segundo é se deve ou não criar uma nova linha caso precise (wrap, nowrap). Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    .itens {
+                        background-color: lightblue;
+                        width: 100px;
+                        text-align: center;
+                        padding: 20px 0;
+                        border: 1px solid black;
+                    }
+                    #meu-container {
+                        display: flex;
+                        <strong>flex-flow: row-reverse wrap;</strong> 
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="itens"&gt;1&lt;/div&gt;
+                        &lt;div class="itens"&gt;2&lt;/div&gt;
+                        &lt;div class="itens"&gt;3&lt;/div&gt;
+                        &lt;div class="itens"&gt;4&lt;/div&gt;
+                        &lt;div class="itens"&gt;5&lt;/div&gt;
+                        &lt;div class="itens"&gt;6&lt;/div&gt;
+                        &lt;div class="itens"&gt;7&lt;/div&gt;
+                        &lt;div class="itens"&gt;8&lt;/div&gt;
+                        &lt;div class="itens"&gt;9&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Repare nesse caso específico o que ocorre quando diminuimos a tela. Mude os valores para ver o que muda.</p>
+
+
+            <h3>justify-content (container)</h3>
+
+            <p>A propriedade justify-content serve para alinhar os itens na direção usada em flex-direction (horizontal para row, vertical para column). Essa propriedade pode receber 5 valores:</p>
+
+            <ul>
+                <li>center (centralizado)</li>
+                <li>flex-start (alinhar ao começo)</li>
+                <li>flex-end (alinha ao final)</li>
+                <li>space-around (cria espaços em volta dos itens)</li>
+                <li>space-between (cria espaço entre os itens)</li>
+            </ul>
+
+            <p>Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    .itens {
+                        background-color: lightblue;
+                        width: 100px;
+                        text-align: center;
+                        padding: 20px 0;
+                        border: 1px solid black;
+                    }
+                    #meu-container {
+                        display: flex;
+                        flex-direction: row;
+                        <strong>justify-content: center;</strong> 
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="itens"&gt;1&lt;/div&gt;
+                        &lt;div class="itens"&gt;2&lt;/div&gt;
+                        &lt;div class="itens"&gt;3&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Mude o valor para os outros possíveis e veja as diferenças. Mude a direção (flex-direction) também e veja as diferenças.</p>
+
+
+            <h3>align-items (container)</h3>
+
+            <p>A propriedade align-items é usada para alinhar os itens na direção oposta a da propriedade flex-direction. E pode receber 5 valores:</p>
+
+            <ul>
+                <li>center (centralizado)</li>
+                <li>flex-start (no começo do container)</li>
+                <li>flex-end (no final do container)</li>
+                <li>stretch (estica os elementos até preencher a altura, ou largura se a direção for "column", do container)</li>
+                <li>baseline (alinha os itens de acordo com a linha de base do texto.</li>
+            </ul>
+
+            <p>Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    .itens {
+                        background-color: lightblue;
+                        width: 100px;
+                        text-align: center;
+                        padding: 20px 0;
+                        border: 1px solid black;
+                    }
+                    #meu-container {
+                        display: flex;
+                        background-color: magenta;
+                        height: 300px;
+                        flex-direction: row;
+                        <strong>align-items: center;</strong> 
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;h1 class="itens"&gt;1&lt;/h1&gt;
+                        &lt;h2 class="itens"&gt;2&lt;/h2&gt;
+                        &lt;h3 class="itens"&gt;3&lt;/h3&gt;
+                        &lt;h4 class="itens"&gt;4&lt;/h4&gt;
+                        &lt;h5 class="itens"&gt;5&lt;/h5&gt;
+                        &lt;h6 class="itens"&gt;6&lt;/h6&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Mude o valor para os outros possíveis e veja as diferenças. Mude a direção (flex-direction) também e veja as diferenças.</p>
+
+
+            <h3>align-content (container)</h3>
+
+            <p>A propriedade align-content é usada para alinhas as linhas (ou colunas se a direção for columns) de um container flexbox. Essa propriedade pode receber 6 valores:</p>
+
+            <ul>
+                <li>center (centralizado)</li>
+                <li>flex-start (alinhar ao começo)</li>
+                <li>flex-end (alinha ao final)</li>
+                <li>space-around (cria espaços em volta dos itens)</li>
+                <li>space-between (cria espaço entre os itens)</li>
+                <li>stretch (estica as linhas até preencher a altura do container)</li>
+            </ul>
+
+            <p>Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    .itens {
+                        background-color: lightblue;
+                        width: 100px;
+                        text-align: center;
+                        padding: 20px 0;
+                        border: 1px solid black;
+                    }
+                    #meu-container {
+                        display: flex;
+                        flex-direction: row;
+                        <strong>align-content: center;</strong> 
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="itens"&gt;1&lt;/div&gt;
+                        &lt;div class="itens"&gt;2&lt;/div&gt;
+                        &lt;div class="itens"&gt;3&lt;/div&gt;
+                        &lt;div class="itens"&gt;4&lt;/div&gt;
+                        &lt;div class="itens"&gt;5&lt;/div&gt;
+                        &lt;div class="itens"&gt;6&lt;/div&gt;
+                        &lt;div class="itens"&gt;7&lt;/div&gt;
+                        &lt;div class="itens"&gt;8&lt;/div&gt;
+                        &lt;div class="itens"&gt;9&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Mude o valor para os outros possíveis e veja as diferenças. Mude a direção (flex-direction) também e veja as diferenças.</p>
+
+
+            <h3>Centralizando perfeitamente</h3>
+
+            <p>Um problema muito comum é centralizar perfeitamente um elemento dentro de outro. Com Flexbox podemos resolver isso facilmente, veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: flex;
+                        height: 300px;
+                        width: 300px;
+                        background-color: green;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;span&gt;Bem no centro!&lt;/span&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+
+            <h3>Itens</h3>
+
+            <p>Os elementos filhos de um container flex automaticamente se tornam itens flexíveis (flex items).</p>
+
+            <p>Esses itens flexíveis podem receber algumas propriedades CSS. Essas propriedades podem ser:</p>
+
+            <ul>
+                <li>order</li>
+                <li>flex-grow</li>
+                <li>flex-shrink</li>
+                <li>flex-basis</li>
+                <li>flex</li>
+                <li>align-self</li>
+            </ul>
+
+            <p>Vamos estudar cada uma dessas propriedades agora.</p>
+
+
+            <h3>order</h3>
+
+            <p>A propriedade order define a ordem de um item em relação aos outros. O valor deve ser um número, o padrão é 0. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    .itens {
+                        background-color: lightblue;
+                        width: 100px;
+                        text-align: center;
+                        padding: 20px 0;
+                        border: 1px solid black;
+                    }
+                    #meu-container {
+                        display: flex;
+                    }
+                    #div1 {
+                        order: 4;
+                    }
+                    #div2 {
+                        order: 1;
+                    }
+                    #div3 {
+                        order: 2;
+                    }
+                    #div4 {
+                        order: 5;
+                    }
+                    #div5 {
+                        order: 3;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div id="div1" class="itens"&gt;1&lt;/div&gt;
+                        &lt;div id="div2" class="itens"&gt;2&lt;/div&gt;
+                        &lt;div id="div3" class="itens"&gt;3&lt;/div&gt;
+                        &lt;div id="div4" class="itens"&gt;4&lt;/div&gt;
+                        &lt;div id="div5" class="itens"&gt;5&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+
+            <h3>flex-grow</h3>
+
+            <p>A propriedade flex-grow define quanto um item irá crescer em relação aos outros. O valor deve ser um número, o padrão é 0. Só é possível observar o efeito dessa propriedade se o container tive a propriedade align-items: stretch; Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    .itens {
+                        background-color: lightblue;
+                        width: 100px;
+                        text-align: center;
+                        padding: 20px 0;
+                        border: 1px solid black;
+                    }
+                    #meu-container {
+                        display: flex;
+                        align-items: stretch;
+                    }
+                    #div1 {
+                        flex-grow: 1;
+                    }
+                    #div2 {
+                        flex-grow: 1;
+                    }
+                    #div3 {
+                        flex-grow: 4;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div id="div1" class="itens"&gt;1&lt;/div&gt;
+                        &lt;div id="div2" class="itens"&gt;2&lt;/div&gt;
+                        &lt;div id="div3" class="itens"&gt;3&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+
+            <h3>flex-shrink</h3>
+
+            <p>A propriedade flex-grow define quanto um item irá diminuir em relação aos outros. O valor deve ser um número, o padrão é 0. Só é possível observar o efeito dessa propriedade se o container tive a propriedade align-items: stretch; Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    .itens {
+                        background-color: lightblue;
+                        width: 300px;
+                        text-align: center;
+                        padding: 20px 0;
+                        border: 1px solid black;
+                    }
+                    #meu-container {
+                        display: flex;
+                        align-items: stretch;
+                    }
+                    #div1 {
+                        flex-shrink: 1;
+                    }
+                    #div2 {
+                        flex-shrink: 1;
+                    }
+                    #div3 {
+                        flex-shrink: 2;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div id="div1" class="itens"&gt;1&lt;/div&gt;
+                        &lt;div id="div2" class="itens"&gt;2&lt;/div&gt;
+                        &lt;div id="div3" class="itens"&gt;3&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+
+            <h3>flex-basis</h3>
+
+            <p>A propriedade flex-basis define a largura inicial de um item. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    .itens {
+                        background-color: lightblue;
+                        width: 100px;
+                        text-align: center;
+                        padding: 20px 0;
+                        border: 1px solid black;
+                    }
+                    #meu-container {
+                        display: flex;
+                        align-items: stretch;
+                    }
+                    #div2 {
+                        flex-basis:300px
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div id="div1" class="itens"&gt;1&lt;/div&gt;
+                        &lt;div id="div2" class="itens"&gt;2&lt;/div&gt;
+                        &lt;div id="div3" class="itens"&gt;3&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+            
+
+            <h3>flex</h3>
+
+            <p>A propriedade flex é uma abreviação para as propriedades flex-grow, flex-shrink, e flex-basis. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    .itens {
+                        background-color: lightblue;
+                        width: 300px;
+                        text-align: center;
+                        padding: 20px 0;
+                        border: 1px solid black;
+                    }
+                    #meu-container {
+                        display: flex;
+                        align-items: stretch;
+                    }
+                    #div2 {
+                        flex: 5 2 500px;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div id="div1" class="itens"&gt;1&lt;/div&gt;
+                        &lt;div id="div2" class="itens"&gt;2&lt;/div&gt;
+                        &lt;div id="div3" class="itens"&gt;3&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+
+            <h3>align-self</h3>
+
+            <p>A propriedade align-self define o alinhamento do item dentro do container flex. Essa propriedade sobrepõe (tem prioridade) a propriedade align-itenms do container. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    .itens {
+                        background-color: lightblue;
+                        width: 300px;
+                        text-align: center;
+                        padding: 20px 0;
+                        border: 1px solid black;
+                    }
+                    #meu-container {
+                        height: 300px;
+                        background-color: magenta;;
+                        display: flex;
+                        align-items: flex-start;
+                    }
+                    #div2 {
+                        align-self: center;
+                    }
+                    #div3 {
+                        align-self: flex-end;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div id="div1" class="itens"&gt;1&lt;/div&gt;
+                        &lt;div id="div2" class="itens"&gt;2&lt;/div&gt;
+                        &lt;div id="div3" class="itens"&gt;3&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>
