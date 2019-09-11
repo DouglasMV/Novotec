@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 22 - Grid</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Aula 22 - Grid</h2>
+
+            <p>Na aula passada aprendemos sobre Flexbox, que é uma ótima ferramenta de CSS para organizar a exibição de elementos em uma direção. Grid tem a capacidade de posicionar elementos nas duas direções (horizontal e vertical) ao mesmo tempo. Além disso nos dá um controle maior e muitas opções que Flexbox não tem.</p>
+
+
+            <h3>Criando uma Grid</h3>
+
+            <p>Semelhante ao Flexbox, para criar uma Grid é preciso ter um container e os filhos desse container serão os itens da Grid.</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        background-color: magenta;
+                    }
+                    .item {
+                        background-color: lightblue;
+                        border: 1px solid black;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            
+            <h3>grid-template-columns (container)</h3>
+
+            <p>A propriedade grid-template-columns serve para definir o tamanho e a quantidade de colunas de uma Grid. Para isso basta escrever os valores da largura de cada coluna em ordem (da primeira até a última) separados por espaço. A quantidade de valores escritos será a quantidade de colunas, e os valores serão a largura de cada coluna. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 800px;
+                        <strong> grid-template-columns: 200px 150px 450px;</strong> 
+                        background-color: magenta;
+                    }
+                    .item {
+                        background-color: lightblue;
+                        border: 1px solid black;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Repare que criamos 3 colunas, porém temos 5 elementos, assim os 3 primeiros ocupam as 3 colunas da primeira linha e os outros 2 ocupam as 2 primeiras colunas da segunda linha. Ou seja, por padrão os elementos ocupam as céluas da esquerda para direita, de cima para baixo. Mas podemos mudar isso, e veremos como mais adiante.</p>
+
+            
+            <h3>grid-template-rows (container)</h3>
+
+            <p>O grid-template-rows funciona semelhante ao grid-template-columns, porém para definir linhas. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 800px;
+                        grid-template-columns: 200px 150px 450px;
+                        <strong> grid-template-rows: 100px 150px 50px;</strong> 
+                        background-color: magenta;
+                    }
+                    .item {
+                        background-color: lightblue;
+                        border: 1px solid black;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Repare que agora temos 3 linhas e 3 colunas. O que nos dá um total de 9 células. Mas como só temos 5 items, a terceira célula da segunda linha e as 3 células da terceira linha não tem nenhum elemento.</p>
+
+
+            <h3>grid-template (container)</h3>
+
+            <p>A propriedade grid-template serve de abreviação para as propriedades grid-template-rows e grid-template-columns. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 800px;
+                        <strong>grid-template: 100px 150px 50px / 200px 150px 450px;</strong> 
+                        background-color: magenta;
+                    }
+                    .item {
+                        background-color: lightblue;
+                        border: 1px solid black;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Repare que esse exemplo é o mesmo que o anterior, apenas escrito de forma diferente. Primeiro colocamos os valores das linhas (rows) e depois o das colunas (columns), separados por uma barra "/".</p>
+
+            <p>Perceba que nesse exemplo usamos valores absolutos (em px) para a largura das colunas, que somados dão exatamente o tamanho do container. Mude esses valores e perceba que as colunas podem ficar menores que o container ou sair para fora dele. Além disso se você usar valores de % ou vh, vw, é bem provável que isso ocorra também. E o fato do valor da largura (width) do próprio container ser absoluto, faz com que esse exemplo não seja responsivo.</p>
+
+            <p>Podemos consertar isso de uma forma: usando um valor de width relativo (vw, %) para o container e usando apenas valores de % nas colunas.</p>
+
+            <p>Essa não é uma solução ruim, porém com Grid existe uma solução muito melhor, que nos permite inclusive usar valores absolutos (px) e manter a responsividade. Isso é possível usando um novo valor relativo introduzido em Grid: frações. Que veremos agora.</p>
+
+
+            <h3>Frações (container)</h3>
+
+            <p>Frações (<strong>fr</strong>) é uma unidade relativa introduzida ao CSS especialmente para Grid. Ela pode ser usada tanto para largura (colunas) quanto para altura (linhas). É muito mais fácil entendê-la utilizando exemplos:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 100vw;
+                        <strong>grid-template: 100px 150px 50px / 2fr 1fr 4fr;</strong> 
+                        background-color: magenta;
+                    }
+                    .item {
+                        background-color: lightblue;
+                        border: 1px solid black;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Repare que o container agora não tem largura absoluta e sim relativa. Nesse exemplo usamos fr nas colunas (2fr 1fr 4fr). Assim a primeira coluna (2fr) sempre terá o dobro de tamanho da segunda (1fr), e a terceira coluna (4fr) será 4 vezes maior que a segunda coluna (1fr). Aumente e diminua a janela do navegador e veja como agora o layout é responsivo.</p>
+
+            <p>O próximo exemplo mostra uma vantagem muito boa de se usar fr:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 100vw;
+                        <strong>grid-template: 100px 150px 50px / 200px 1fr 1fr;</strong> 
+                        background-color: magenta;
+                    }
+                    .item {
+                        background-color: lightblue;
+                        border: 1px solid black;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Nesse exemplo usamos um valor absoluto em uma das colunas (200px). E nas outras colunas usamos 1fr e 1fr. Ou seja, não importa o tamanho da tela a primeira coluna sempre terá 200px de largura. E o restante do tamanho da tela será dividido igualmente entre a segunda e a terceira colunas. As vantagens disso são que o layout é responsivo e os item da grid nunca ultrapassam ou deixam sobras espaço do container. Tente fazer isso usando % ou vw, é impossível. Temos apenas que tomar cuidado para não usarmos valores absolutos (px) muito grandes, pois isso pode causar a indesejada barra de rolagem horizontal em dispositivos menores.</p>
+
+            <p>Tente mudar os valores e as unidades, criar mais coluna, etc. Descubra o que é possível criar com Grid usando fr. e lembre-se que isso também pode ser usado nas linhas (rows).</p>
+
+
+            <h3>repeat (container)</h3>
+
+            <h3>minmax (container)</h3>
+
+            <h3>grid-gap (container)</h3>
+
+            <h3>Grid Itens</h3>
+
+            <h3>grid-row (itens)</h3>
+
+            <h3>grid-column (itens)</h3>
+
+            <h3>grid-area (itens)</h3>
+
+            <h3>Sobrepondo elementos</h3>
+
+            <h3>grid-template-areas (container)</h3>
+
+            <h3>justify-items (container)</h3>
+
+            <h3>justify-content (container)</h3>
+
+            <h3>align-items (container)</h3>
+
+            <h3>align-content (container)</h3>
+
+            <h3>justify-self (itens)</h3>
+
+            <h3>align-self (itens)</h3>
+
+            <h3>grid-auto-rows (container)</h3>
+
+            <h3>grid-auto-columns (container)</h3>
+
+            <h3>grid-auto-flow (container)</h3>
+
+
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>

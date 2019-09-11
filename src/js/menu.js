@@ -98,6 +98,10 @@ const linkList = [
   {
     text: "Aula 21 - Flexbox",
     link: "aula21.html"
+  },
+  {
+    text: "Aula 22 - Grid",
+    link: "aula22.html"
   }
 ];
 
