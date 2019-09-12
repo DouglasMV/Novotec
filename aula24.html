@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 24 - Meta tags</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Aula 24 - Meta tags</h2>
+
+            <p>As meta tags são tags HTML que tem informações sobre o próprio documento HTML. Já vimos algumas delas, agora vamos revê-las e aprender algumas bovas.</p>
+
+
+            <h3>&lt;!DOCTYPE html&gt;</h3>
+
+            <p>Essa tag, que geralmente está na primeira linha do documento HTML, serve para o navegador entender que este é um documento HTML.</p>
+
+
+            <h3>&lt;meta charset="utf-8"&gt;</h3>
+
+            <p>Essa tag serve para determinar o tipo de caracteres da página. No nosso caso sempre será UTF-8. Existem outros tipos de caracteres, por exemplo para letras/símbolos chinesas ou árabes. É muito importante usar essa tag, caso contrário o seu site pode não funcionar direito para pessoas que usam outros tipos de caracteres como padrão.</p>
+
+
+            <h3>&lt;meta http-equiv="x-ua-compatible" content="ie=edge"&gt;</h3>
+
+            <p>Essa tag também é muito importante pois faz o navegador Internet Explorar usar o mecanismo de renderização mais novo. Caso contrário seu site pode ter problemas de renderização no IE.</p>
+
+
+            <h3>&lt;meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"&gt;</h3>
+
+            <p>Essa meta tag é muito importante para que os navegadores determinem o campo de visão da tela do dispositivo. Caso contrário seu site pode ter problemas principalmente em smartphones.</p>
+
+            <h3>&lt;meta name="description" content="Descrição da página com menos de 150 caracteres"&gt;</h3>
+            
+            <p>Essa meta tag define uma descrição para o site e não pode ter mais de 150 caracteres.</p>
+
+
+            <h3>&lt;meta name="keywords" content="Palavras Chave"&gt;</h3>
+
+            <p>Essa meta tag serve para determinar algumas palavras chave. Útil para mecanismos de busca.</p>
+
+
+            <h3>&lt;meta name="author" content="John Doe"&gt;</h3>
+
+            <p>Essa meta tag serve para determinar o autor da página.</p>
+
+
+            <h3>&lt;meta http-equiv="refresh" content="10"&gt;</h3>
+
+            <p>Essa meta tag serve para atualizar a página automaticamente. O valor em content é o número de segundos entre cada atualização automática.</p>
+
+
+            <h3>&lt;title&gt;Título da página&lt;/title&gt;</h3>
+
+            <p>A tag title é importante para mecanismos de busca (Google). É recomendado que o título tenha menos de 55 caracteres, mais do que isso pode ser cortado.</p>
+
+
+            <h3>&lt;link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico"&gt;</h3>
+
+            <p>Essa tag define um ícone (imagem) que aparece na aba do navegador.</p>
+
+
+            <h3>&lt;html lang="pt-br"&gt;</h3>
+
+            <p>Outra coisa importante é usar o atributo lang na tag html. No nosso caso usamos lang="pt-br" pois o conteúdo do nosso site é em português.</p>
+
+
+            <h3></h3>
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>

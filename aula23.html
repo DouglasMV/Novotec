@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 23 - @import</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Aula 23 - @import</h2>
+
+
+            <h3>Modularização</h3>
+
+            <p>Modularização é um conceito usado em desenvolvimento de softwares que significa dividir o código em partes menores.</p>
+
+            <p>Isso é uma técnica muito usada pois melhora muito o processo de manter o código.</p>
+
+            <p>As vantagens de modularizar um código são: é mais fácil de encontrar uma parte específica do código; é mais fácil de corrigir e atualizar o código; é possível reusar partes do seu código copiando um arquivo ao invés de ter que abrir o arquivo, procurar o que quer copiar e depois copiar.</p>
+
+
+            <h3>A regra @import</h3>
+
+            <p>Já vimos algumas regras de CSS: @media e @keyframes. A regra @import é a regra usada para modularizar o código CSS.</p>
+
+            <p>A regra <strong>@import</strong> permite importar um arquivo css dentro de outro arquivo css.</p>
+
+            <p>A regra <strong>@import</strong> deve estar no topo do arquivo CSS.</p>
+
+            <p>A regra <strong>@import</strong> também suporta seletores de mídia.</p>
+
+            <p>Vamos ver isso com um exemplo. Primeiramente crie um arquivo index.html e inclua isso no corpo dele:</p>
+
+            <pre>
+                <code>
+                    &lt;div class="vermelho"&gt;&lt;/div&gt;
+                    &lt;div class="verde"&gt;&lt;/div&gt;
+                    &lt;div class="azul"&gt;&lt;/div&gt;
+                    &lt;div class="azul"&gt;&lt;/div&gt;
+                    &lt;div class="verde"&gt;&lt;/div&gt;
+                    &lt;div class="vermelho"&gt;&lt;/div&gt;
+                </code>
+            </pre>
+
+            <p>Agora crie 4 arquvos CSS, dessa forma:</p>
+
+            <p>No arquivo div.css</p>
+
+            <pre>
+                <code>
+                    div {
+                        height: 100px;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo vermelho.css</p>
+
+            <pre>
+                <code>
+                    .vermelho {
+                        background-color: red;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo verde.css</p>
+
+            <pre>
+                <code>
+                    .verde {
+                        background-color: green;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo azul.css</p>
+
+            <pre>
+                <code>
+                    .azul {
+                        background-color: blue;
+                    }
+                </code>
+            </pre>
+
+            <p>Agora crie um arquivo style.css e lembre-se de usar a tag link no arquivo index.html para que o arquivo style.css seja carregado na página</p>
+
+            <p>No arquivo style.css</p>
+
+            <pre>
+                <code>
+                    @import "div.css";
+                    @import url("vermelho.css");
+                    @import "verde.css" screen and (max-width: 600px);
+                    @import url("azul.css"); screen and (min-width: 600px);
+
+                </code>
+            </pre>
+
+            <p>Repare que existem dois jeitos de escrever o nome do arquivo a ser importado: "nome_do_arquivo"; ou url("nome_do_arquivo.css").</p>
+
+            <p>Repere também que os seletores de mídia funcionam!</p>
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>

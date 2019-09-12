@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -108,7 +108,7 @@
                         display: grid;
                         width: 800px;
                         grid-template-columns: 200px 150px 450px;
-                        <strong> grid-template-rows: 100px 150px 50px;</strong> 
+                        <strong>grid-template-rows: 100px 150px 50px;</strong> 
                         background-color: magenta;
                     }
                     .item {
@@ -256,19 +256,256 @@
 
             <h3>repeat (container)</h3>
 
+            <p>As propriedades que definem o número e o tamanho das linhas e colunas podem receber um valor especial: repeat. Que serve para criar um certo número de linhas ou colunas repetidos (de mesmo tamanho)</p>
+
+            <p>Repeat recbe dois valores entre parenteses, o primeiro é o número de colunas ou linhas, e o segundo valor é o tamanho. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 800px;
+                        grid-template-columns: <strong> repeat(3, 250px)</strong>  50px;
+                        grid-template-rows: <strong> repeat(2, 300px);</strong> 
+                        background-color: magenta;
+                    }
+                    .item {
+                        background-color: lightblue;
+                        border: 1px solid black;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Isso facilita a criação de grids com muitas linhas e colunas repetidas. Lembre-se que o valor do tamanho das linhas ou colunas pode ser em frações (fr) também.</p>
+
+
             <h3>minmax (container)</h3>
+
+            <p>Outro valor especial que pode ser usado para definir o tamanho das linas e colunas é minmax. Ele determina um valor mínimo e um máximo. Isso é bom pois garante que se a tela for muito pequena a coluna terá um tamanho mínimo, ou seja, não ficará menor que aquilo. E do mesmo modo se a tela for muito grande a coluna terá um tamanho máximo, ou seja, não ficará maior que aquilo. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 100vw;
+                        grid-template: 100px 150px 50px / 100px <strong>minmax(100px, 300px)</strong>;
+                        background-color: magenta;
+                    }
+                    .item {
+                        background-color: lightblue;
+                        border: 1px solid black;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Algo importante aqui é o fato de que a unidade fr só pode ser usada para valores máximos, nunca para mínimos. (mas existe a possibilidade disso mudar no futuro)</p>
+
 
             <h3>grid-gap (container)</h3>
 
+            <p>É possível criar um espaço entre as linhas, ou entre as colunas da Grid. Para isso usamaos a propriedade grip-gap. Ela recebe dois valores, o primeiro é o espaço entre as linhas (vertical) e o segundo o espaço entre as colunas (horizontal). Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 100vw;
+                        grid-template: repeat(3, 200px) / repeat(2, 1fr);
+                        <strong>grid-gap: 50px 10px;</strong>
+                        background-color: magenta;
+                    }
+                    .item {
+                        background-color: lightblue;
+                        border: 1px solid black;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Repare que agora existe um espaço entre as linhas e entre as colunas. Também é possível usar as propriedades <strong>grid-row-gap</strong> e <strong>gris-column-gap</strong> para mudar esses valores individualmente, porém na prática quando queremos criar um gap geralmente queremos em ambas direções, por isso <strong>grid-gap</strong> é mais usada.</p>
+
+
             <h3>Grid Itens</h3>
+
+            <p>Até agora apenas vimos propriedades para o container grid, ou seja, o elemento pai. E os itens, os elementos filhos, ocupavam exatamente uma célula da Grid, na ordem em que estão escritos no documento HTML. Podemos mudar isso, podemos fazer um elemento ocupar várias linhas e colunas. Mas primeiro precisamos aprender como "contar" as linhas e colunas de uma Grid.</p>
+
+            <p>Observe a imagem abaixo, ela representa uma Grid com 3 colunas e 3 linhas. Porém note que temos uma numeração que vai de 1 a 4 nas bordas das colunas e linhas. Essa numeração que é usada para definir onde cada elemento será posicionado.</p>
+
+            <img src="./src/img/grid_lines.png" alt="">
+
 
             <h3>grid-row (itens)</h3>
 
+            <p>Usando a propriedade grid-row, em um item da grid, é possível fazer um elemento ocupar multiplas linhas. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 620px;
+                        grid-template: repeat(3, 200px) / repeat(3, 200px);
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                    }
+                    .item {
+                        background-color: lightblue;
+                        border: 1px solid black;
+                    }
+                    #div1 {
+                        <strong>grid-row: 1 / 3;</strong>
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div id="div1" class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Veja que a div1 ocupa agora 2 linhas, lembre-se da numeração que vimos, 1 a 3 ocupa as duas primeiras linhas. Mude os valores e veja o resultado.</p>
+
             <h3>grid-column (itens)</h3>
+
+            <p>Usando a propriedade grid-column, em um item da grid, é possível fazer um elemento ocupar multiplas colunas. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 620px;
+                        grid-template: repeat(3, 200px) / repeat(3, 200px);
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                    }
+                    .item {
+                        background-color: lightblue;
+                        border: 1px solid black;
+                    }
+                    #div1 {
+                        <strong>grid-column: 2 / 4;</strong>
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div id="div1" class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Veja que a div1 ocupa agora 2 colunas, lembre-se da numeração que vimos, 2 a 4 ocupa a segunda e a terceira colunas. Mude os valores e veja o resultado.</p>
+
 
             <h3>grid-area (itens)</h3>
 
+            <p>A propriedade grid-area é uma abreviação para as propriedades grid-row e grid-column. Ela recebe 4 valores separados por "/", a ordem dos valores é: o começo da linha, o começa da coluna, o fim da linha, o fim da coluna. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 620px;
+                        grid-template: repeat(3, 200px) / repeat(3, 200px);
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                    }
+                    .item {
+                        background-color: lightblue;
+                        border: 1px solid black;
+                    }
+                    #div1 {
+                        <strong>grid-area: 1 / 2 / 3 / 4;</strong>
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div id="div1" class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            
             <h3>Sobrepondo elementos</h3>
+
 
             <h3>grid-template-areas (container)</h3>
 

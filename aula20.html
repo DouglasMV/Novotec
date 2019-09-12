@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -238,18 +238,17 @@
             <pre>
                 <code>
                     &lt;picture&gt;
-                        &lt;source srcset="https://i.imgur.com/u8zM6O4.jpg" media="(max-width: 730px)"&gt;
-                        &lt;source srcset="https://imgur.com/a/RjVfS00" media="(max-width: 1100px)"&gt;
-                        &lt;source srcset="https://i.imgur.com/iT8DCUf.jpg" media="(max-width: 400px)"&gt;
-                        &lt;source srcset="img_flowers.jpg"&gt;
-                        &lt;img src="https://i.imgur.com/iT8DCUf.jpg" alt="Flowers"&gt;
-                    &lt;/picture>&gt;
+                        &lt;source srcset="https://i.imgur.com/iT8DCUf.jpg" media="(min-width: 1100px)"&gt;
+                        &lt;source srcset="https://i.imgur.com/K49tZ0b.jpg" media="(min-width: 730px)"&gt;
+                        &lt;source srcset="https://i.imgur.com/u8zM6O4.jpg"&gt;
+                        &lt;img src="https://i.imgur.com/iT8DCUf.jpg" alt="Wynton"&gt;
+                    &lt;/picture&gt;
                 </code>
             </pre>
 
             <p>Aumente e diminua o tamanho da tela e veja como as imagens mudam. É sempŕe bom ter uma tag img no final, além das tags source, pois alguns navegadores não reconhecem as tags picture nem source, assim eles utilizaram a imagem da tag img.</p>
 
-            <p>Repare que aqui usamos "max-width" ao contrário dos seletores de mídia (@media) onde preferimos usar "min-width". Isso é porque a tag picture usa a primeira imagem que satisfaz as condições, já o @media utilizia sempre o último bloco que satisfaz o tamanho.</p>
+            <p>Repare que aqui usamos primeiro as imagens que precisam de "min-width" ao contrário dos seletores de mídia (@media) onde usamos primeiro os estilos sem @media e deixamos os estilos com "min-width" no final. Isso é porque a tag picture usa a primeira imagem que satisfaz as condições, já o @media utilizia sempre o último bloco que satisfaz o tamanho.</p>
 
         </article>
     </main>
