@@ -102,6 +102,14 @@ const linkList = [
   {
     text: "Aula 22 - Grid",
     link: "aula22.html"
+  },
+  {
+    text: "Aula 23 - @import",
+    link: "aula23.html"
+  },
+  {
+    text: "Aula 24 - Meta tags",
+    link: "aula24.html"
   }
 ];
 
