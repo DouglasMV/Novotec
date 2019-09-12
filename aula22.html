@@ -464,6 +464,51 @@
             <p>Veja que a div1 ocupa agora 2 colunas, lembre-se da numeração que vimos, 2 a 4 ocupa a segunda e a terceira colunas. Mude os valores e veja o resultado.</p>
 
 
+            <h3>span</h3>
+
+            <p>Além de determinar em qual linha/coluna um elemento deve começar e terminar, podemos usar span para determinar o número de linhas ou colunas ocupadas pelo elemento, veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 620px;
+                        grid-template: repeat(3, 200px) / repeat(3, 200px);
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                    }
+                    .item {
+                        background-color: lightblue;
+                        border: 1px solid black;
+                    }
+                    #div1 {
+                        <strong>grid-column: span 2;</strong>
+                    }
+                    #div2 {
+                        <strong>grid-column: 2 span 2;</strong>
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div id="div1" class="item"&gt;A&lt;/div&gt;
+                        &lt;div id="div2" class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Veja que usamos na div1 usamos <strong>span 2</strong> que apenas diz que o elemento deve ocupar 2 colunas, não diz nada sobre onde deve começar. Já na div2 usamos <strong>2 / span 2</strong> que significa que deve começar na segunda coluna e ocupar duas colunas.</p>
+            
+
             <h3>grid-area (itens)</h3>
 
             <p>A propriedade grid-area é uma abreviação para as propriedades grid-row e grid-column. Ela recebe 4 valores separados por "/", a ordem dos valores é: o começo da linha, o começa da coluna, o fim da linha, o fim da coluna. Veja o exemplo:</p>
@@ -506,29 +551,532 @@
             
             <h3>Sobrepondo elementos</h3>
 
+            <p>Utilizando grid-area é possível sobrepor elementos facilmente. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 620px;
+                        grid-template: repeat(3, 200px) / repeat(3, 200px);
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                    }
+                    #div1 {
+                        grid-area: 1 / 1 / 3 / 3;
+                        background-color: lightblue;
+                    }
+                    #div2 {
+                        grid-area: 2 / 2 / 4 / 4;
+                        background-color: lime;
+                        opacity: 0.7;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div id="div1" &gt;A&lt;/div&gt;
+                        &lt;div id="div2" &gt;B&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+
 
             <h3>grid-template-areas (container)</h3>
 
+            <p>A propriedade grid-template-areas nos permite dar nomes a cada célula da Grid, e usando o mesmo nome em células vizinhas criamos uma área, que podemos depois usar na propriedade grid-area de um item. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 620px;
+                        grid-template: repeat(3, 200px) / repeat(3, 200px);
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                        grid-template-areas: "menu menu menu"
+                        "sidebar conteudo conteudo"
+                        "sidebar conteudo conteudo"
+                    }
+                    #div1 {
+                        grid-area: menu;
+                        background-color: lightblue;
+                    }
+                    #div2 {
+                        grid-area: sidebar;
+                        background-color: lime;
+                    }
+                    #div3 {
+                        grid-area: conteudo;
+                        background-color: pink;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div id="div1" &gt;Menu aqui&lt;/div&gt;
+                        &lt;div id="div2" &gt;Sidebar aqui&lt;/div&gt;
+                        &lt;div id="div3" &gt;Conteúdo aqui&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+
             <h3>justify-items (container)</h3>
 
-            <h3>justify-content (container)</h3>
+            <p>A propriedade justify-items posiciona os elementos filhos do container dentro da célula no eixo horizontal. Pode receber 4 valores:</p>
+
+            <ul>
+                <li><strong>start:</strong> alinha os itens a esquerda da célula</li>
+                <li><strong>end:</strong> alinha os itens a direita da célula</li>
+                <li><strong>center:</strong> centraliza os itens na célula</li>
+                <li><strong>stretch:</strong> expande os itens para ocuparem toda célula</li>
+            </ul>
+
+            <p>Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 620px;
+                        grid-template: repeat(3, 200px) / repeat(3, 200px);
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                        <strong>justify-items: stretch;</strong>
+                    }
+                    .item {
+                        background-color: lightblue;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Repare que o valor <strong>stretch</strong> é o padrão. Mude o valor para os outros (start, end, center) e veja a diferença. Tente definir uma largura fixa para os itens e mude os valores de justify-items para ver o que acontece.</p>
+
 
             <h3>align-items (container)</h3>
 
+            <p>A propriedade align-items é semelhante a justify-items, mas posiciona os elementos filhos do container dentro da célula no eixo <strong>vertical</strong>. Pode receber 4 valores:</p>
+
+            <ul>
+                <li><strong>start:</strong> alinha os itens na parte de cima da célula</li>
+                <li><strong>end:</strong> alinha os itens na parte de baixo da célula</li>
+                <li><strong>center:</strong> centraliza os itens na célula</li>
+                <li><strong>stretch:</strong> expande os itens para ocuparem toda célula</li>
+            </ul>
+
+            <p>Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 620px;
+                        grid-template: repeat(3, 200px) / repeat(3, 200px);
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                        <strong>align-items: stretch;</strong>
+                    }
+                    .item {
+                        background-color: lightblue;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Repare que o valor <strong>stretch</strong> é o padrão. Mude o valor para os outros (start, end, center) e veja a diferença. Tente definir uma altura fixa para os itens e mude os valores de align-items para ver o que acontece.</p>
+
+            <p>No exemplo anterior use o valor center para ambas propriedades: justify-items e align-items. Isso deve centralizar o conteúdo perfeitamente na célula.</p>
+
+            
+            <h3>justify-content (container)</h3>
+
+            <p>A propriedade justify-content alinha toda Grid em relação ao eixo horizontal. Ou seja, se o container tem uma largura maior que a soma das colunas da grid, podemos usar isso para alinhas as colunas dentro do container.</p>
+
+            <p>Os valores possíveis são:</p>
+
+            <ul>
+                <li>start</li>
+                <li>end</li>
+                <li>center</li>
+                <li>stretch</li>
+                <li>space-around</li>
+                <li>space-between</li>
+                <li>space-evenly</li>
+            </ul>
+
+            <p>Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 100vw;
+                        grid-template: repeat(3, 200px) / repeat(3, 200px);
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                        <strong>justify-content: center;</strong>
+                    }
+                    .item {
+                        background-color: lightblue;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Mude os valores e veja a diferença.</p>
+
+
             <h3>align-content (container)</h3>
+
+            <p>A propriedade align-content é semelhante a justify-content, mas alinha toda Grid em relação ao eixo <strong>vertical</strong>. Ou seja, se o container tem uma altura maior que a soma das linhas da grid, podemos usar isso para alinhas as linhas dentro do container.</p>
+
+            <p>Os valores possíveis são:</p>
+
+            <ul>
+                <li>start</li>
+                <li>end</li>
+                <li>center</li>
+                <li>stretch</li>
+                <li>space-around</li>
+                <li>space-between</li>
+                <li>space-evenly</li>
+            </ul>
+
+            <p>Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 620px;
+                        height: 100vh;
+                        grid-template: repeat(3, 200px) / repeat(3, 200px);
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                        <strong>align-content: center;</strong>
+                    }
+                    .item {
+                        background-color: lightblue;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                        &lt;div class="item"&gt;F&lt;/div&gt;
+                        &lt;div class="item"&gt;G&lt;/div&gt;
+                        &lt;div class="item"&gt;H&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Mude os valores e veja a diferença.</p>
+
 
             <h3>justify-self (itens)</h3>
 
+            <p>A propriedade justify-self é usada em um item individual da Grid. Ela sobrepõe a propriedade justify-content, ou seja, se você centralizar todos itens com justify-content: center;, e usar justify-self: start; em um item individualmente, aquele item será alinhado de maneira diferente. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 620px;
+                        grid-template: repeat(3, 200px) / repeat(3, 200px);
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                        justify-items: center;
+                    }
+                    .item {
+                        background-color: lightblue;
+                    }
+                    #div1 {
+                        <strong>justify-self: start;</strong>
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div id="div1" class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Tente usar os outros valores (start, end, center, stretch) e veja o que acontece.</p>
+
+
             <h3>align-self (itens)</h3>
+
+            <p>A propriedade align-sef é semelhante a justify-self, também é usada em um item individual da Grid. Ela sobrepõe a propriedade align-content, ou seja, se você centralizar todos itens com align-content: center;, e usar align-self: start; em um item individualmente, aquele item será alinhado de maneira diferente. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 620px;
+                        grid-template: repeat(3, 200px) / repeat(3, 200px);
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                        align-items: center;
+                    }
+                    .item {
+                        background-color: lightblue;
+                    }
+                    #div1 {
+                        <strong>align-self: start;</strong>
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div id="div1" class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Tente usar os outros valores (start, end, center, stretch) e veja o que acontece.</p>
+
+
+            <h3>Grid implícita</h3>
+
+            <p>Até agora só usamos Grid explicitamente, ou seja, definimos exatamente quantas colunas e linhas queriamos. Mas a Grid em CSS foi criada para resolver problemas recorrentes em desenvolvimento Front-end. Um desses problemas é quando não sabemos com certeza a quantidade de itens que temos. Por exemplo em uma loja virtual pode ser que determinada categoria de produtos tenha 50 produtos para mostrar e outra tenha apenas 10. Não seria ótimo se pudessemos criar novas linhas ou colunas automaticamente quando precisarmos? Grid pode fazer isso para nós.</p>
+            
 
             <h3>grid-auto-rows (container)</h3>
 
+            <p>Com a propriedade grid-auto-rows podemos criar linhas automaticamente quando necessário. Essa propriedade recebe um valor numérico que é a altura da linha criada automaticamente. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        grid-template: 300px / repeat(3, 200px);
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                        <strong>grid-auto-rows: 100px;</strong>
+                    }
+                    .item {
+                        background-color: lightblue;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                        &lt;div class="item"&gt;F&lt;/div&gt;
+                        &lt;div class="item"&gt;G&lt;/div&gt;
+                        &lt;div class="item"&gt;H&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>No exemplo acima criamos uma linha de 300px e três colunas de 200px. E usando o grid-auto-rows criamos automaticamente duas novas linhas de 100px de altura, pois eram necessárias devido ao número de elementos.</p>
+
+            
             <h3>grid-auto-columns (container)</h3>
+
+            <p>Com a propriedade grid-auto-columns podemos criar colunas automaticamente quando necessário. Essa propriedade recebe um valor numérico que é a largura da coluna criada automaticamente. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 630px;
+                        grid-template: repeat(2, 200px) / 300px;
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                        <strong>grid-auto-columns: 100px;</strong>
+                        <strong>grid-auto-flow: column;</strong>
+                    }
+                    .item {
+                        background-color: lightblue;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                        &lt;div class="item"&gt;F&lt;/div&gt;
+                        &lt;div class="item"&gt;G&lt;/div&gt;
+                        &lt;div class="item"&gt;H&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>No exemplo acima criamos uma coluna de 300px e duas linhas de 200px. E usando o grid-auto-columns criamos automaticamente três novas colunas de 100px de largura, pois eram necessárias devido ao número de elementos.</p>
+
+            <p>Repare que usamos uma outra propriedade nova: grid-auto-flow: columns; Veremos a seguir porque foi necessário usar essa propriedade.</p>
+
 
             <h3>grid-auto-flow (container)</h3>
 
+            <p>A propriedade grid-auto-flow determina a ordem em que os novos elementos devem ser colocados. Pode receber 3 valores:</p>
 
+            <ul>
+                <li><strong>row</strong>: os novos elementos devem preencher linhas da esquerda para direita e criar novas linhas quando necessário (padrão)</li>
+                <li><strong>column</strong>: os elementos devem preencher colunas de cima para baixo e criar novas colunas quando necessário (veja o exemplo anterior)</li>
+                <li><strong>dense</strong>: esse valor faz com que a grid tente encaixar elementos em "buracos" deixados por elementos muito grandes. Veja o próximo exemplo</li>
+            </ul>
 
+            <p>Além disso podemos usar row ou column junto com dense, assim: grid-auto-flow: row dense; Isso faz com que novos elementos criem novas linhas ou preencham "buracos", veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 320px;
+                        grid-template: 100px / repeat(3, 100px);
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                        <strong>grid-auto-rows: 100px;</strong>
+                        <strong>grid-auto-flow: row dense;</strong>
+                    }
+                    .item {
+                        background-color: lightblue;
+                    }
+                    #div1 {
+                        grid-column: span 2;
+                        grid-row: span 2;
+                    }
+                    #div2 {
+                        grid-column: span 3;
+                    }
+                    #div3 {
+                        grid-column: 2 / span 2;                       
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div id="div1" class="item"&gt;A&lt;/div&gt;
+                        &lt;div id="div2" class="item"&gt;B&lt;/div&gt;
+                        &lt;div id="div3" class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                        &lt;div class="item"&gt;F&lt;/div&gt;
+                        &lt;div class="item"&gt;G&lt;/div&gt;
+                        &lt;div class="item"&gt;H&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
+            <p>Remova apropriedade grid-auto-flow e veja a diferença.</p>
         </article>
     </main>
 
