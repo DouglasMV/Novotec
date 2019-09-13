@@ -1077,6 +1077,54 @@
             </pre>
 
             <p>Remova apropriedade grid-auto-flow e veja a diferença.</p>
+
+
+            <h3>auto-fit e auto-fill</h3>
+
+            <p>Quando usamos grid-template-columns ou grid-template-rows e repeat() para definir a quantidade e o tamanho das colunas (ou linhas), podemos usar um valor especial na quantidade. Esse valor pode ser auto-fit ou auto-fill. O que esses valores fazem é criar um número automático de colunas (ou linhas) de acordo com a largura (ou altura) do container Grid.</p>
+
+            <p>A diferença entre os dois é que no caso de o número de elementos ser menor que o númeor possível de colunas, auto-fit expande o gap entre os elementos para que eles preencham toda grid, já auto-fill cria colunas (ou linhas) que ficam vazias.</p>
+
+            <p>Esses valores são muito poderosos, pois permitem criar layouts diferentes para larguras de tela diferentes sem o uso de seletores de mídia (@media).</p>
+
+            <p>Geralmente usa-se minmax() em conjunto com auto-fit ou auto-fill, para deixar os elementos mais flexíveis a mudanças de tamanho. Veja o exemplo:</p>
+
+            <p>No arquivo style.css:</p>
+
+            <pre>
+                <code>
+                    #meu-container {
+                        display: grid;
+                        width: 100vw;
+                        <strong>grid-template: repeat(auto-fit, minmax(100px, 1fr)) / repeat(auto-fill, minmax(100px, 1fr));</strong>
+                        grid-gap: 10px 10px;
+                        background-color: magenta;
+                    }
+                    .item {
+                        background-color: lightblue;
+                        height: 100px;
+                        width: 100px;
+                    }
+                </code>
+            </pre>
+
+            <p>No arquivo index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;div id="meu-container"&gt;
+                        &lt;div class="item"&gt;A&lt;/div&gt;
+                        &lt;div class="item"&gt;B&lt;/div&gt;
+                        &lt;div class="item"&gt;C&lt;/div&gt;
+                        &lt;div class="item"&gt;D&lt;/div&gt;
+                        &lt;div class="item"&gt;E&lt;/div&gt;
+                        &lt;div class="item"&gt;F&lt;/div&gt;
+                        &lt;div class="item"&gt;G&lt;/div&gt;
+                        &lt;div class="item"&gt;H&lt;/div&gt;
+                    &lt;/div&gt; 
+                </code>
+            </pre>
+
         </article>
     </main>
 
