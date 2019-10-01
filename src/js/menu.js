@@ -114,6 +114,10 @@ const linkList = [
   {
     text: "Aula 24 - Meta tags",
     link: "aula24.html"
+  },
+  {
+    text: "Aula 25 - JS: Introdução",
+    link: "aula25.html"
   }
 ];
 

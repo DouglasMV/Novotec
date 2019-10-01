@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 25 - JS: Introdução</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+            <h2>Aula 25 - JS: Introdução</h2>
+
+            <p>JavaScript é uma linguagem de programação que foi criada para fazer as páginas web ficarem mais "vivas".</p>
+
+            <p>Os programs escritos em JavaScript são chamados scripts. Eles são arquivos de texto que podem ser executados diretamente nos documentos HTML.</p>
+
+            <p>Com JavaScript é possível fazer muitas coisas nas páginas web, como por exemplo:</p>
+
+            <ul>
+                <li>Adicionar ou remover HTML a página.</li>
+                <li>Modificar conteúdo existente.</li>
+                <li>Modificar estilos CSS</li>
+                <li>Reagir a ações do usuário (cliques, teclas, posição do mouse).</li>
+                <li>Enviar requsições a servidores pela rede.</li>
+                <li>Manipular dados no lado do cliente.</li>
+            </ul>
+
+
+            <h3>Onde escrever JavaScript?</h3>
+
+            <p>Semelhante a CSS podemos escrever JavaScript de três maneiras: inline, interno e externo.</p>
+
+            <p>Por enquanto apenas veremos como escrever JavaScript interno e externo. Veremos inline quando aprendermos sobre eventos em outra aula.</p>
+
+            <h4>Interno</h4>
+
+            <p>Para escrever JavaScript internamento em um documento HTML usamos a tag &lt;script&gt;&lt;/script&gt; e escrevemos nosso código dentro dela. Geralmente escrevemos essa tag no final do documento HTML logo antes da tag &lt;/body&gt; veja o exemplo:</p>
+
+            <p>No documento index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;body&gt;
+                        &lt;script&gt;
+                            alert("Olá Mundo!");
+                        &lt;/script&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <h4>Externo</h4>
+
+            <p>JavaScript externo consiste em criar um arquivo, por exemplo app.js, e conectá-lo ao documento HTML usando a tag script com o atributo src, veja o exemplo:</p>
+
+            <p>No documento index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;body&gt;
+                        &lt;script src="app.js"&gt;&lt;/script&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <p>No documento app.js:</p>
+
+            <pre>
+                <code>
+                    alert("Olá Mundo!");
+                </code>
+            </pre>
+
+
+            <h3>Comentários</h3>
+
+            <p>Em JavaScript escrevemos comentários entre <strong>/* Comentário aqui */</strong>. Tudo que estiver dentro do comentário é ignorado pelo navegador na hora de executar o código. Também podemos escrever um comentário de uma linha usando duas barras no começo da linha, veja o exemplo:</p>
+
+            <p>No documento index.html:</p>
+
+            <pre>
+                <code>
+                    &lt;body&gt;
+                        &lt;script src="app.js"&gt;&lt;/script&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+
+            <p>No documento app.js:</p>
+
+            <pre>
+                <code>
+                    // Comentário de uma linha
+                    
+                    alert("Olá Mundo!");
+                    
+                    /* 
+                    Comentário de várias linhas!
+                    Tudo que está aqui será ignorado!
+                    alert("Não vou aparecer!");
+                    */
+                </code>
+            </pre>
+            
+            
+            <h3>Ponto e Vírgula é Opcional</h3>
+            
+            <p>Repare nos exemplos anteriores que usamos ponto e vírgula no final de uma declaração. Em JavaScript não é obrigatório utilizar ponto e vírgula no final de cada declaração, é opcional, depende do gosto do programador. Existem alguns casos específicos que não usar ponto e vírgula pode causar problemas, para evitar isso nós utilizaremos.</p>
+           
+            
+            <h3>Console</h3>
+
+            <p>É comum ocorrerem erros em um script. Geralmente esses erros não são visualizados pelo usuário. Pois o local onde os navegadores mostram esse erro é no <strong>console</strong>. No Google Chrome para abrir o console aperte a tecla F12.</p>
+
+            <p>Podemos também digitar código JavaScript diretamente no console, se queremos testar algo rapidamente por exemplo.</p>
+
+            <h4>console.log()</h4>
+
+            <p>Podemos escrever uma mensagem no console utilizando <strong>console.log</strong> em nosso script. Veja o exemplo:</p>
+            
+            <p>No documento app.js:</p>
+
+            <pre>
+                <code>
+                   console.log("Olá Mundo!");
+                </code>
+            </pre>
+
+
+            <h3>Variáveis</h3>
+
+            <p>Variáveis são usadas para guardar uma informação.</p>
+
+            <p>Existem 4 coisas importantes para se saber sobre variáveis:</p>
+            
+            <h4>1 - Nome:</h4>
+
+            <p>Toda variável tem um nome, que serve para identificá-la, para que ela seja usada em várias partes do script.</p>
+
+            <p>O programador (você) escolhe o nome da variável, porém deve obdecer três regras:</p>
+
+            <p>I - O nome pode conter apenas letras (sem acento), números, $ e _</p>
+            <p>II - O nome não pode começar com um número</p>
+            <p>III - O nome não pode ser uma <a href="https://www.w3schools.com/js/js_reserved.asp">palavra reservada</a></p>
+
+            <p>Geralmente usamos o padrão camelCase para nomes de variáveis com mais de uma palavra. Isso é, a primeira palavra é minúscula e as outras começam com letra maiúscula. Por exemplo: minhaVariavel, minhaVariavelMuitoLegal. Mas tome cuidado, nomes muito grandes podem dificultar o entendimento do seu script.</p>
+
+            <h4>2 - Declaração:</h4>
+
+            <p>Declarar uma variável é criá-la, reservar um nome (e um espaço na memória do computador) para ela.</p>
+
+            <p>Para declarar uma variável usamos a palavra chave <strong>let</strong> seguido do nome da variável. Veja o exemplo, onde criamos uma variável chamada sobrenome:</p>
+
+            <p>No documento app.js:</p>
+
+            <pre>
+                <code>
+                    let sobrenome;
+                </code>
+            </pre>
+
+            <p>Também podemos criar variáveis com as palavras chave <strong>var</strong> ou <strong>const</strong>. Existem algumas diferenças porém vamos usar apenas <strong>let</strong> que servirá para nós em todos casos. (Pesquise sobre as diferenças entre const, var e let, aprender é divertido!)</p>
+
+            <h4>3 - Atribuição:</h4>
+
+            <p>Variáveis guardam informações ou valores, para isso precisamos atribuir um valor para ela. Para atribuir um valor escrevemos o nome da variável, seguido de um sinal de igual (<strong>=</strong>) segudio do valor a ser guardado na variável.</p>
+
+            <p>Podemos atribuir um valor a variável na declaração ou em outra parte do script. Veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+
+            <pre>
+                <code>
+                    let sobrenome = "Mariano Valero";
+                    let idade;
+                    idade = 28;
+                </code>
+            </pre>
+
+            <h4>4 - Acesso:</h4>
+
+            <p>Para usar uma variável em outras partes do script, precisamos acessá-la. Fazemos isso usando o nome da variável. Adicione a linha abaixo no exemplo anterior.</p>
+
+            <p>No documento app.js:</p>
+
+            <pre>
+                <code>
+                    alert(sobrenome);
+                </code>
+            </pre>
+
+            <p>Repare na diferença entre este exemplo e o primeiro exemplo desta aula. Neste usamos apenas o nome da variável, no outro usamos aspas e escrevemos uma frase dentro.</p>
+
+            <p>Variáveis podem ser de vários tipos diferentes, por exemplo, podem ser uma cadeia de caracteres (como o sobrenome no exemplo), ou um número (como idade no exemplo), dentre outros. Veremos a seguir quais são os tipos em JavaScript.</p>
+
+
+            <h3>Tipos</h3>
+
+            <h4>number</h4>
+
+            <p>O tipo <strong>number</strong> representa um número, pode ser inteiro ou decimal. Mais adiante vamos aprender operações aritméticas, que só podem ser realizadas com números. Veja alguns exemplos de variáveis do tipo number:</p>
+
+            <p>No documento app.js:</p>
+
+            <pre>
+                <code>
+                    let idade = 22;
+                    let valor = 10.25;
+                    let altura = 1.75;
+                </code>
+            </pre>
+
+            <h4>string</h4>
+
+            <p>Uma <strong>string</strong> é uma cadeia de caracteres. Para declarar um string é preciso usar aspas. Podemos usar três tipos de aspas: aspas simples, aspas duplas e acento grave. Veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+
+            <pre>
+                <code>
+                    let nome = 'Douglas';
+                    let sobrenome = "Mariano Valero";
+                    let filme = `Debi e Lóide`;
+                </code>
+            </pre>
+
+            <h4>boolean</h4>
+
+            <p>O tipo <strong>boolean</strong> pode receber apenas dois valores: false ou true. Usamos isso para definir se algo é verdadeiro ou falso, isso será importante em uma próxima aula onde aprenderemos condicionais. Veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+
+            <pre>
+                <code>
+                    let online = true;
+                    let premium = false;
+                </code>
+            </pre>
+
+            <h4>null</h4>
+
+            <p>O tipo <strong>null</strong> é um tipo especial que contém apenas o valor null. Representa nada ou vazio. Geralmente utilizamos quando queremos remover um valor de uma variável, veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+
+            <pre>
+                <code>
+                    let supervisor = João;
+                    supervisor = null;
+                </code>
+            </pre>
+
+            <h4>undefined</h4>
+
+            <p>O tipo <strong>undefined</strong> é um tipo especial que contém apenas o valor undefined. Representa não definido. Apesar de ser possível, geralmente não o utilizamos para atribuir um valor para uma variável (utilizamos null). Pois undefined é o valor padrão para variáveis que foram declaradas mas não tiveram nenhum valor atribuído, veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+
+            <pre>
+                <code>
+                    let minha_variavel;
+                    alert(minha_variavel);
+                </code>
+            </pre>
+
+            <h4>object</h4>
+
+            <p>O tipo <strong>object</strong> representa um objeto. Um objeto em JavaScript pode conter várias propriedades e métodos (estudaremos isso em uma próxima aula). Para declarar um objeto usamos chaves {} e dentro das chaves declaramos proprieades usando pares nome/valor separados por dois pontos. Para acessar uma propriedade usamos o nome do objeto, seguido de um ponto, e seguido do nome da propriedade. Veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+
+            <pre>
+                <code>
+                    let usuario = {
+                        nome: "Douglas",
+                        sobrenome: "Mariano Valero",
+                        idade: 28;
+                    }
+
+                    alert(usuario.nome);
+                </code>
+            </pre>
+
+            <h4>array</h4>
+
+            <p>Tecnicamente <strong>array</strong> não é um tipo em JavaScript. Na realidade é um tipo especial de object. Mas vamos tratá-lo aqui pois é um tipo especial muito utilizado.</p>
+
+            <p>Array é um conjunto de valores ordenados. Para declarar um array escrevemos os valores entre colchetes, separados por vírgula, e para acessar esses valores usamos o nome do array e a posição do valor entre colchetes. Porém é preciso lembrar de algo muito importante: <strong>arrays começam do 0</strong>. Além disso todo array possui uma propriedade especial, chamada <strong>length</strong>, que retorna o número de elementos de um array. Veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let cores = ["azul", "amarelo", "vermelho"];
+                    alert(cores[0]);
+                    alert(cores[1]);
+                    alert(cores[2]);
+                    alert(cores[3]); // undefined
+                    alert(cores.length);
+                </code>
+            </pre>
+
+            <h4>typeof</h4>
+
+            <p>Podemos usar <strong>typeof</strong> e um valor ou uma variável para saber seu tipo. Tenha em mente que o typeof nem sempre funciona, existem alguns casos muito estranhos. Mas na maior parte das vezes ele é confiável. Veja os exemplos:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let nome = "Douglas"
+                    alert(typeof nome); //string
+                    alert(typeof "Olá"); //string
+                    alert(typeof "3"); //string
+                    alert(typeof 3); //number
+
+                    let usuario ={
+                        nome: "Doglas",
+                        idade: 28
+                    }
+                    alert(typeof usuario); //object
+                    alert(typeof usuario.nome); //string
+                    alert(typeof usuario.idade); //number
+
+                    alert(typeof [2, 2, 4, 5,]); //object, pois array é um tipo especial de object
+                    alert(typeof undefined); // undefined
+                    alert(typeof null); // object????? É um daqueles casos estranhos, mas raramente vamos encontrar
+                </code>
+            </pre>
+
+
+            <h3>Operadores</h3>
+
+            <p>Vamos falar agora de operadores. São caracteres (+, -, *, /, =, etc..) que realizam uma operação em variáveis ou valores.</p>
+
+            <h4>Atribuição</h4>
+
+            <p>Já conhecemos o operador de atribuição. Ele serve para guardarmos um valor em uma variável. Para usá-lo precisamos de uma variável a esquerda dele e um valor de qualquer tipo (number, string, array, object, boolean, etc...) a direita. Veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let nome = "Douglas";
+                    let online = false;
+                    online = true;
+                </code>
+            </pre>
+
+            <h4>Concatenação de strings</h4>
+
+            <p>Concatenar é "juntar". Podemos juntar strings, por exemplo, algo que queremos escrever na tela com uma variável. Para isso usamos o sinal de <strong>+</strong>. Veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let nome = "Douglas";
+                    alert("Olá " + nome + ", bem-vindo!");
+                </code>
+            </pre>
+
+            <h4>Soma</h4>
+
+            <p>O sinal de <strong>+</strong> também é usado para somar números. Tome cuidado aqui, pois se um dos dois operandos for uma string, o que acontecerá é uma concatenação, veja os exemplos:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let idade = 28;
+                    alert(idade + 1);  //  29
+                    alert(2+2); //  4
+                    alert(1+"1"); // 11, pois o segundo "1" é uma string
+                </code>
+            </pre>
+
+            <h4>Subtração</h4>
+
+            <p>O sinal de <strong>-</strong> é usado para subtrair números. Veja os exemplos:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let idade = 28;
+                    alert(idade - 1);  //  27
+                    alert(2-2); //  0
+                    alert(1-"1"); // 0, por quê?????
+                </code>
+            </pre>
+
+            <p>Repare no terceiro alert do exemplo, apesar do segundo valor ser uma string a subtração ocorreu corretamente. Isso acontece por dois motivos:</p>
+
+            <p>1 - não existe nenhuma operação especial com o sinal - para strings.</p>
+
+            <p>2 - quando usamos esse operador ele automaticamente converte qualquer tipo que não seja um number para um number.</p>
+
+            <p>Apesar de funcionar, geralmente não é recomendado realizar subtração com valores que não sejam do tipo number. Nesse exemplo o resultado foi o esperado porque a conversão automática resultou no que é esperado, mas nem sempre é esse o caso. Por isso evite fazer operações aritméticas (soma, subtração, divisão, multiplicação, etc..) com strings.</p>
+
+            <h4>Multiplicação</h4>
+
+            <p>O sinal de <strong>*</strong> é usado para multiplicar números. Veja os exemplos:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let idade = 28;
+                    alert(idade * 0.5);  //  14
+                    alert(2*2); //  4
+                    alert(1*"1"); // 1, conversão automática, semelhante a subtração
+                </code>
+            </pre>
+
+            <h4>Divisão</h4>
+
+            <p>O sinal de <strong>/</strong> é usado para dividir números. Veja os exemplos:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let idade = 28;
+                    alert(idade / 2);  //  14
+                    alert(2/2); //  1
+                    alert(1/"1"); // 1, conversão automática, semelhante a subtração
+                </code>
+            </pre>
+
+            <h4>Exponenciação</h4>
+
+            <p>O sinal de <strong>**</strong> é usado para exponenciar números. Veja os exemplos:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    alert(10**2); //  100
+                    alert(2**3); //  8
+                </code>
+            </pre>
+
+            <h4>Resto da divisão</h4>
+
+            <p>Um operador que provavelmente você não está acostumado é o <strong>%</strong> ou resto da divisão. O resultado dele é o resto da divisão inteira do número a esquerda pelo número da direita. Por exemplo 32%3 é 2, pois 32 dividido por 3 dá 10 e sobram (resto) 2.</p>
+
+            <p>Pode não parecer mas esse operador é muito utilizado em programação.</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let par = 22;
+                    let impar = 33;
+                    alert(par%2);   // 0
+                    alert(impar%2); // 1
+                </code>
+            </pre>
+
+            <h4>Incremento/Decremento</h4>
+
+            <p>É muito comum em programação precisarmos adicionar 1 ou subtrair 1 de uma variável. Por isso existem os operadores de incremento <strong>++</strong> e de decremento <strong>--</strong>. Veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let visitantes = 0;
+                    visitantes++;
+                    alert(visitantes); // 1
+                    alert(visitantes++) // 1
+                    alert(++visitantes) // 3
+                </code>
+            </pre>
+
+            <p>Repare que podemos usar esses operadores antes ou depois do nome da variável. A diferença é que se usarmos antes ele primeiro mostra o valor atual e depois adiciona/subtrai 1, se usarmos o operador antes do nome da variável ele primeiro adiciona/subtrai 1 e depois mostra o valor.</p>
+
+            <p>Troque os operadores para -- e veja o que acontece.</p>
+
+            <h4>Modificar diretamente</h4>
+
+            <p>É muito comum precisarmos modificar uma variável e salvar o novo valor na mesma variável. Podemos fazer isso assim:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let total = 0;   
+                    total = total + 19.99;
+                    alert(total);
+                </code>
+            </pre>
+
+            <p>E perfeitamente comum achar esse tipo de código confuso a primeira vez, pois estamos utilizando a variável "total" duas vezes na mesma linha. Porém se você para um pouco para pensar, vai perceber que ela é usada de duas maneiras diferentes: a direita do = usamos o valor salvo nela (0), somamos 19.99 a ele e salvamos o resultado na própria váriavel, a esquerda do =. Percebeu como ela é usada para acessar o valor, e depois para atribuir um novo valor? E sim a ordem parece estranha pois é da direita pra esquerda, mas isso é porque o operador de adição (+) tem preferência sobre o operador de atribuição (=).</p>
+
+            <p>A forma de modificar uma variável diretamente é a seguinte:</p>
+
+            <pre>
+                <code>
+                    let total = 0;   
+                    total += 19.99;
+                    alert(total);
+                </code>
+            </pre>
+
+            <p>Usamos o operador da soma e de atribuição juntos, a ordem é importante, o operador de atribuição sempre vem depois. Também podemos fazer isso com outros operadores aritméticos (-, /, *, %, **), experimente.</p>
+
+
+            <h3>Números que não são números mas são números???</h3>
+
+            <p>O título dessa sessão é meio confuso mas tudo fará sentido quando você acabar de lê-la. Em JavaScript existem alguns valores especiais quando trabalhamos com números. Vamos vê-los agora.</p>
+
+            <h4>Infinity</h4>
+
+            <p>Um desses valores especiais é Infinity, que significa um número maior que qualquer outro número.. Você talvez já tenha ouvido um professor de Matemática dizer que é proibido ou impossível dividir por zero, por exemplo: 1/0. Mas em JavaScript isso é possível, veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let num = 1/0;
+                    alert(num);
+                    alert(typeof num);
+                </code>
+            </pre>
+
+            <p>Repare que o valor da divisão foi o valor especial Infinity. E repare que o typeof de Infinity é number. Troque 1 por -1 no exemplo anterior. Repare que o resultado agora é -Infinity, que significa um número menor que qualquer outro número.</p>
+
+            <h4>NaN</h4>
+
+            <p>Outro valor numérico especial é NaN, que siginifica "Not a Number", em português "Não um Número". Esse valor é obtido como resultado de operações aritméticas (+, -, *, /, **, %) que envolvam valores não numéricos. Veja os exemplos:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let num = 5 * "laranja";
+                    alert(num);
+                    alert(typeof num);
+                </code>
+            </pre>
+
+            <p>Vimos que quando um dos operandos não é do tipo number, ele é automaticamente convertido para um número. Porém quando temos uma string do tipo "10" é possível converter, já no exemplo temos a string "laranja" e o JavaScript não sabe converter isso para um número, obviamente. Então o resultado da operação é NaN, "Não um Número".</p>
+
+            <p>Até ai tudo faz sentido. Porém quando usamos typeof em NaN temos o resultado "number", ou seja, NaN é do tipo number. Ok, admito, isso é bem confuso. Mas basta você pensar que NaN é um valor especial que representa um resultado de uma operação com números que não foi possível calcular, muito provavelmente porque um dos valores não era realmente um número ou algo que pudesse ser convertido para um número.</p>
+
+            <p>Nas próximas aulas veremos casos em que NaN será importante. Por exemplo, imagine que pedimos para o usuário digitar sua idade, e ele digita "laranja", e depois precisamos fazer uma operação aritimética com esse valor, precisamos verificar se a idade é um número, ou seja se não é um NaN.</p>
+
+
+            <h3>Conversões de Tipos</h3>
+
+            <p>Vimos que algumas vezes os valores são convertidos automaticamente, por exemplo quando escrevemos 10 - "5" o valor "5" é uma string, mas é convertido automaticamente para o tipo number, pois é o único tipo aceitável em uma operação de subtração.</p>
+
+            <p>Mas as vezes queremos que um valor seja convertido e isso não acontece automaticamente, podendo gerar resultados indesejáveis, veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let soma = 1 + "1";
+                    alert(soma);
+                </code>
+            </pre>
+
+            <p>Nesse exemplo o resultado é a string "11", pois o programa entendeu isso como uma concatenação de strings, e na verdade convertou o number 1 para string e juntou com a outra string "1" resultando na string "11". Mas claramente não era isso que queriamos fazer. O resultado que esperavamos era 2. Para isso precisamos converter a string "1" para o tipo number. A seguir veremos como fazer isso.</p>
+
+            <h4>Number()</h4>
+
+            <p>Para converter um valor para o tipo number usamos Number(minhaString) e dentro dos parenteses colocamos o valor ou a variável que queremos converter.</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let soma = 1 + Number("1");
+                    alert(soma);
+                </code>
+            </pre>
+
+            <p>Teoricamente podemos converter qualquer tipo de valor para number, mas geralmente usamos isso para string.</p>
+
+
+            <h4>String()</h4>
+
+            <p>Podemos também converter um valor para string, utilizando String(meuValor). Veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let num = 10;
+                    num = String(num);
+                    alert(typeof num);
+                </code>
+            </pre>
+
+
+            <h4>Boolean()</h4>
+
+            <p>Também é possível converter um valor para o tipo boolean. Lembre-se que boolean tem apenas dois valores possíveis: <strong>true</strong> e <strong>false</strong>. É raro usarmos Boolean() para conversões. As conversões para o tipo boolean geralmente acontecem automaticamente em condicionais e loops, que aprenderemos na próxima aula. Porém é importante conhecer alguns valores que aparecem muito e qual é a conversão dels para boolean.</p>
+
+            <p>Nesse primeiro exemplo vemos vários valores que convertem para o boolean true. Observe que alguns não são tão obvios:</p>
+
+            <pre>
+                <code>
+                    alert(Boolean(1));
+                    alert(Boolean("1"));
+                    alert(Boolean("Uma string não vazia"));
+                    alert(Boolean(" "));
+                    alert(Boolean("0"));
+                    alert(Boolean("false"));
+                    alert(Boolean("null"));
+                    alert(Boolean("undefined"));
+                    alert(Boolean([a, b, c, d]));
+                    alert(Boolean({chave: "valor"}));
+                    alert(Boolean([]));
+                    alert(Boolean({}));
+                </code>
+            </pre>
+
+            <p>Nesse segundo exemplo temos valores que convertem para o boolean false:</p>
+
+            <pre>
+                <code>
+                    alert(Boolean(0));
+                    alert(Boolean(-0));
+                    alert(Boolean(''));
+                    alert(Boolean(""));
+                    alert(Boolean(``));
+                    alert(Boolean(null));
+                    alert(Boolean(undefined));
+                    alert(Boolean(NaN));
+                    alert(Boolean(false));
+
+                    let minhaVariavel;
+                    alert(Boolean(minhaVariavel));
+                </code>
+            </pre>
+
+
+            <h3>O objeto global window</h3>
+
+            <p>Todo ambiente JavaScript possui um objeto global, um objeto que possui propriedades e funções que podem ser acessadas de qualquer parte do código.</p>
+
+            <p>Nos navegadores esse objeto global é o objeto <strong>window</strong>. Esse objeto possui algumas propriedades e funções padrões que podemos usar.</p>
+
+            <h4>alert()</h4>
+            
+            <p>Não vimos ainda o que é uma função (ou método), veremos em uma aula posterior. Porém mesmo sem saber já utilizamos várias vezes um dos métodos do objeto global window: alert(). O que esse método faz é abrir uma caixa de diálogo no navegador e mostrar o texto que usamos entre parenteses. Veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    alert("Olá mundo!");
+                </code>
+            </pre>
+
+            <h4>prompt()</h4>
+
+            <p>O método prompt() é usado para receber um valor do usuário e salvá-lo em uma variável, entre parenteses digitamos uma string que será exibida para o usuário. Veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    let nome;
+                    nome = prompt("Digite seu nome:");
+
+                    alert("Olá, " + nome);
+                </code>
+            </pre>
+
+            <h4>confirm()</h4>
+
+            <p>O método confirm abre uma caixa de diálogo com dois botões "OK" e "Cancel", e salva um boolean em uma variável. Se o usuário apertar "OK" salva o valor true, se o usuário apertar "Cancel" salva false. Veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+
+            <pre>
+                <code>
+                    let deMaior;
+                    deMaior = confirm("Têm mais de 18 anos?");
+
+                    alert("Maior de 18: " + deMaior);
+                </code>
+            </pre>
+
+            <h4>open() e close()</h4>
+
+            <p>O método open() é usado para abrir outra janela. Atribuimos ele a uma variável para depois poder fechar a janela. Veja o exemplo:</p>
+
+            <p>Digite no console do navegador:</p>
+            
+            <pre>
+                <code>
+                    let google;
+
+                    google = window.open("http://www.google.com/");
+                </code>
+            </pre>
+
+            <p>Agora digite:</p>
+
+            <pre>
+                <code>
+                    google.close();
+                </code>
+            </pre>
+
+            <p>Talvez isso não funcione em alguns navegadores, principalmente porque a maioria bloqueia esses métodos para evitar que sites abusem deles para abrir novas janelas de propagandas ou sites maliciosos (que contém vírus, spyware ou outros malwares).</p>
+
+            
+            <h3>O objeto document</h3>
+
+            <p>Outro objeto importante em navegadores é o objeto <strong>document</strong>. É através dele que conseguimos acessar os elementos HTML, assim podemos modificar, adicionar ou remover elementos HTML.</p>
+
+            <p>Não veremos como fazer isso agora, teremos uma outra aula só para isso. Por enquanto veremos apenas um método:</p>
+
+            <h4>document.write</h4>
+
+            <p>Esse método nos permite escrever código HTML direto na nossa página, veja o exemplo:</p>
+
+            <p>No documento app.js:</p>
+            
+            <pre>
+                <code>
+                    document.write("&lt;h1&gt;Um cabeçalho h1!&lt;/h1&gt;")
+                </code>
+            </pre>
+
+            <p>Porém esse método é um pouco limitado. Perceba que quando usamos ele todo conteúdo HTML que estava na página é excluido e apenas é exibido o novo conteúdo passado dentro dos parenteses. Isso não é ideal, por isso aprenderemos outros métodos em uma das nossas próximas aulas.</p>
+
+            <p>Esses métodos (document.write, alert, prompt, confirm, open, close) serão úteis para nós agora no começo enquanto estamos aprendendo o básico de programação com JavaScript. Porém mais para frente aprenderemos maneira muito melhores de interagir com o usuário e com a página HTML em si. Na prática esses métodos não são utilizados (exceto em sites muito antigos), utilizaremos apenas para fins de aprendizagem mesmo.</p>
+
+
+            <h3>Exercícios:</h3>
+
+            <h4>1 - Olá ?????</h4>
+
+            <p>Faça um script que pergunta o nome do usuário e depois mostra "Olá Nome", mas no lugar de "Nome" mostra o nome digitado.</p>
+
+            <h4>2 - Quando eu nasci?</h4>
+
+            <p>Escreva um script que pergunta a um usuário quantos anos ele faz esse ano (em 2019) e depois o programa mostra para o usuário que ano ele nasceu.</p>
+
+            <h4>3 - Escolha a cor de fundo!</h4>
+
+            <p>Escreva um script que pede ao usuário para digitar valores de 0 a 255 para as cores red, green e blue, e depois mude a cor de fundo do body para esses valores.</p>
+
+            <h4>4 - Filmes favoritos!</h4>
+
+            <p>Escreva um script que pergunta o nome de 5 filmes para o usuário e depois mostre esses 5 filmes em uma lista.</p>
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>
