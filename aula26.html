@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 26 - Condicionais e Loops</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Aula 26 - Condicionais e Loops</h2>
+
+            <p>Nessa aula aprenderemos sobre condicionais (ou controle de fluxo) e loops (ou repetição). Basicamente condicionais nos permitem executar um código apenas se uma condição é satisfeita. E loops nos permitem repetir uma operação várias vezes, sem ter que escrevê-la repetidamente.</p>
+
+            <p>Mas antes disso precisamos aprender sobre operadores de comparação e operadores lógicos, que são muito usados em condicionais e loops. </p>
+
+
+            <h3>Operadores de comparação</h3>
+
+            <p>Esse tipo de operador compara dois valores e retorna um boolean: true se a comparação for verdadeira; false se a comparação for falsa. Por exemplo, imagine que queremos saber se a idade de um usuário é maior que 18, basta comparar uma variável idade com o valor 18.</p>
+
+            <p>Existem 8 tipos de comparação em JavaScript:</p>
+
+            <ul>
+                <li><strong>&lt;</strong> (menor que)</li>
+                <li><strong>&gt;</strong> (maior que)</li>
+                <li><strong>&lt;=</strong> (menor ou igual a)</li>
+                <li><strong>&gt;=</strong> (maior ou igual a)</li>
+                <li><strong>==</strong> (igual a)</li>
+                <li><strong>!=</strong> (diferente de)</li>
+                <li><strong>===</strong> (estritamente igual a)</li>
+                <li><strong>!==</strong> (estritamente diferente de)</li>
+            </ul>
+
+            <p>Aqui devemos prestar atenção em 3 coisas:</p>
+
+            <p><strong>1 - Evitar strings nos 4 primeiros</strong>: apesar de ser possível compara strings com os operadores de desigualdade (&lt;, &gt;, &lt;=, &gt;=) não é recomendado (pelo menos por enquanto), pois ele não obedece exatamente a ordem alfabética quando misturamos letras maiúsculas e minúsculas. Por exemplo: "a" &lt; "B" retorna <strong>false</strong>, quando provavelmente sua intuição diria que retornaria true. Uma solução para esse problema seria deixar todas letras das duas palavras minúsculas (ou todas maiúsculas), isso é possível porém ainda não resolve por exemplo o caso de palavras com acentos. Por isso evite usar esses operadores com strings, use apenas com numbers.</p>
+
+            <p><strong>2 - igual converte, estritamente igual não converte:</strong>você deve estar se perguntando qual a diferença entre o igual (==) e o estritamente igual (===)? A diferença é que o igual (==) converte automaticamente os valores para o mesmo tipo, e depois compara. Já o estritamente igual não converte. Então por exemplo, 1 == "1" retorna true, enquanto 1 === "1" retorna false. O mesmo vale pra diferente (!=) e estritamente diferente (!==).</p>
+
+            <p><strong>3 - Use estritamente igual sempre que possível:</strong> pelo fato do igual realizar a conversão, ele é um pouco mais lento, por isso use o estritamente igual (===) sempre que possível. Existem alguns casos em que usar o igual (==) pode ser mais vantajoso, porém na maioria dos casos o estritamente igual é melhor.</p>
+
+            <p>Vejamos alguns exemplos, digite essas expressões, uma de cada vez, no console de seu navegador, antes de apertar enter e ver o resultado tente adivinhar se é true ou false.</p>
+
+            <pre>
+                <code>
+                    2 &lt; 3
+                    2 &lt; 1
+                    10 &gt; 10
+                    10 &gt; 9
+                    7 &lt;= 7
+                    7 &gt;= 7
+                    11 == "11"
+                    11 === "11"
+                    "laranja" === "laranja"
+                    "banana" !== "laranja"
+                    "uva" !== "uva"
+
+                    let idadeDouglas = 28;
+                    let idadeFulano = 17;
+                    idadeDouglas &gt;= 18;
+                    idadeFulano &gt;= 18;
+                </code>
+            </pre>
+
+
+            <h3>Operadores Lógicos</h3>
+
+            <p>Em JavaScript existem 3 operadores lógicos: não; e; ou. Vejamos como usar cada um deles.</p>
+
+            <h4>! (não)</h4>
+
+            <p>O primeiro operador lógico que vamos estudar é o <strong>não</strong> representado pelo ponto de exclamação (!). O que ela faz é simplesmente pegar um valor ou variável que esteja logo após ele, converte-o para um boolean se ainda não for e inverte o resultado. Ou seja, se o valor era true ele retorna false, se o valor era false ele retorna true. Veja os exemplos:</p>
+
+            <pre>
+                <code>
+                    !true
+                    !false
+                    !0
+                    !""
+                    !"string não vazia"
+                    !11
+                    !(1 &lt; 2)
+                    !(1 &gt; 2)
+                    !("Oi" === "Oi")
+                    !(10 === "10")
+                </code>
+            </pre>
+
+
+            <h4>&& (e)</h4>
+
+            <p>O próximo operador lógico que veremos é o <strong>e</strong>, representado por <strong>&&</strong>. Usamos ele entre dois valores ou expressões.</p>
+
+            <p>A maneira mais fácil de entender esse operador, (e que é a correta para outras linguagens de programação mas não exatamente para o JS) é a seguinte: se as duas expressões são verdadeiras retorna true, se uma das duas é falsa retorna false.</p>
+
+            <p>Isso está correto em partes, pois em JavaScript os operadores lógicos && e || (ou) não retornam um boolean, e sim uma das duas expressões usadas. Porém como na maior parte das vezes o valor retornado é convertido para um boolean, as vezes não percebemos isso. Leia a seguir o que é retornado na realidade em cada caso para o operador &&:</p>
+
+            <p>Se a primeira expressão for falsa ela é retornada e a segunda não é computada (é ignorada). Se a primeira expressão for verdadeira, retorna-se a segunda expressão. Tente compreender a lógica por trás disso.</p>
+
+            <p>Veja os exemplos:</p>
+
+            <pre>
+                <code>
+                    "Olá" && "Oi"
+                    "Olá" && ""
+                    1 &lt; 2 && 1 &lt; 3
+                    1 &lt; 2 && 1 &lt; 0
+                    1 &lt; 0 && 1 &lt; 2
+                    1 &lt; 0 && 1 &lt; -1
+                </code>
+            </pre>
+
+
+            <h3>|| (ou)</h3>
+
+            <p>O último operador lógico é o <strong>ou</strong>, representado por || (aperte shift e a tecla do lado esquerdo da letra Z duas vezes). Semelhante ao && usamos ele entre dois valores ou expressões.</p>
+
+            <p>A maneira mais fácil de entender esse operador, (e que é a correta para outras linguagens de programação mas não exatamente para o JS) é a seguinte: se uma das expressões é verdadeira retorna true, se as duas são falsas retorna false.</p>
+
+            <p>Isso está correto em partes, pois em JavaScript os operadores lógicos && e || (ou) não retornam um boolean, e sim uma das duas expressões usadas. Porém como na maior parte das vezes o valor retornado é convertido para um boolean, as vezes não percebemos isso. Leia a seguir o que é retornado na realidade em cada caso para o operador ||:</p>
+
+            <p>Se a primeira expressão for verdadeira ela é retornada e a segunda não é computada (é ignorada). Se a primeira expressão for falsa, retorna-se a segunda expressão. Tente compreender a lógica por trás disso.</p>
+
+            <p>Veja os exemplos:</p>
+
+            <pre>
+                <code>
+                    "Olá" || "Oi"
+                    "Olá" || ""
+                    1 &lt; 2 || 1 &lt; 3
+                    1 &lt; 2 || 1 &lt; 0
+                    1 &lt; 0 || 1 &lt; 2
+                    1 &lt; 0 || 1 &lt; -1
+                </code>
+            </pre>
+
+            <p>Além dos loops e condicionais que veremos a seguir, o operador || é muito útil em um caso específico: usar um valor padrão caso uma variável não exista (seja falsa). Veja o exemplo:</p>
+
+            <p>No arquivo app.js:</p>
+
+            <pre>
+                <code>
+                    let nome;
+
+                    nome = prompt("Digite seu nome:");
+
+                    alert("Olá " + (nome || "visitante") + "!");
+                </code>
+            </pre>
+
+            <p>Execute o script acima e quando for solicitado o nome não digite nada, apenas aperter o OK, viu o que aconteceu? Por quê isso aconteceu?</p>
+
+
+            <h3>Condicionais</h3>
+
+            <p>Condicionais são operadores que executam um bloco de código apenas se uma determinada condição for satisfeita.</p>
+
+            <h4>if</h4>
+
+            <p>O primeiro condicional é o <strong>if</strong>, em português <strong>se</strong>. Ele recebe uma condição entre parenteses e executa o código entre chaves se a condição for verdadeira. Veja o exemplo:</p>
+
+            <p>No arquivo app.js:</p>
+
+            <pre>
+                <code>
+                    let senha = prompt("Digite a senha super secreta:");
+
+                    if (senha === "senha super secreta") {
+                        alert("Login com sucesso!");
+                    }
+                </code>
+            </pre>
+
+            <h4>else</h4>
+
+            <p>Geralmente quando usamos o if, e a condição não é satisfeita, queremos executar outro código. Você pode estar pensando: "é só escrever o outro código depois do bloco entre chaves do if". Sim, podemos fazer isso, mas o problema é que esse código será executado de qualquer maneira, seja a condição do if verdadeira ou falsa. Veja o exemplo:</p>
+
+            <p>No arquivo app.js:</p>
+
+            <pre>
+                <code>
+                    let idade = prompt("Digite a sua idade:");
+
+                    if (idade &gt;= 18) {
+                        alert("Pode entrar!");
+                    }
+
+                    alert("Não pode entrar!");
+                </code>
+            </pre>
+
+            <p>Perceba que a mensagem "Não pode entrar" é exibida de qualquer maneira, mas o que queremos é que ela apareça apenas quando a condição idade >= 18 for falsa. Para isso serve o <strong>else</strong>, em português <strong>senão</strong>:</p>
+
+            <p>No arquivo app.js:</p>
+
+            <pre>
+                <code>
+                    let idade = prompt("Digite a sua idade:");
+
+                    if (idade &gt;= 18) {
+                        alert("Pode entrar!");
+                    } else {
+                        alert("Não pode entrar!");
+                    }
+                </code>
+            </pre>
+
+
+            <h4>else if</h4>
+
+            <p>Agora imagine que queremos dividir as pessoas em 3 grupos por idade: menores de 18; entre 18 e 60; e maiores de 60. Para isso podemos utilizar outro if na frente do else, veja:</p>
+
+            <p>No arquivo app.js:</p>
+
+            <pre>
+                <code>
+                    let idade = prompt("Digite a sua idade:");
+
+                    if (idade &lt; 18) {
+                        alert("Menor não pode entrar!");
+                    } else if (idade &lt; 60) {
+                        alert("Adulto pode entrar!");
+                    } else {
+                        alert("Idoso pode entrar e tem preferência!")
+                    }
+                </code>
+            </pre>
+
+            <p>Podemos usar quantos else if quisermos, porém quando temos muitos casos e os valores são específicos podemos usar outro condicional, o switch que veremos a seguir.</p>
+
+
+            <h4>switch</h4>
+
+            <p>O <strong>switch</strong> é um condicional que pode ser usado quando o valor a ser comparado deve ser estritamente igual (===) a algum valor. Por exemplo, imagine que perguntamos ao usuário qual é sua a cor favorita. E queremos mudar a cor de fundo da página de acordo com a cor digitada, veja o exemplo:</p>
+
+            <pre>
+                <code>
+                        let corFavorita = prompt("Digite a sua cor favorita:");
+
+                        switch(corFavorita) {
+                            case "vermelho":
+                                document.write('&lt;body style="background-color: red"&gt;&lt;/body&gt;');
+                                break;
+                            case "verde":
+                                document.write('&lt;body style="background-color: green"&gt;&lt;/body&gt;');
+                                break;
+                            case "azul":
+                            case "blue":
+                                document.write('&lt;body style="background-color: blue"&gt;&lt;/body&gt;');
+                                break;
+                            default:
+                                document.write('&lt;body style="background-color: black"&gt;&lt;/body&gt;');
+                        }
+                </code>
+            </pre>
+
+            <p>Repare na sintaxe. Escrevemos switch e depois entre parenteses a variável que desejamos comparar com os valores. Depois usamos a palavra case seguida de um valor e de dois pontos. Na linha de baixo escrevemos o código a ser executado caso a variável tenha aquele valor. Repare que no final de cada case temos a palvra break seguida de ponto e vírgula, isso para a execução do switch, pois se já encontramos o caso não precisamos comparar ou outros casos. Repare também que temos a palavra default, esse é o código que será executado se nenhum dos casos forem verdadeiros, nesse exemplo se o usuário digitar qualquer coisa que não seja, "vermelho", "verde", "blue" ou "azul". Repare que temos case "azul": e case "blue": e depois o código que muda o fundo para azul. Isso é usado quando queremos executar o mesmo código para dois ou mais casos diferentes.</p>
+
+
+            <h3>Loops</h3>
+
+            <p>Muitas vezes precisamos repetir uma ação várias vezes. Por exemplo, imagine que temos um array com 10 elementos, cada um é o nome de um filme que já assisti. Se eu quero exibir o nome de todos filmes, será que preciso escrever isso 10 vezes, uma para cada filme? Posso até fazer isso, mas vai demorar um pouco e o código vai ficar um pouco grande. Agora imagine se fossem 100 filmes, ou 1000 filmes...</p>
+
+            <p>É para esse tipo de situação que os loops existem, vamos estudar 3 tipos de loop: while; do while; for.</p>
+
+            <h4>while</h4>
+
+            <p>Em português <strong>while</strong> significa <strong>enquanto</strong>. Esse loop executa um bloco de código enquanto uma certa condição for verdadeira. Veja o exemplo:</p>
+
+            <p>No arquivo app.js:</p>
+
+            <pre>
+                <code>
+                    let numero = 6;
+                    let chute;
+
+                    while(numero != chute){
+                        chute = prompt("Adivinhe o número:");
+                    }
+
+                    alert("Parabéns!");
+                </code>
+            </pre>
+
+            <p>Nesse exemplo criamos duas variáveis, em uma salvamos um número, a outra utilizamos para receber um valor digitado pelo usuário. No loop while, entre parenteses colocamos a condição que é o número ser diferente do chute do usuário. Ou seja o código entre chaves irá executar repetidamente enquanto o chute for diferente. Quando o usuário acertar o número, a condição numero != chute passa a ser falsa, então o loop para e o código segue para a próxima linha depois do loop, o alert.</p>
+
+            <p><strong>Importante:</strong> é preciso ter certeza de que o loop tem um fim, ou seja, que a condição entre parenteses uma hora será falsa. Se isso nunca acontecer, entramos em um loop infinito, que roda até você fechar seu navegador, ou até o próprio navegador se sobrecarregar e parar sozinho ou exibir uma mensagem de erro.</p>
+
+
+            <h4>do while</h4>
+
+            <p>O loop <strong>do while</strong> é semelhante ao while. Porém tem 2 diferenças importantes:</p>
+
+            <p>1 - a sintaxe (forma de escrever) é um pouco diferente. Primeiro escrevemos a palavra <strong>do</strong> depois escrevemos o bloco de código entre chaves, e depois escrevemos a palavra <strong>while</strong>, seguida da condição entre parenteses.</p>
+
+            <p>2 - o código dentro do bloco sempre será executado da primeira vez, independentemente da condição ser verdadeira ou falsa. Só a partir da segunda vez é que a condição é avaliada. Veja o exemplo:</p>
+
+            <p>No arquivo app.js:</p>
+
+            <pre>
+                <code>
+                    let contador = 10;
+
+                    do {
+                        alert(contador);
+                        contador++;
+                    } while(contador &lt; 8);
+                </code>
+            </pre>
+
+            <p>Tente reescrever o exemplo acima usando while. Quantas vezes o contador é exibido na tela?</p>
+
+
+            <h4>for</h4>
+
+            <p>O último loop que estudaremos é o loop <strong>for</strong>, em portugês <strong>para</strong>. Diferente dos loops while e do while, o for recebe 3 valores entre parenteses, separados por ponto e vírgula.</p>
+
+            <p>for(início; condição; passo)</p>
+
+            <p>O primeiro valor é uma condição inicial, que geralmente é a declaração de uma variável com um valor inicial.</p>
+
+            <p>O segundo valor é a condição, que enquanto for verdadeira o loop continua.</p>
+
+            <p>O terceiro valor é algo que é executado ao final de cada execução do loop.</p>
+
+            <p>Veja o exemplo:</p>
+
+            <p>No arquivo app.js:</p>
+            
+            <pre>
+                <code>
+                    for(let i = 0; i &lt; 5; i++){
+                        alert(i);
+                    }
+                </code>
+            </pre>
+
+            <p>Repare que o código dentro das chaves (o alert) é executado até que a condição i &lt; 5 se torna falsa, ai então o loop para de executar.</p>
+
+            <p>A grande utilidade do for é fazer um loop dentro de um array, veja o exemplo:</p>
+
+            <p>No arquivo app.js:</p>
+            
+            <pre>
+                <code>
+                    let amigos = ["Fulano", "Ciclano", "Beltrano"];
+
+                    for(let i = 0; i &lt; amigos.length; i++){
+                        alert("Olá " + amigos[i]);
+                    }
+                </code>
+            </pre>
+
+            <p>Vamos analisar o código do exemplo anterior, pois ele é muito usado e importante.</p>
+
+            <p>Na condição inicial declaramos uma variável i e iniciamos ela com o valor 0. Lembre-se de que o primeiro elemento de um array é o elemento 0, e é acessado assim: amigos[0]. Portanto na primeira iteração do loop amigos[i] será igual a amigos[0].</p>
+
+            <p>A condição é i &lt; amigos.length. Lembre-se que a propriedade length é a quantidade de elementos do array. E por quê temos i &lt; amigos.length e não i &lt;= amigos.length? Porque o indice do último elemento do array sempre será um a menos do que o tamanho do array, pois começamos a contagem em 0. Nesse exemplo o array amigos tem 3 elementos: amigos[0] é "Fulano"; amigos[1] é "Ciclano"; amigos[2] é "Beltrano";</p>
+
+            <p>O valor executado ao final de cada passo é i++, ou seja, ao final de cada passo adicionação 1 ao valor de i, assim podemos acessar o próximo valor do array.</p>
+
+
+            <h3>Exercícios</h3>
+
+            <h4>Fila preferêncial</h4>
+
+            <p>Escreva um script que pergunta ao usuário sua idade e se é uma pessoa com deficiência. Caso a pessoa tenha um deficiência ou seja tenha 60 anos ou mais, exiba uma mesagem "Senha preferêncial", caso contrário exiba uma mensagem "Senha comum".</p>
+
+            <h4>Contratando alguém com experiência</h4>
+
+            <p>Uma empresa quer contratar uma pessoa que seja maior de 18 anos e tenha mais de 6 meses de experiência com JavaScript. Faça um progama que pergunte ao usuário a sua idade e quantos meses de experiência em JavaScript ele tem. Se a pessoa satisfaz ambas condições exiba uma mensagem "Vamos marcar uma entrevista!", caso contrário exiba uma mensagem "Desculpe estamos procurando alguém mais experiente."</p>
+
+            <h4>Bônus Noel</h4>
+
+            <p>Uma empresa paga um bônus para seus funcionários no final do ano para que eles possam comprar presentes de Natal para seus filhos. Esse bônus depende do nṕumero de filhos. Quem têm 1 filho recebe R$50,00; Quem têm 2 filhos recebe R$90,00; Quem têm 3 filhos recebe R$130,00; Quem têm 4 filhos recebe R$165,00; Quem têm 5 filhos ou mais recebe R$40,00 mais R$30,00 vezes o número de filhos;</p>
+
+            <p>Escreva um script que pergunta ao usuário o número de filhos e exibe uma mensagem dizendo qual será o bônus dele.</p>
+
+            <h4>Olá amigos!</h4>
+
+            <p>Escreva um script que pede ao usuário que digite nomes de seus amigos, até ele deixar um em branco (string vazia). Depois disso exiba uma mensagem "Olá Fulano" para cada nome digitado.</p>
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>

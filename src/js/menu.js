@@ -118,6 +118,10 @@ const linkList = [
   {
     text: "Aula 25 - JS: Introdução",
     link: "aula25.html"
+  },
+  {
+    text: "Aula 26 - Condicionais e Loops",
+    link: "aula26.html"
   }
 ];
 
