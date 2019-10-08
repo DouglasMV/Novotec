@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 28 - Numbers</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+
+            <h2>Number</h2>
+
+            <h3>Nunca faça cálculos com decimais</h3>
+
+            <p>Devido ao tipo de váriavel que o JavaScript usa para números, podem ocorrer alguns erros bizarros quando fazemos cálculos com números decimais. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    console.log(0.1 + 0.2 === 0.3);
+                    console.log(0.1 + 0.2);
+                </code>
+            </pre>
+
+            <p>Estranho né? Como fazer para evitar isso? Basta multiplicar os valores até ficarem inteiros e depois dividí-los veja:</p>
+
+            <pre>
+                <code>
+                    let valor1 = 10.2;
+                    let valor2 = 3.1;
+
+                    function somarDinheiro(a, b) {
+                        let resultado = 100*a + 100*b;
+                        resultado /= 100;
+
+                        return resultado;
+                    }
+
+                    let soma = somarDinheiro(valor1, valor2);
+
+                    alert(soma);
+                </code>
+            </pre>
+
+
+            <h3>tofixed()</h3>
+
+            <p>O método toFixed() é usado para arredondar um número decimal para um certo número de casas decimais que é usado como parâmetro do método, veja o exemplo:</p>
+
+            <p>Digite no console:</p>
+
+            <pre>
+                <code>
+                    let num = 10.123456789;
+                    num.toFixed(1);
+                    num.toFixed(2);
+                    num.toFixed(3);
+                    num.toFixed(4);
+                    num.toFixed(5);
+                    num.toFixed(6);
+                    num.toFixed(7);
+                    num.toFixed(8);
+                </code>
+            </pre>
+
+
+            <h3>isFinite() e isNaN()</h3>
+
+            <p>Vimos em uma aula passada que existem 3 valores de number especiais: NaN, Infinity e -Infinity. Existem duas funções para reconhecer esses casos especiais.</p>
+
+            <p>A primeira delas é a função isFinite(), que primeiro converte o valor para um número e retorna true para números finitos, e false para Infinity, -Infinity, NaN.</p>
+
+            <p>Digite no console:</p>
+
+            <pre>
+                <code>
+                    isFinite(10);
+                    isFinite("10");
+                    isFinite(true);
+                    isFinite(Infinity);
+                    isFinite(-Infinity);
+                    isFinite(NaN);
+                    isFinite("olá");
+                </code>
+            </pre>
+
+            <p>Outra função é isNaN() que primeiro converte o valor para um número e retorna true caso o resultado seja NaN e false caso contrário.</p>
+
+            <p>Digite no console:</p>
+
+            <pre>
+                <code>
+                    isNaN(10);
+                    isNaN("10");
+                    isNaN(true);
+                    isNaN(Infinity);
+                    isNaN(-Infinity);
+                    isNaN(NaN);
+                    isNaN("olá");
+            </pre>
+
+
+            <h3>parseInt() e parseFloat()</h3>
+
+            <p>As funções parseInt() e parseFloat() leêm uma string que começa com um número até encontar um outro tipo de caractere e retorna  o número lido até então, veja o exemplo:</p>
+
+            <p>Digite no console:</p>
+
+            <pre>
+                <code>
+                    parseInt("10px");
+                    parseInt("33.5C");
+                    parseInt("10px 20px");
+                    parseInt("R$10.00");
+                    parseFloat("10px");
+                    parseFloat("33.5C");
+                    parseFloat("10px 20px");
+                    parseFloat("R$10.00");
+                </code>
+            </pre>
+
+            <h3>O objeto Math</h3>
+
+            <p>Em JavaScript temos um objeto especial <strong>Math</strong> que possui algumas propriedades e métodos úteis para numbers. Veremos alguns desses métodos, caso queira estudar todas propriedades e métodos do objeto Math, <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math">clique aqui.</a></p>
+
+            <h4>Math.floor(x)</h4>
+
+            <p>Esse método é utilizado para arredondar um número para o maior número inteiro menor que x. Veja os exemplos:</p>
+
+            <p>Digite no console:</p>
+
+            <pre>
+                <code>
+                    Matah.floor(10.3);
+                    Matah.floor(10.7);
+                    Matah.floor(-10.3);
+                    Matah.floor(-10.7);
+                </code>
+            </pre>
+
+            <h4>Math.random()</h4>
+
+            <p>O método Math.random() gera um número aleatório entre 0 (incluindo) e 1 (excluindo). Veja o exemplo:</p>
+
+            <p>Digite no console várias vezes:</p>
+
+            <pre>
+                <code>
+                    Math.random();
+                </code>
+            </pre>
+
+            <p>O método Math.random() é muito usado em conjunto com o método Math.floor() para criar valores aleatórios inteiros, veja o exemplo abaixo que cria um número aleatório entre 0 e 255:</p>
+
+            <p>Digite no console várias vezes:</p>
+
+            <pre>
+                <code>
+                    let num;
+                    num = Math.random();
+                    num *= 256;
+                    num = Math.floor(num);
+                </code>
+            </pre>
+
+            <p>Existem outros 3 métodos de arredondamento: Math.ceil(); Math.round(); e Math.trunc(). Procure aprender quais as diferenças entre eles.</p>
+
+
+            <h3>Exercícios</h3>
+
+            <h4>Cor de fundo aleatória</h4>
+
+            <p>Faça um script que muda a cor de fundo da página aleatoriamente toda vez que ela é atualizada.</p>
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>

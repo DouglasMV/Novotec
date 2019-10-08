@@ -122,6 +122,22 @@ const linkList = [
   {
     text: "Aula 26 - Condicionais e Loops",
     link: "aula26.html"
+  },
+  {
+    text: "Aula 27 - Funções",
+    link: "aula27.html"
+  },
+  {
+    text: "Aula 28 - Number",
+    link: "aula28.html"
+  },
+  {
+    text: "Aula 29 - String",
+    link: "aula29.html"
+  },
+  {
+    text: "Aula 30 - Array",
+    link: "aula30.html"
   }
 ];
 
