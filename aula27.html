@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 27 - Funções</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+        <ul id="menu-ul">
+        </ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+        <article>
+            <h2>Aula 27 - Funções</h2>
+
+            <p>Muitas vezes precisamos realizar tarefas semelhantes em vários pontos do nosso script. Escrever várias vezes o mesmo código não é ideal. Para evitar isso usamos funções.</p>
+
+            <p>Função são um bloco de código que pode ser chamado em vários pontos do script e executado.</p>
+
+            <p>Existem dois conceitos importantes quando estamos tratando de usar uma função: Declaração e Chamada.</p>
+
+            <p>Declarar uma função é escrever o código que será executado quando essa função for usada.</p>
+
+            <p>Chamar uma função é dizer para o seu script executar a função naquele ponto.</p>
+
+
+            <h3>Declarando uma função.</h3>
+
+            <p>Para declarar uma função em JavaScript usamos a palavra reservada <strong>function</strong>, seguida do nome da função, seguida de parenteses, que podem ou não conter parâmetros dentro deles, seguido de um bloco entre chaves com o código que será executado quando a função for chamada.</p>
+
+            <p>É importante observar que o código dentro do bloco da função não é executado quando apenas declaramos a função, é preciso chamá-la, veja o exemplo:</p>
+
+            <p>No arquivo app.js</p>
+
+            <pre>
+                <code>
+                    function boasVindas() {
+                        alert("Bem-vindo!");
+                    }
+                </code>
+            </pre>
+            
+
+            <h3>Chamando (executando) uma Função</h3>
+
+            <p>Você já executou algumas funções mesmo sem saber que estava fazendo isso. Por exemplo alert() e prompt() são funções.</p>
+
+            <p>Para chamar ou executar uma função escrevemos o nome da função seguido de parenteses, que podem ou não conter argumentos dentro (veremos isso mais adiante). Veja o exemplo:</p>
+
+            <p>No arquivo app.js</p>
+
+            <pre>
+                <code>
+                    function boasVindas() {
+                        alert("Bem-vindo!");
+                    }
+
+                    boasVindas();
+                </code>
+            </pre>
+
+            <p>Repare que agora o código foi executado. Copie e cole a chamada da função várias vezes, veja como agora a função é executada várias vezes.</p>
+
+
+            <h3>Variáveis Locais</h3>
+
+            <p>Se você declarar uma variável dentro de uma função ela só pode ser acessada pela própria função, ou por função declaradas dentro dela. A variável não pode ser acessada fora da função ou em outras funções declaradas fora da função. Veja o exemplo:</p>
+
+            <p>No arquivo app.js</p>
+
+            <pre>
+                <code>
+                    function pai() {
+                        let variavel = "Variável declarada na função pai!"
+                        console.log("Na função pai " + variavel);
+
+                        function filho() {
+                            console.log("Na função filho " + variavel);
+                        }
+                        filho();
+                    }
+
+                    pai();
+                    //console.log("Fora de todas funções " + variavel);
+                </code>
+            </pre>
+
+            <p>Repare que no código acima existe uma linha comentada. Tente executar o script descomentando a linha e perceba que ocorre um erro, abra o console do seu navegador para isso.</p>
+
+
+            <h3>Variáveis Globais</h3>
+
+            <p>Variáveis declaradas fora de funções e de outros blocos de código (qualquer bloco entre {}), são chamadas variáveis globais, pois podem ser acessadas de qualquer lugar do código. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    let variavelGlobal = "Global!"
+
+                    function minhaFuncao() {
+                        alert(variavelGlobal);
+                    }
+
+                    minhaFuncao();
+                </code>
+            </pre>
+
+            <p>Apesar de ser possível, não é uma boa idéia modificar variáveis globais. Se precisamos modificar uma variável global utilizando uma função, podemos criar uma outra variável que recebe o valor modificado, veremos como fazer isso daqui a pouco com return.</p>
+
+
+            <h3>Parâmetros</h3>
+
+            <p>Quando declaramos uma função podemos colocar alguns parâmetros entre os parenteses. Os parâmetros são variáveis locais da função. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    function digaOi(nome) {
+                        alert("Oi " + nome);
+                    }
+
+                    digaOi("Douglas");
+
+                    let usuario = "Fulano";
+
+                    digaOi(usuario);
+                </code>
+            </pre>
+
+
+            <h3>Return</h3>
+
+            <p>A palavra reservada <strong>return</strong> dentro de uma função faz duas coisas: finaliza a execução da função; e retorna um valor.</p>
+
+            <p>Quando não utilizamos return ou quando escrevemos return sem nenhum valor na frente, a função retorna <strong>undefined</strong>.</p>
+
+            <p>O valor do return pode ser salvo em uma variável, quando se faz a chamada da função. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    function soma(a, b) {
+                        return a + b;
+                        alert("Não vai aparecer!");
+                    }
+
+                    let resultado = soma(10, 5);
+
+                    alert(resultado);
+                </code>
+            </pre>
+
+
+            <h3>Expressão de Função</h3>
+
+            <p>Existe uma outra forma de criar uma função. A Expressão de Função é salva em uma variável, e para chamar a função usamos o nome da variável seguido de parenteses. Repare que a expressão de função é escrita apenas com a palavra chave function seguida de parenteses, ou seja, a função não têm nome, é anônima.</p>
+
+            <pre>
+                <code>
+                    let ola = function() {
+                        alert("Olá!");
+                    }
+
+                    ola();
+                </code>
+            </pre>
+
+
+            <h3>Callbacks</h3>
+
+            <p>JavaScript é uma linguagem muito dinâmica, ou seja, você têm muita liberdade no que é possível fazer. Uma dessas coisas possíveis que é muito explorada é o fato de que uma função pode retornar outra função ou receber outra função como parâmetro.</p>
+
+            <p>As funções chamadas Callbacks são funções cuja declaração é passada como um parâmetro para outra função, e então ela é chamada dentro dessa outra função. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    function fazerUmaConta(x, y, cb){
+                        alert("Fazendo alguma coisa antes de executar a callback!");
+                        cb(x, y);
+                    }
+
+                    fazerUmaConta(2, 4, function(a, b) {alert(a+b)});
+                </code>
+            </pre>
+
+            <p>A declaração da função fazerUmaConta pode parecer um pouco estranha, mas raramente declaramos funções desse tipo. O que usamos bastante são funções prontas existentes no JavaScript que recebem Callbacks como parâmetro. Veremos muito isso principalmente na aula de métodos de array.</p>
+
+
+            <h3>Método</h3>
+
+            <p>Método é simplesmente uma função que pertence a um objeto. Podemos criar um objeto e definir métodos para ele. Mas o mais comum é utilizar métodos de objetos já existentes em JavaScript, veremos isso nas próximas aulas. Para usar um método usamos um ponto (semelhante a quando acessamos uma propriedade), escrevemos o nome do método seguido de parenteses.</p>
+
+            <pre>
+                <code>
+                    let pessoa = {
+                        nome: "Douglas",
+                        sobrenome: "Mariano Valero",
+                        dizerOi: function() {
+                            alert("Oi!");
+                        }
+                    };
+
+                    pessoa.dizerOi();
+                </code>
+            </pre>
+
+
+            <h3>Exercícios</h3>
+
+            <h4></h4>
+
+            <p>Crie uma função que pergunta a idade do usuário e faz uma validação (verifica se é um número, e se é maior que 0), a função deve retornar true se for válida e false se for inválida. Crie outra função que mostra a idade do usuário na tela caso seja válida, ou pede para digitar novamente caso inválida.</p>
+            
+
+            <h4>Cabeçalho colorido</h4>
+
+            <p>Crie uma função que pergunta ao usuário 3 valores: um texto, um tipo de cabeçalho (h1, h2, etc...), e uma cor. Então crie outra função que cria um elemento HTML na página com a tag do cabeçalho escolhido, com o texto escrito dentro do cabeçalho, e com a cor do texto escolhida.</p>
+
+
+        </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+    <script src="./src/js/menu.js"></script>
+</body>
+</html>
