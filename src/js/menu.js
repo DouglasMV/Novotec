@@ -138,6 +138,14 @@ const linkList = [
   {
     text: "Aula 30 - Array",
     link: "aula30.html"
+  },
+  {
+    text: "Aula 31 - DOM",
+    link: "aula30.html"
+  },
+  {
+    text: "Aula 32 - Eventos",
+    link: "aula30.html"
   }
 ];
 

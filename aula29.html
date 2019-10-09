@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Novotec - Criação de Sites e Plataformas Digitais</title>
+    <title>Aula 29 - String</title>
     <link rel="stylesheet" href="./src/css/style.css">
 </head>
 <body>
@@ -18,6 +18,164 @@
 
     <main>
         <article>
+
+            <h2>String</h2>
+
+            <p>Vamos aprender algumas propriedades e métodos de String, caso queira aprender mais métodos de string, <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String#M%C3%A9todos">clique aqui.</a></p>
+
+            <h3>Concatenando strings com com `</h3>
+
+            <p>Já vimos como concatenar strings com aspas e aspas duplas:</p>
+
+            <pre>
+                <code>
+                    let nome = "Douglas";
+
+                    console.log("Olá " + nome + ", bem-vindo!");
+                    console.log('Oi ' + nome + ', bem-vindo!');
+                </code>
+            </pre>
+
+            <p>Porém também podemos declarar strings com acento agudo: `Uma String`. Mas para concatenar strings desse tipo com variáveis, é um pouco diferente. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    let nome = "Douglas";
+
+                    console.log(`Olá ${nome}, bem-vindo!`);
+                </code>
+            </pre>
+
+
+            <h3>Strings como Arrays</h3>
+
+            <p>String é uma cadeia de caracteres, portanto podemos pensar nela como um array de caracteres. De fato strings possuem propriedades semelhantes aos arrays. Vamos ver algumas delas agora:</p>
+
+            <h4>length</h4>
+
+            <p>Assim como arrays, strings possuem a propriedade <strong>length</strong> que retorna a quantidade de caracteres da string. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    "Olá".length;
+                    "Olá Douglas".length;
+                    " ".length;
+                    "".length;
+                    " Oi ".length;
+                </code>
+            </pre>
+
+            <h4>Acessando caracteres</h4>
+
+            <p>Assim como podemos acesar um elemento de um array, podemos acessar um caracter de uma string, veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    let nome = "Douglas Mariano Valero";
+
+                    nome[0];
+                    nome[1];
+                    nome[7];
+                    nome[14];
+                </code>
+            </pre>
+
+            <p>Porém diferente de arrays, não podemos mudar um caractere de uma string diretamente, veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    let nome = "Carina";
+
+                    nome[0] = "K"; //não funciona
+
+                    console.log(nome);
+                </code>
+            </pre>
+
+            <h4>Split e Join</h4>
+
+            <p>Como strings são semelhantes a um array, podemos transformá-las em arrays e depois transformar de volta para strings. A utilidade disso é que assim podemos usar alguns métodos exclusivos de arrays nas strings convertidas e depois convertê-las de volta para string.</p>
+
+            <p>O método split() recebe um separador como parâmetro e retorna um array com as substrings separadas. Caso queira separar caracter por caracter use o separador vazio "". Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    let nome = "Douglas Mariano Valero";
+                    let arrNome = nome.split(" ");
+                    console.log(arr);
+
+                    let texto = "Olá Mundo";
+                    ler arrTexto  texto.split("");
+                    console.log(arrTexto);
+                </code>
+            </pre>
+
+            <p>O método join() junta um array de strings, usando um separador, e retorna uma única string. Veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    let arr = ["Douglas", "Mariano", "Valero"];
+                    let nome = arr.join(" ");
+                    console.log(nome);
+                </code>
+            </pre>
+
+
+            <h3>toLowerCase() e toUpperCase()</h3>
+
+            <p>O método toLowerCase() transforma uma string toda para letras minúsculas. E o método toUpperCase() para letras maiúsculas.</p>
+
+            <pre>
+                <code>
+                    let nome = "Douglas";
+
+                    nome = nome.toLowerCase();
+                    console.log(nome);
+
+                    nome = nome.toUpperCase();
+                    console.log(nome);
+                </code>
+            </pre>
+
+
+            <h3>indexOf()</h3>
+
+            <p>O método indexOf() é usado para procurar uma substring dentro de uma string. Ele retorna -1 caso não encontre a substring, ou retorna a posição inicial a qual foi encontrada a substring. Veja os exemplos.</p>
+
+            <pre>
+                <code>
+                    let nome = "Douglas Mariano Valero";
+
+                    nome.indexOf("Mariano");
+                    nome.indexOf("Silva");
+                    nome.indexOf("v");
+                    nome.indexOf("V");
+                    nome.indexOf(" ");
+                    nome.indexOf("w");
+
+                    if(nome.indexOf("Valero") != -1){
+                        console.log("Faz parte da família Valero!")
+                    }
+                </code>
+            </pre>
+
+
+            <h3>substring()</h3>
+
+            <p>O método substring() retorna uma substring de uma string. Esse método recebe dois parâmetros, o primeiro é o índice do primeiro caractere, e o segundo é o comprimento da substring desejada, veja o exemplo:</p>
+
+            <pre>
+                <code>
+                    let nome = "Douglas Mariano Valero";
+
+                    let primeiroNome = nome.substring(0, 7);
+
+                    console.log(primeiroNome);
+                </code>
+            </pre>
+
+            
+
 
         </article>
     </main>

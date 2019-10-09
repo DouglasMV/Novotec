@@ -1,30 +1,389 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Novotec - Criação de Sites e Plataformas Digitais</title>
-    <link rel="stylesheet" href="./src/css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Aula 30 - Array</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+  </head>
+  <body>
     <button id="menu-btn">X</button>
     <nav id="menu">
-        <ul id="menu-ul">
-        </ul>
+      <ul id="menu-ul"></ul>
     </nav>
 
     <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
     <main>
-        <article>
+      <article>
+        <h2>Array</h2>
 
-        </article>
+        <p>
+          Vamos aprender propriedades e métodos de arrays, para ter uma lista
+          completa
+          <a
+            href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array"
+            >clique aqui.</a
+          >
+        </p>
+
+        <h3>Cuidado com length e []</h3>
+
+        <p>
+          Vimos que um array tem a propriedade length, que teoricamente é a
+          quantidade de elementos do array. Porém em JavaScript é possível mudar
+          essa propriedade e isso pode dar resultados não desejados. Veja o
+          exemplo:
+        </p>
+
+        <pre>
+            <code>
+                let cores = ["laranja", "verde", "vermelho", "azul"];
+
+                console.log(cores.length);
+
+                cores.length = 2;
+                console.log(cores);
+
+                cores.length = 4;
+                console.log(cores);
+            </code>
+        </pre>
+
+        <p>
+          Observe como mudar a propriedade length pode excluir valores do array,
+          ou criar espaços vazios. Por isso NUNCA mude a propriedade length
+          diretamente.
+        </p>
+
+        <p>
+          Outra coisa que pode causar problemas, e também nunca devemos fazer, é
+          modificar elementos do array que não existem. Veja o exemplo:
+        </p>
+
+        <pre>
+            <code>
+                let cores = ["laranja", "verde", "vermelho", "azul"];
+                cores[9] = "amarelo";
+
+                console.log(cores);
+                console.log(cores.length);
+            </code>
+        </pre>
+
+        <h3>Adicionando e Removendo Elementos</h3>
+
+        <p>
+          O método <strong>push()</strong> adiciona um elemento no final de um
+          array.
+        </p>
+        <p>
+          O método <strong>pop()</strong> remove um elemento do final de um
+          array.
+        </p>
+        <p>
+          O método <strong>unshift()</strong> adiciona um elemento no início de
+          um array.
+        </p>
+        <p>
+          O método <strong>shift()</strong> adiciona um elemento no início de um
+          array.
+        </p>
+
+        <pre>
+            <code>
+                let cores = ["laranja", "verde", "vermelho", "azul"];
+
+                cores.push("amarelo");
+                console.log(cores);
+
+                cores.pop();
+                console.log(cores);
+
+                cores.unshift("rosa");
+                console.log(cores);
+
+                cores.shift();
+                console.log(cores);
+            </code>
+        </pre>
+
+        <h3>slice()</h3>
+
+        <p>
+          O método slice() cria um subarray a partir de um array, ele recebe
+          dois parâmetros, o primeiro é o início e o segundo é o final. Caso use
+          apenas um parâmetro o array é copiado daquele índice até o final. Veja
+          o exemplo:
+        </p>
+
+        <pre>
+            <code>
+                let arr = ["zero", "um", "dois", "três", "quatro"];
+
+                let arr1 = arr.slice(1, 3);
+                console.log(arr1);
+
+                let arr2 = arr.slice(2);
+                console.log(arr2);
+            </code>
+        </pre>
+
+        <h4>Copiar um array</h4>
+
+        <p>
+          Se você tentar copiar um array usando apenas o operador de atribuição
+          (=), você vai perceber que não está criando um novo array, e sim uma
+          outra referência para o mesmo array. Veja o exemplo:
+        </p>
+
+        <pre>
+            <code>
+                let arr1 = [10, 20, 30];
+                let arr2 = arr1;
+                arr2[0] = 99;
+                console.log(arr1);
+                console.log(arr2);
+            </code>
+        </pre>
+
+        <p>
+          Para isso podemos usar o métod slice() sem nenhum parâmetro, assim
+          criamos uma cópia independente do array, ou seja, podemos mudar a
+          cópia sem mudar o array original.
+        </p>
+
+        <pre>
+            <code>
+                let arr1 = [10, 20, 30];
+                let arr2 = arr1.slice();
+                arr2[0] = 99;
+                console.log(arr1);
+                console.log(arr2);
+            </code>
+        </pre>
+
+        <h3>concat()</h3>
+
+        <p>
+          O método concat(), concatena (junta) um array com outros elementos,
+          que podem ser valores ou outros arrays. Veja:
+        </p>
+
+        <pre>
+            <code>
+                let arr = [10, 20, 30];
+                
+                arr.concat(40);
+                console.log(arr);
+
+                arr.concat(50, 60, 70);
+                console.log(arr);
+
+                arr.concat([80, 90, 100]);
+                console.log(arr);
+
+                arr.concat([110, 120, 130, 140], 150, 160, [170, 180]);
+                console.log(arr);
+            </code>
+        </pre>
+
+        <h3>filter()</h3>
+
+        <p>
+          O método filter recebe uma função como parâmetro que retorna um
+          boolean (true ou false), e executa essa função para cada item do
+          array, e cria um novo array com os elementos que retornaram true. Veja
+          o exemplo:
+        </p>
+
+        <pre>
+            <code>
+                let arr = [-1, -2, 0, 3, 10, -4, 7];
+
+                let arrFiltrado = arr.filter(function(item){
+                    return item >= 0;
+                });
+
+                console.log(arrFiltrado);
+            </code>
+        </pre>
+
+        <h3>map()</h3>
+
+        <p>
+          O método map() recebe uma função como parâmetro, executa a função para
+          cada item do array e cria um novo array com os valores retornados pela
+          função para cada item. Veja o exemplo:
+        </p>
+
+        <pre>
+            <code>
+                let arr = [-1, -2, 0, 3, 10, -4, 7];
+
+                let dobro = arr.map(function(item){
+                    return item*2;
+                });
+
+                console.log(dobro);
+            </code>
+        </pre>
+
+        <h3>sort()</h3>
+
+        <p>
+          O método sort() ordena os elementos do array. Por padrão ordena na
+          ordem alfabbética.
+        </p>
+
+        <pre>
+            <code>
+                let cores = ["laranja", "verde", "vermelho", "azul"];
+                cores.sort();
+                console.log(cores);
+            </code>
+        </pre>
+
+        <p>
+          Para ordenar de outra maneira podemos usar uma função como parâmetro.
+          Para entender melhor essa função
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort"
+            >clique aqui.</a
+          >
+        </p>
+
+        <p>
+          Aqui vamos mostrar um exemplo muito usado, que é para ordenar números
+          do maior para o menos:
+        </p>
+
+        <pre>
+            <code>
+                let arr = [-1, -2, 0, 3, 10, -4, 7];
+                arr.sort(function(a, b) {
+                    return a-b;
+                });
+                console.log(arr);
+            </code>
+        </pre>
+
+        <h3>Exercícios</h3>
+
+        <h4>Lista de links</h4>
+
+        <p>
+          Dado o array de objetos abaixo, faça um script que coloca os items em
+          ordem alfabética (em relação a propriedade text) e cria uma lista de
+          links com o atributo href sendo a propriedade link dos objetos e o
+          texto sendo a propriedade text.
+        </p>
+
+        <pre>
+            <code>
+                let sites = [
+                    {
+                        link: "https://google.com",
+                        text: "Google"
+                    },
+                    {
+                        link: "https://facebook.com",
+                        text: "Facebook"
+                    },
+                    {
+                        link: "https://imdb.com",
+                        text: "IMDb"
+                    },
+                    {
+                        link: "https://developer.mozilla.org",
+                        text: "MDN"
+                    },
+                    {
+                        link: "https://youtube.com",
+                        text: "YouTube"
+                    },
+                    {
+                        link: "https://github.com",
+                        text: "GitHub"
+                    },
+                    {
+                        link: "https://w3schools.com",
+                        text: "W3Schools"
+                    },
+                ];
+            </code>
+        </pre>
+
+        <h4>Procurando uma palavra</h4>
+
+        <p>
+          Dado o array abaixo, crie um script que procura uma palavra digitada
+          pelo usuário e mostra na tela os resultado encontrados, caso não
+          encontre nada escreva "Nada encontrado" na tela.
+        </p>
+
+        <pre>
+            <code>
+                let filmes = [
+                    "Um sonho de Liberdade",
+                    "O Poderoso Chefão",
+                    "O Poderoso Chefão II",
+                    "Batman - O Cavaleiro das Trevas",
+                    "12 Homens e uma Sentença",
+                    "A Lista de Schindler",
+                    "Pulp Fiction: Tempo de Violência",
+                    "O Senhor dos Anéis: O Retorno do Rei",
+                    "Três homens em Conflito",
+                    "Clube da Luta",
+                    "O Senhor dos Anéis: A Sociedade do Anel",
+                    "Forrest Gump: O Contador de Histórias",
+                    "Star Wars: Episódio V - O Império Contra-Ataca",
+                    "Inception",
+                    "O Senhor dos Anéis: As Duas Torres",
+                    "Um Estranho no Ninho",
+                    "Os Bons Companheiros",
+                    "Matrix",
+                    "Os Sete Samurais",
+                    "Guerra nas Estrelas - Uma Nova Esperança",
+                    "Cidade de Deus",
+                    "Seven: Os Sete Crimes Capitais",
+                    "O Silêncio dos Inocentes",
+                    "A Felicidade Não se Compra",
+                    "A Vida é Bela",
+                    "Os Suspeitos",
+                    "O Profissional",
+                    "O Resgate do Soldado Ryan",
+                    "A Viagem de Chihiro",
+                    "A Outra História Americana",
+                    "Era uma Vez no Oeste",
+                    "Interestelar",
+                    "À Espera de um Milagre",
+                    "Psicose",
+                    "Casablanca",
+                    "Luzes da Cidade",
+                    "Intocáveis",
+                    "Os Tempos Modernos",
+                    "O Pianista",
+                    "Indiana Jones e Os Caçadores da Arca Perdida",
+                    "Os Infiltrados",
+                    "Janela Indiscreta",
+                    "O Exterminador do Futuro 2: O Julgamento Final",
+                    "De Volta para o Futuro",
+                    "Whiplash: Em Busca da Perfeição",
+                    "Gladiador",
+                    "O Grande Truque",
+                    "O Rei Leão",
+                    "Amnésia",
+                    "Apocalypse Now"
+                ];
+            </code>
+        </pre>
+      </article>
     </main>
 
     <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
-
     <script src="./src/js/menu.js"></script>
-</body>
+  </body>
 </html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Aula 31 - DOM</title>
+		<link rel="stylesheet" href="./src/css/style.css" />
+	</head>
+	<body>
+		<button id="menu-btn">X</button>
+		<nav id="menu">
+			<ul id="menu-ul"></ul>
+		</nav>
+
+		<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+		<main>
+			<article>
+				<h2>Aula 31 - DOM</h2>
+
+				<p>
+					Nesta aula vamos estudar o Document Object Model (DOM), em português
+					Modelo de Objeto de Documento. Ele fornece uma representação do
+					documento HTML e permite selecionar, mudar e criar elementos HTML.
+					Vamos ver alguns métodos, para uma lista mais completa
+					<a
+						href="https://developer.mozilla.org/pt-BR/docs/DOM/Referencia_do_DOM"
+						>clique aqui.</a
+					>
+				</p>
+
+				<h3>document.getElementById()</h3>
+
+				<p>
+					Esse método nos permite selecionar um elemento HTML pelo id e salvar
+					uma referência a ele em uma variável, para depois podermos
+					modificá-lo.
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+                &lt;div id="meu-id"&gt;&lt;/div&gt;
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+                let meuElemento = document.getElementById("meu-id");
+                console.log(meuElemento);
+            </code>
+        </pre>
+
+				<h3>document.querySelectorAll()</h3>
+
+				<p>
+					Esse método também serve para selecionar elementos. Ele usa seletores
+					semelhantes ao de CSS e seleciona todos elementos que satisfazem o
+					seletor. Retornando um array com todos elementos selecionados.
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+                &lt;div class="grid"&gt;
+                    &lt;div class="item"&gt;&lt;/div&gt;
+                    &lt;div class="item"&gt;&lt;/div&gt;
+                    &lt;div class="item"&gt;&lt;/div&gt;
+                    &lt;div class="item"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+                let meusElementos = document.querySelectorAll(".grid > .item");
+                console.log(meusElementos);
+            </code>
+        </pre>
+
+				<h3>innerHTML</h3>
+
+				<p>
+					Já aprendemos a selecionar um elemento, agora vamos aprender a
+					modificá-lo. A propriedade innerHTML pode ser usada para visualizar ou
+					modificar tudo que se encontra dentro do elemento. Veja o exemplo:
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+                &lt;h1 id="cabecalho"&gt;Olá Mundo!&lt;/h1&gt;
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+                let meuH1 = document.getElementById("cabecalho");
+                console.log(meuH1.innerHTML);
+            </code>
+        </pre>
+
+				<p>
+					Abra o console e primeiro repare que foi escrito "Olá Mundo!", que é o
+					conteúdo do elemento. Agora escreva no console:
+				</p>
+
+				<pre>
+            <code>
+                meuH1.innerHTML = "Oi Universo!";
+            </code>
+        </pre>
+
+				<p>Repare que o conteúdo do elemento mudou na página.</p>
+
+				<h3>textContent</h3>
+
+				<p>
+					A propriedade textContent é semelhante a innerHTML, a diferença é que
+					esta não permite a inserção de código HTML, portanto é mais segura se
+					estamos lidando com algo escrito pelo usuário. Veja a diferênça:
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+                &lt;h1 id="cabecalho"&gt;Olá &lt;span&gt;Mundo&lt;/span&gt;!&lt;/h1&gt;
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+                let meuH1 = document.getElementById("cabecalho");
+                console.log(meuH1.innerHTML);
+                console.log(meuH1.textContent);
+            </code>
+        </pre>
+
+				<p>
+					Repare na diferença entre os console.log's. O do innerHTML mostra a
+					tag span, o textContent não. Agora tente modificar o elemento e eja o
+					que acontece em cada caso:
+				</p>
+
+				<pre>
+            <code>
+                meuH1.innerHTML = "Oi &lt;span&gt;Universo&lt;/span&gt;!";
+                meuH1.textContent = "Oi &lt;span&gt;Universo&lt;/span&gt;!";
+            </code>
+        </pre>
+
+				<h3>Atributos</h3>
+
+				<p>
+					Elementos HTML possuem atributos, e podemos modificá-los usando
+					JavaScript. Vamos aprender alguns métodos para isso.
+				</p>
+
+				<h4>hasAttribute()</h4>
+
+				<p>
+					Este método verifica se um elemento possui um atributo. Veja o
+					exemplo:
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+                &lt;img id="minha-imagem" src="https://i.imgur.com/pycriaD.jpg"&gt;
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+                let imagem = document.getElementById("minha-imagem");
+                console.log("Possui o atributo src? " + imagem.hasAttribute("src"));
+                console.log("Possui o atributo alt? " + imagem.hasAttribute("alt"));
+            </code>
+        </pre>
+
+				<h4>getAttribute()</h4>
+
+				<p>Este método retorna o valor de um atributo. Veja o exemplo:</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+                &lt;img id="minha-imagem" src="https://i.imgur.com/pycriaD.jpg"&gt;
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+                let imagem = document.getElementById("minha-imagem");
+                console.log("Valor do atributo src: " + imagem.getAttribute("src"));
+                console.log("Valor do atributo alt: " + imagem.getAttribute("alt"));
+            </code>
+        </pre>
+
+				<h4>setAttribute()</h4>
+
+				<p>Este método muda o valor de um atributo. Veja o exemplo:</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+                &lt;img id="minha-imagem" src="https://i.imgur.com/pycriaD.jpg"&gt;
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+                let imagem = document.getElementById("minha-imagem");
+                console.log("Valor do atributo alt: " + imagem.getAttribute("alt"));
+                imagem.setAttribute("alt", "Jeff Daniels no telefone");
+                console.log("Valor do atributo alt: " + imagem.getAttribute("alt"));
+            </code>
+        </pre>
+
+				<h4>removeAttribute()</h4>
+
+				<p>Este método remove o valor de um atributo. Veja o exemplo:</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+                &lt;img id="minha-imagem" src="https://i.imgur.com/pycriaD.jpg"&gt;
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+                let imagem = document.getElementById("minha-imagem");
+                console.log("Valor do atributo src: " + imagem.getAttribute("src"));
+                imagem.removeAttribute("src");
+                console.log("Valor do atributo src: " + imagem.getAttribute("src"));
+            </code>
+        </pre>
+
+				<h3>document.createElement()</h3>
+
+				<p>
+					Este método cria um novo elemento, com a tag passada como argumento.
+					Veja o exemplo:
+				</p>
+
+				<pre>
+          <code>
+              let minhaDiv = document.createElement("div");
+              console.log(minhaDiv);
+          </code>
+        </pre>
+
+				<h3>append()</h3>
+
+				<p>
+					Este método serve para colocar um elemento dentro de outro (como
+					filho), no final do elemento pai. Veja o exemplo:
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+              &lt;div id="container" class="grid"&gt;
+                &lt;div class="item"&gt;Item1&lt;/div&gt;
+                &lt;div class="item"&gt;Item2&lt;/div&gt;
+                &lt;div class="item"&gt;Item3&lt;/div&gt;
+                &lt;div class="item"&gt;Item4&lt;/div&gt;
+              &lt;/div&gt;
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+                let pai = document.getElementById("container");
+                let filho= document.createElement("div");
+                filho.textContent = "Item 5!!!";
+
+                pai.append(filho);
+            </code>
+        </pre>
+
+				<h3>remove()</h3>
+
+				<p>
+					Este método remove um elemento. Veja o exemplo:
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+              &lt;div class="grid"&gt;
+                &lt;div id="item1" class="item"&gt;Item1&lt;/div&gt;
+                &lt;div id="item2" class="item"&gt;Item2&lt;/div&gt;
+                &lt;div id="item3" class="item"&gt;Item3&lt;/div&gt;
+                &lt;div id="item4" class="item"&gt;Item4&lt;/div&gt;
+              &lt;/div&gt;
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+                let item3 = document.getElementById("item3");
+
+                item3.remove();
+            </code>
+        </pre>
+
+				<h3>className</h3>
+
+				<p>
+					Essa propriedade é uma string que contém o nome de todas classes de um
+					elemento. Veja o exemplo:
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+              &lt;div id="minha-div" class="vermelho grande"&gt;Olá!&lt;/div&gt;
+            </code>
+        </pre>
+
+				<p>No style.css:</p>
+
+				<pre>
+            <code>
+              .vermelho {
+                color: red;
+              }
+              .grande {
+                font-size: 50px;
+              }
+              .azul {
+                color: blue;
+              }
+              .pequeno {
+                font-size: 10px;
+              }
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+                let minhaDiv = document.getElementById("minha-div");
+                console.log(minhaDiv.className);
+
+                //Escreva no console:
+                //minhaDiv.className = "azul pequeno";
+                //console.log(minhaDiv.className);
+            </code>
+        </pre>
+
+				<h3>classList</h3>
+
+				<p>
+					As vezes queremos remover ou adicionar uma única classe, para isso
+					existe a propriedade classList, que pode ser seguida de 4 métodos que
+					veremos agora:
+				</p>
+
+				<h4>classList.contains()</h4>
+
+				<p>
+					Este método verifica se o elemento possui uma determinada classe. Veja
+					o exemplo:
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+              &lt;div id="minha-div" class="vermelho grande"&gt;Olá!&lt;/div&gt;
+            </code>
+        </pre>
+
+				<p>No style.css:</p>
+
+				<pre>
+            <code>
+              .vermelho {
+                color: red;
+              }
+              .grande {
+                font-size: 50px;
+              }
+              .azul {
+                color: blue;
+              }
+              .pequeno {
+                font-size: 10px;
+              }
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+                let minhaDiv = document.getElementById("minha-div");
+                console.log("Tem a classe vermelho: " + minhaDiv.classList.contains("vermelho"));
+                console.log("Tem a classe azul: " + minhaDiv.classList.contains("azul"));
+                console.log("Tem a classe grande: " + minhaDiv.classList.contains("grande"));
+                console.log("Tem a classe pequeno: " + minhaDiv.classList.contains("pequeno"));
+            </code>
+        </pre>
+
+				<h4>classList.add()</h4>
+
+				<p>
+					Este método adiciona uma classe a um elemento. Veja o exemplo:
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+              &lt;div id="minha-div" class="vermelho"&gt;Olá!&lt;/div&gt;
+            </code>
+        </pre>
+
+				<p>No style.css:</p>
+
+				<pre>
+            <code>
+              .vermelho {
+                color: red;
+              }
+              .grande {
+                font-size: 50px;
+              }
+              .azul {
+                color: blue;
+              }
+              .pequeno {
+                font-size: 10px;
+              }
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+                let minhaDiv = document.getElementById("minha-div");
+                
+                //Digite no console:
+                //minhaDiv.classList.add("grande");
+            </code>
+        </pre>
+
+				<h4>classList.remove()</h4>
+
+				<p>
+					Este método remove uma classe a um elemento. Veja o exemplo:
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+              &lt;div id="minha-div" class="vermelho grande"&gt;Olá!&lt;/div&gt;
+            </code>
+        </pre>
+
+				<p>No style.css:</p>
+
+				<pre>
+            <code>
+              .vermelho {
+                color: red;
+              }
+              .grande {
+                font-size: 50px;
+              }
+              .azul {
+                color: blue;
+              }
+              .pequeno {
+                font-size: 10px;
+              }
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+                let minhaDiv = document.getElementById("minha-div");
+                
+                //Digite no console:
+                //minhaDiv.classList.remove("grande");
+            </code>
+        </pre>
+
+				<h4>classList.toggle()</h4>
+
+				<p>
+					Este método remove uma classe de um elemento se ele possui aquela
+					classe, se ele não possui aquela classe ela é adicionada. Veja o
+					exemplo:
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+              &lt;div id="minha-div" class="vermelho grande"&gt;Olá!&lt;/div&gt;
+            </code>
+        </pre>
+
+				<p>No style.css:</p>
+
+				<pre>
+            <code>
+              .vermelho {
+                color: red;
+              }
+              .grande {
+                font-size: 50px;
+              }
+              .azul {
+                color: blue;
+              }
+              .pequeno {
+                font-size: 10px;
+              }
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+                let minhaDiv = document.getElementById("minha-div");
+                
+                //Digite várias vezes no console:
+                //minhaDiv.classList.toggle("grande");
+            </code>
+        </pre>
+
+				<h3>Exercícios</h3>
+
+				<h4>Lista de links</h4>
+
+				<p>
+					Dado o array de objetos abaixo, faça um script que cria uma lista de
+					links com o atributo href sendo a propriedade link dos objetos e o
+					texto sendo a propriedade text. Crie uma classe para deixar os links
+					mais bonitos e adicione ela aos links.
+				</p>
+
+				<pre>
+            <code>
+                let sites = [
+                    {
+                        link: "https://google.com",
+                        text: "Google"
+                    },
+                    {
+                        link: "https://facebook.com",
+                        text: "Facebook"
+                    },
+                    {
+                        link: "https://imdb.com",
+                        text: "IMDb"
+                    },
+                    {
+                        link: "https://developer.mozilla.org",
+                        text: "MDN"
+                    },
+                    {
+                        link: "https://youtube.com",
+                        text: "YouTube"
+                    },
+                    {
+                        link: "https://github.com",
+                        text: "GitHub"
+                    },
+                    {
+                        link: "https://w3schools.com",
+                        text: "W3Schools"
+                    },
+                ];
+            </code>
+        </pre>
+			</article>
+		</main>
+
+		<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+		<script src="./src/js/menu.js"></script>
+	</body>
+</html>
