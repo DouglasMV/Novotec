@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Aula 29 - String</title>
-    <link rel="stylesheet" href="./src/css/style.css">
-</head>
-<body>
-    <button id="menu-btn">X</button>
-    <nav id="menu">
-        <ul id="menu-ul">
-        </ul>
-    </nav>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Aula 29 - String</title>
+		<link rel="stylesheet" href="./src/css/style.css" />
+	</head>
+	<body>
+		<button id="menu-btn">X</button>
+		<nav id="menu">
+			<ul id="menu-ul"></ul>
+		</nav>
 
-    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+		<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
-    <main>
-        <article>
+		<main>
+			<article>
+				<h2>String</h2>
 
-            <h2>String</h2>
+				<p>
+					Vamos aprender algumas propriedades e métodos de String, caso queira
+					aprender mais métodos de string,
+					<a
+						href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String#M%C3%A9todos"
+						>clique aqui.</a
+					>
+				</p>
 
-            <p>Vamos aprender algumas propriedades e métodos de String, caso queira aprender mais métodos de string, <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String#M%C3%A9todos">clique aqui.</a></p>
+				<h3>Concatenando strings com com `</h3>
 
-            <h3>Concatenando strings com com `</h3>
+				<p>Já vimos como concatenar strings com aspas e aspas duplas:</p>
 
-            <p>Já vimos como concatenar strings com aspas e aspas duplas:</p>
-
-            <pre>
+				<pre>
                 <code>
                     let nome = "Douglas";
 
@@ -36,9 +41,13 @@
                 </code>
             </pre>
 
-            <p>Porém também podemos declarar strings com acento agudo: `Uma String`. Mas para concatenar strings desse tipo com variáveis, é um pouco diferente. Veja o exemplo:</p>
+				<p>
+					Porém também podemos declarar strings com acento agudo: `Uma String`.
+					Mas para concatenar strings desse tipo com variáveis, é um pouco
+					diferente. Veja o exemplo:
+				</p>
 
-            <pre>
+				<pre>
                 <code>
                     let nome = "Douglas";
 
@@ -46,16 +55,23 @@
                 </code>
             </pre>
 
+				<h3>Strings como Arrays</h3>
 
-            <h3>Strings como Arrays</h3>
+				<p>
+					String é uma cadeia de caracteres, portanto podemos pensar nela como
+					um array de caracteres. De fato strings possuem propriedades
+					semelhantes aos arrays. Vamos ver algumas delas agora:
+				</p>
 
-            <p>String é uma cadeia de caracteres, portanto podemos pensar nela como um array de caracteres. De fato strings possuem propriedades semelhantes aos arrays. Vamos ver algumas delas agora:</p>
+				<h4>length</h4>
 
-            <h4>length</h4>
+				<p>
+					Assim como arrays, strings possuem a propriedade
+					<strong>length</strong> que retorna a quantidade de caracteres da
+					string. Veja o exemplo:
+				</p>
 
-            <p>Assim como arrays, strings possuem a propriedade <strong>length</strong> que retorna a quantidade de caracteres da string. Veja o exemplo:</p>
-
-            <pre>
+				<pre>
                 <code>
                     "Olá".length;
                     "Olá Douglas".length;
@@ -65,11 +81,14 @@
                 </code>
             </pre>
 
-            <h4>Acessando caracteres</h4>
+				<h4>Acessando caracteres</h4>
 
-            <p>Assim como podemos acesar um elemento de um array, podemos acessar um caracter de uma string, veja o exemplo:</p>
+				<p>
+					Assim como podemos acesar um elemento de um array, podemos acessar um
+					caracter de uma string, veja o exemplo:
+				</p>
 
-            <pre>
+				<pre>
                 <code>
                     let nome = "Douglas Mariano Valero";
 
@@ -80,9 +99,12 @@
                 </code>
             </pre>
 
-            <p>Porém diferente de arrays, não podemos mudar um caractere de uma string diretamente, veja o exemplo:</p>
+				<p>
+					Porém diferente de arrays, não podemos mudar um caractere de uma
+					string diretamente, veja o exemplo:
+				</p>
 
-            <pre>
+				<pre>
                 <code>
                     let nome = "Carina";
 
@@ -92,13 +114,22 @@
                 </code>
             </pre>
 
-            <h4>Split e Join</h4>
+				<h4>Split e Join</h4>
 
-            <p>Como strings são semelhantes a um array, podemos transformá-las em arrays e depois transformar de volta para strings. A utilidade disso é que assim podemos usar alguns métodos exclusivos de arrays nas strings convertidas e depois convertê-las de volta para string.</p>
+				<p>
+					Como strings são semelhantes a um array, podemos transformá-las em
+					arrays e depois transformar de volta para strings. A utilidade disso é
+					que assim podemos usar alguns métodos exclusivos de arrays nas strings
+					convertidas e depois convertê-las de volta para string.
+				</p>
 
-            <p>O método split() recebe um separador como parâmetro e retorna um array com as substrings separadas. Caso queira separar caracter por caracter use o separador vazio "". Veja o exemplo:</p>
+				<p>
+					O método split() recebe um separador como parâmetro e retorna um array
+					com as substrings separadas. Caso queira separar caracter por caracter
+					use o separador vazio "". Veja o exemplo:
+				</p>
 
-            <pre>
+				<pre>
                 <code>
                     let nome = "Douglas Mariano Valero";
                     let arrNome = nome.split(" ");
@@ -110,9 +141,12 @@
                 </code>
             </pre>
 
-            <p>O método join() junta um array de strings, usando um separador, e retorna uma única string. Veja o exemplo:</p>
+				<p>
+					O método join() junta um array de strings, usando um separador, e
+					retorna uma única string. Veja o exemplo:
+				</p>
 
-            <pre>
+				<pre>
                 <code>
                     let arr = ["Douglas", "Mariano", "Valero"];
                     let nome = arr.join(" ");
@@ -120,12 +154,14 @@
                 </code>
             </pre>
 
+				<h3>toLowerCase() e toUpperCase()</h3>
 
-            <h3>toLowerCase() e toUpperCase()</h3>
+				<p>
+					O método toLowerCase() transforma uma string toda para letras
+					minúsculas. E o método toUpperCase() para letras maiúsculas.
+				</p>
 
-            <p>O método toLowerCase() transforma uma string toda para letras minúsculas. E o método toUpperCase() para letras maiúsculas.</p>
-
-            <pre>
+				<pre>
                 <code>
                     let nome = "Douglas";
 
@@ -137,12 +173,15 @@
                 </code>
             </pre>
 
+				<h3>indexOf()</h3>
 
-            <h3>indexOf()</h3>
+				<p>
+					O método indexOf() é usado para procurar uma substring dentro de uma
+					string. Ele retorna -1 caso não encontre a substring, ou retorna a
+					posição inicial a qual foi encontrada a substring. Veja os exemplos.
+				</p>
 
-            <p>O método indexOf() é usado para procurar uma substring dentro de uma string. Ele retorna -1 caso não encontre a substring, ou retorna a posição inicial a qual foi encontrada a substring. Veja os exemplos.</p>
-
-            <pre>
+				<pre>
                 <code>
                     let nome = "Douglas Mariano Valero";
 
@@ -159,12 +198,15 @@
                 </code>
             </pre>
 
+				<h3>substring()</h3>
 
-            <h3>substring()</h3>
+				<p>
+					O método substring() retorna uma substring de uma string. Esse método
+					recebe dois parâmetros, o primeiro é o índice do primeiro caractere, e
+					o segundo é o comprimento da substring desejada, veja o exemplo:
+				</p>
 
-            <p>O método substring() retorna uma substring de uma string. Esse método recebe dois parâmetros, o primeiro é o índice do primeiro caractere, e o segundo é o comprimento da substring desejada, veja o exemplo:</p>
-
-            <pre>
+				<pre>
                 <code>
                     let nome = "Douglas Mariano Valero";
 
@@ -174,15 +216,19 @@
                 </code>
             </pre>
 
-            
+				<h3>Exercício</h3>
 
+				<h4>Espaços para Hífens</h4>
 
-        </article>
-    </main>
+				<p>
+					Crie um script que recebe uma string e troca todos espaços por hífens,
+					e depois mostra a string na tela.
+				</p>
+			</article>
+		</main>
 
-    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+		<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
-
-    <script src="./src/js/menu.js"></script>
-</body>
+		<script src="./src/js/menu.js"></script>
+	</body>
 </html>
