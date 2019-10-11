@@ -572,6 +572,66 @@
             </code>
         </pre>
 
+				<h3>style</h3>
+
+				<p>
+					Podemos também mudar uma única propriedade do estilo de um elemento.
+					Nesse caso a propriedade é mudada diretamente na tag do elemento no
+					atributo style. Por isso é recomendado evitar esse método. Mas ele é
+					útil em alguns casos. Veja o exemplo:
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+            <code>
+              &lt;div id="container"&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;/div&gt;
+              &lt;/div&gt;
+            </code>
+        </pre>
+
+				<p>No style.css:</p>
+
+				<pre>
+            <code>
+              body{
+                margin: 0;
+                padding: 0;
+              }
+              #container {
+                min-height: 100vh;
+                display: grid;
+                grid-gap: 10px;
+                grid-template-columns: repeat(3, 100px);
+                grid-template-rows: repeat(3, 100px);
+              }
+              #container  div {
+                background-color: black;
+              }
+            </code>
+        </pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+            <code>
+              let items = document.querySelectorAll("#container &gt; div");
+
+              for(let i=0; i&lt;items.length; i++){
+                items[i].style.opacity = 1 - Math.random();
+              }
+            </code>
+        </pre>
+
 				<h3>Exercícios</h3>
 
 				<h4>Lista de links</h4>

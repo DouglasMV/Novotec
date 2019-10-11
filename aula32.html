@@ -18,6 +18,200 @@
 		<main>
 			<article>
 				<h2>Aula 32 - Eventos</h2>
+
+				<p>
+					Eventos são ações que acontecem na página HTML. Podem ser relacionados
+					a várias coisa, como por exemplo quando a página terminou de carregar.
+					Mas geralmente estamos interessados em ações do usuário: quando o
+					usuário rola a página, clica com o mouse em um elemento, passa o mouse
+					em cima de um elemento, clica em uma tecla, entre outros.
+				</p>
+
+				<p>
+					Veremos como lidar com eventos, e estudaremos alguns deles. Para uma
+					lista completa de eventos
+					<a href="https://developer.mozilla.org/pt-BR/docs/Web/Events"
+						>clique aqui.</a
+					>
+				</p>
+
+				<h3>Ouvindo Eventos</h3>
+
+				<p>
+					A idéia de eventos é que nós podemos saber quando um evento ocorre e
+					podemos realizar uma ação, por exemplo quando o usuário clicar em um
+					botão queremos mostrar uma mensagem.
+				</p>
+
+				<p>
+					Para isso precisamos "ouvir" o evento, ou seja, observar quando ele
+					aconteceu, e depois realizar nossa ação.
+				</p>
+
+				<p>
+					Fazemos isso com o método <strong>addEventListener</strong>, que
+					recebe dois parâmetros: o tipo do evento; e uma função que é executada
+					quando o evento ocorre.
+				</p>
+
+				<p>
+					No exemplo abaixo criamos um botão e queremos alertar uma mensagem
+					quando ele é clicado:
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+					<code>
+						&lt;input id="idDoBotao" type="button" value="Clique Aqui!"/&gt;
+						&lt;script src="app.js"&gt;&lt;/script&gt;
+					</code>
+				</pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+					<code>
+						let botao = document.getElementById("idDoBotao");
+						botao.addEventListener('click', function(){
+							alert("Obrigado por clicar!");
+						});
+					</code>
+				</pre>
+
+				<p>
+					Existem outras duas maneiras de "ouvir" um evento, porém o
+					addEventListener é a melhor, pois com ela é possível criar mais de uma
+					função para cada evento e ela funciona com todos eventos. Já as outras
+					maneiras funcionam apenas com alguns eventos, e não permitem criar
+					duas funções.
+				</p>
+
+				<h3>Click</h3>
+
+				<p>
+					Já vimos no exemplo anterior o evento <strong>click</strong> que
+					corresponde ao clique com o botão principal (esquerdo) do mouse. É um
+					dos eventos mais usados, por exemplo queremos um botão que quando
+					clicado muda a cor de fundo do site:
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+					<code>
+						&lt;input id="idDoBotao" type="button" value="Clique Aqui!"/&gt;
+						&lt;script src="app.js"&gt;&lt;/script&gt;
+					</code>
+				</pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+					<code>
+						let botao = document.getElementById("idDoBotao");
+						botao.addEventListener("click", function() {
+							document.body.style.backgroundColor =
+								"rgb(" +
+								Math.floor(Math.random() * 256) +
+								"," +
+								Math.floor(Math.random() * 256) +
+								"," +
+								Math.floor(Math.random() * 256) +
+								")";
+						});
+					</code>
+				</pre>
+
+				<h3>MouseOver</h3>
+
+				<p>
+					Outro Evento muto usado é o <strong>mouseover</strong>, ou seja,
+					quando passamos o cursor do mouse em cima de um elemento:
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+					<code>
+						&lt;h1 id="meuH1"&gt;Passe o Mouse em cima!&lt;/h1&gt;
+						&lt;h2 id="meuH2"&gt;&lt;/h2&gt;
+						&lt;script src="app.js"&gt;&lt;/script&gt;
+					</code>
+				</pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+					<code>
+						let h1 = document.getElementById("meuH1");
+						let h2 = document.getElementById("meuH2");
+						h1.addEventListener("mouseover", function() {
+							h2.textContent = "Olá Mundo!";
+							h1.style.color = "red";
+						});
+					</code>
+				</pre>
+
+				<h3>Scroll</h3>
+
+				<p>
+					Outro Evento muto usado é o <strong>scroll</strong>, ou seja, quando
+					rolamos a página. Ele é muito usado com uma propriedade chamada
+					<strong>pageYOffset</strong> que corresponde a quantidade de pixels
+					rolada para baixo, em relação ao início da página. Podemos criar
+					efeitos muito legais com isso, veja o exemplo:
+				</p>
+
+				<p>No index.html:</p>
+
+				<pre>
+					<code>
+							&lt;div&gt;
+									&lt;div id="bg-img"&gt;&lt;/div&gt;
+								&lt;/div&gt;
+								&lt;div&gt;
+									&lt;h1&gt;Homem de Ferro, ferrado no espaço.&lt;/h1&gt;
+							&lt;/div&gt;
+					</code>
+				</pre>
+
+				<p>No style.css:</p>
+
+				<pre>
+					<code>
+							* {
+								margin: 0;
+								padding: 0;
+								box-sizing: border-box;
+							}
+							#bg-img {
+								background: url("https://i.imgur.com/oFK7wf5.jpg");
+								background-attachment: fixed;
+								background-size: cover;
+							}
+							div {
+								min-height: 100vh;
+								background-color: black;
+							}
+							h1 {
+								color: white;
+								text-align: center;
+								padding-top: 25%;
+							}
+					</code>
+				</pre>
+
+				<p>No app.js:</p>
+
+				<pre>
+					<code>
+							window.addEventListener("scroll", function() {
+								let bg = document.getElementById("bg-img");
+								bg.style.opacity = 1 - pageYOffset / 650;
+							});
+					</code>
+				</pre>
 			</article>
 		</main>
 

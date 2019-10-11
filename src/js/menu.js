@@ -141,11 +141,11 @@ const linkList = [
   },
   {
     text: "Aula 31 - DOM",
-    link: "aula30.html"
+    link: "aula31.html"
   },
   {
     text: "Aula 32 - Eventos",
-    link: "aula30.html"
+    link: "aula32.html"
   }
 ];
 
