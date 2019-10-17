@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Aula 35 - Import/Export</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+  </head>
+
+  <body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+      <ul id="menu-ul"></ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+      <article>
+        <h2>Aula 35 - Import/Export</h2>
+
+        <p>
+          Já vimos em CSS o conceito de modularidade, que consiste em separar o código em vários
+          arquivos menores. Em JavaScript isso também é possível.
+        </p>
+
+        <p>
+          Usamos a palavra export dentro de um arquivo seguido do nome das variáveis ou funções que
+          queremos exportar, entre chaves e separadas por vírgulas.
+        </p>
+
+        <p>
+          Para importar um arquivo dentro de outro, usamos a palavra import, seguida do nome das
+          variáveis ou funções a serem importadas dentro de chaves e separadas por vírgula.
+        </p>
+
+        <p>
+          Podemos usar a palavra reservada "as" para mudar o nome de uma variável importada.
+        </p>
+
+        <p>
+          O código dentro de um módulo é executado apenas da primeira vez que ele é importado, se
+          importarmos ele várias vezes em vários arquivos, o código será executado apenas da
+          primeira vez e as outras serão ignoradas.
+        </p>
+
+        <p>
+          Vamos ver um exemplo agora, porém se você tentar executar esse exemplo abrindo o arquivo
+          index.html no navegador, ocorrerá um erro. Isso é porque os navegadores impedem o uso de
+          módulos com o protocolo file por razões de segurança. Para isso vamos ter que instalar uma
+          extenssão do VS Code chamada Live Server. Basta abrir a aba de extenssões, procurá-la e
+          clicar em install. Para abrir o arquivo index.html no Live Server clique no botão que
+          aparece na parte inferior do VS Code, escrito "Go Live".
+        </p>
+
+        <p>Primeiro vamos criar nosso documento HTML:</p>
+
+        <p>No index.html:</p>
+
+        <pre>
+          <code>
+            &lt;body>
+              &lt;script type="module" src="app.js">&lt;/script>
+            &lt;/body>
+          </code>
+        </pre>
+
+        <p>
+          Repare que a única diferença até agora é que usamos o atributo type="module" na tag
+          script.
+        </p>
+
+        <p>
+          Agora vamos criar 4 arquivos JS: app.js; modulo1.js; modulo2.js; modulo3.js:
+        </p>
+
+        <p>No app.js:</p>
+
+        <pre>
+          <code>
+            import { num1, num2 } from './modulo1.js'
+            import { mod2Funcao as mod2 } from './modulo2.js'
+            import { nome } from './modulo3.js'
+            
+            alert(num1)
+            alert(num2)
+            alert(nome)
+            
+            mod2()
+
+          </code>
+        </pre>
+
+        <p>No modulo1.js:</p>
+
+        <pre>
+          <code>
+            let num1 = 42
+            let num2 = 77
+            
+            alert('Dentro do módulo 1!')
+            
+            export { num1, num2 }
+          </code>
+        </pre>
+
+        <p>No modulo2.js:</p>
+
+        <pre>
+          <code>
+            import { nome } from './modulo3.js'
+            
+            alert('Dentro do Módulo 2')
+            
+            function mod2Funcao () {
+              alert('Dentro da Função do Módulo 2! ' + nome)
+            }
+            
+            export { mod2Funcao }
+          </code>
+        </pre>
+
+        <p>No modulo3.js:</p>
+
+        <pre>
+          <code>
+            let nome = 'Douglas'
+            
+            alert('Dentro do Módulo 3!')
+            
+            export { nome }
+          </code>
+        </pre>
+
+      </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <script src="./src/js/menu.js"></script>
+  </body>
+
+</html>

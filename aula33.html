@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Aula 33 - Formulários</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+  </head>
+
+  <body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+
+      <ul id="menu-ul"></ul>
+    </nav>
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+    <main>
+      <article>
+
+        <h2>Aula 33 - Formulários</h2>
+
+        <p> Nesta aula aprenderemos sobre formulários, uma parte muito importante de websites. Porém
+          é um tópico muito extenso, caso queira se aprofundar no assunto <a
+            href="https://developer.mozilla.org/pt-BR/docs/Web/Guide/HTML/Forms">clique aqui.</a>
+        </p>
+
+        <h3>form</h3>
+
+        <p> A tag <strong>&lt;form&gt;&lt;/form&gt;</strong> é utilizada para criar um formulário.
+          Dentro dela usamos vários outras tags que tem a função de receber informações fornecidas
+          pelo usuário. </p>
+
+        <p> A tag form possui um atributo muito importante: <strong>action</strong>. Nele colocamos
+          o endereço da página web que receberá os dados do formulário. Porém essa página faz parte
+          do backend, que será responsável por validar, tratar e salvar esses dados. Existem alguns
+          serviços que fazem isso para nós, sem precisarmos criar o novo próprio servidor web, como
+          por exemplo o <a href="https://formspree.io/">formspree</a>. </p>
+
+        <h3>name, id e value</h3>
+
+        <p> As tags usadas dentro dos formulários podem receber diversos atibutos, os trê mais
+          importantes são name, id e value. </p>
+
+        <p> Value é o atributo que guarda o valor de cada campo. Pode ser usado com um valor
+          inicial, mas geralmente o usuário que fornece o valor final. </p>
+
+        <p> Id é um atributo que já vimos, além de todas utilidades que já conhecemos, ele é usado
+          para criar labels, veremos isso mais adiante. </p>
+
+        <p> Name é usado para identificar um campo quando enviamos o formulário, geralmente é mais
+          importante para o desenvolvedor do backend. </p>
+
+        <h3>input</h3>
+
+        <p> Provávelmente a tag mais usada em formulários. Ela possui um atributo muito importante:
+          <strong>type</strong>. </p>
+
+        <p> Dependendo do valor usado em type, a tag input se comporta de maneira diferente, podendo
+          ser uma entrada de texto, um botão de envio, um seletor de datas ou cores, um seletor de
+          uma opção, um seletor de várias opções, entre outros. </p>
+
+        <p> Tome cuidado antes de usar um type, alguns deles não são suportados por todos
+          navegadores. </p>
+
+        <p> Alguns valores de type são substituídos por type="text" em navegadores que não surportam
+          aquele type. Porém é sempre bom utilizar o tipo certo nos seus inputs, isso cria algumas
+          facilidades para o usuário, como por exemplo: relembrar valores digitados em inputs do
+          mesmo tipo (mesmo em outros sites), validação automática, teclado específico em mobile.
+        </p>
+
+        <p> Aqui temos uma lista de alguns valores para type, em negrito os mais usados: </p>
+
+        <ul>
+          <li><strong>button</strong></li>
+          <li><strong>checkbox</strong></li>
+          <li>color</li>
+          <li><strong>date</strong></li>
+          <li>datetime-local</li>
+          <li><strong>email</strong></li>
+          <li>file</li>
+          <li>hidden</li>
+          <li>image</li>
+          <li>month</li>
+          <li>number</li>
+          <li><strong>password</strong></li>
+          <li><strong>radio</strong></li>
+          <li>range</li>
+          <li>reset</li>
+          <li>search</li>
+          <li><strong>submit</strong></li>
+          <li>tel</li>
+          <li><strong>text</strong></li>
+          <li>time</li>
+          <li>url</li>
+          <li>week</li>
+        </ul>
+
+        <h3>select e option</h3>
+
+        <p> Uma das tags usadas dentro da tag form é a tag <strong>&lt;select&gt;</strong>, que é
+          usada para que o usuário selecione um valor dentro de algumas opções. As opções são
+          escritas usando a tag <strong>&lt;option&gt;</strong> dentro da tag select. </p>
+
+        <h3>textarea</h3>
+
+        <p>Esta tag é usada para inserir textos de multiplas linhas.</p>
+
+        <h3>button</h3>
+
+        <p>Esta tag é usada para criar um botão.</p>
+
+        <h3>progress</h3>
+
+        <p>É uma barra de progresso.</p>
+
+        <h3>label</h3>
+
+        <p> Esta tag é usada para dar um rótulo a uma outra tag dentro do formulário. Ela possui o
+          atributo <strong>for</strong> que deve receber o mesmo valor que o id da tag que queremso
+          rotular. Se clicada ela dá foco ao elemento rotulado. </p>
+
+        <h3>fieldset</h3>
+
+        <p> Esta tag é usada para agrupar elementos dentro de um form. Ela desenha uma caixa em
+          volta dos elementos agrupados. </p>
+
+        <h3>legend</h3>
+
+        <p> Esta tag define uma legenda para um fieldset. Útil para acessibilidade de pessoas com
+          deficiência visual. </p>
+
+        <h3>Exemplo de Formulário</h3>
+
+        <p> Abaixo vemos um exemplo de um formulário com as principais tags que vimos: </p>
+
+        <p>No index.html</p>
+
+        <pre>
+          <code>
+            &lt;form action="#">
+              &lt;fieldset>
+                &lt;legend>Formulário de Inscrição&lt;/legend>
+                &lt;label for="nome">Nome:&lt;/label>
+                &lt;input type="text" value="" id="nome" />
+                &lt;label for="email">E-mail:&lt;/label>
+                &lt;input type="email" value="" id="email" />
+                &lt;label for="senha">Senha&lt;/label>
+                &lt;input type="password" value="" id="senha" />
+                &lt;label for="data-nascimento">Data de Nascimento:&lt;/label>
+                &lt;input type="date" value="" id="data-nascimento" />
+                &lt;label for="cor-favorita">Cor Favorita:&lt;/label>
+                &lt;input type="color" value="" id="cor-favorita" />
+                &lt;label for="tel">Telefone:&lt;/label>
+                &lt;input type="tel" value="" id="tel" />
+
+                &lt;fieldset>
+                  &lt;legend>Forma de contato&lt;/legend>
+                  &lt;input type="radio" id="contatoEmail" name="contato" value="email" />
+                  &lt;label for="contactChoice1">Email&lt;/label>
+                  &lt;input type="radio" id="contatoTelefone" name="contato" value="telefone" />
+                  &lt;label for="contactChoice2">Telefone&lt;/label>
+                  &lt;input type="radio" id="contatoCorreio" name="contato" value="correio" />
+                  &lt;label for="contactChoice3">Correio&lt;/label>
+                &lt;/fieldset>
+
+                &lt;fieldset>
+                  &lt;legend>Veículos que possui:&lt;/legend>
+                  &lt;input type="checkbox" id="carro" nome="carro" value="carro" />
+                  &lt;label for="carro">Carro&lt;/label>
+                  &lt;input type="checkbox" id="moto" nome="moto" value="moto" />
+                  &lt;label for="moto">Moto&lt;/label>
+                  &lt;input type="checkbox" id="bicicleta" nome="bicicleta" value="bicicleta" />
+                  &lt;label for="bicicleta">Bicicleta&lt;/label>
+                &lt;/fieldset>
+
+                &lt;label for="regiao">Região:&lt;/label>
+                &lt;select name="Região" id="regiao">
+                  &lt;option value="Sul">Sul&lt;/option>
+                  &lt;option value="Sudeste">Sudeste&lt;/option>
+                  &lt;option value="Centro-Oeste">Centro-Oeste&lt;/option>
+                  &lt;option value="Norte">Norte&lt;/option>
+                  &lt;option value="Nordeste">Nordeste&lt;/option>
+                &lt;/select>
+                &lt;label for="endereco">Endereço:&lt;/label>
+                &lt;textarea name="" id="" cols="30" rows="3" id="endereco">&lt;/textarea>
+                &lt;input type="submit" value="Enviar" />
+                &lt;fieldset>
+                  &lt;legend>Coisas inúteis&lt;/legend>
+                  &lt;input type="button" value="Botão sem Utilidade" />
+                  &lt;button>Outro botão inútil.&lt;/button>
+                  &lt;label for="progresso">Progresso:&lt;/label>
+                  &lt;progress value="30" max="100" id="progresso">&lt;/progress>
+                &lt;/fieldset>
+              &lt;/fieldset>
+            &lt;/form>
+          </code>
+        </pre>
+
+        <p>No style.css</p>
+
+        <pre>
+          <code>
+            input,
+            select,
+            textarea,
+            button,
+            progress,
+            fieldset {
+              display: block;
+              margin: 2px 0 10px 0;
+            }
+            input[type="radio"],
+            input[type="checkbox"] {
+              display: inline;
+              margin-left: 10px;
+            }
+            textarea {
+              resize: none;
+            }
+          </code>
+        </pre>
+
+        <h3>Estilos</h3>
+
+        <p> Quando queremos usar estilos CSS em um elemento de um formulário é muito comum
+          utilizarmos alguns seletores diferentes. Por exemplo o seletor por atributo:
+          <strong>input[type=text]</strong>, seleciona todos elementos com a tag input e o atributo
+          type igual a text. </p>
+
+        <p> Outro seletor muito utilizado é o pseudo-seletor <strong>focus</strong>, ele é usado
+          quando o elemento é focado (selecionado). </p>
+
+        <p>Também é muito usado o pseudo-seletor <strong>checked</strong>, junto com o seletor
+          <strong>+</strong> que seleciona elementos imediatamente depois.</p>
+
+        <p>Veja o exemplo:</p>
+
+        <p>No index.html:</p>
+
+        <pre>
+          <code>
+            &lt;input type="text" value="" id="nome" placeholder="Nome" />
+            &lt;input type="checkbox" name="check" id="check">
+            &lt;div id="surpresa">Surpresa!!!&lt;/div>
+          </code>
+        </pre>
+
+        <p>No style.css:</p>
+
+        <pre>
+          <code>
+            input[type="text"] {
+              display: block;
+              height: 20px;
+              font-size: 18px;
+              width: 20%;
+              border: none;
+              border-bottom: 2px solid rgb(27, 107, 212);
+              transition: 0.2s;
+            }
+
+            input[type="text"]:focus {
+              width: 50%;
+              outline: none;
+            }
+
+            #surpresa {
+              display: none;
+            }
+
+            input[type=checkbox]:checked+#surpresa {
+              display: block;
+            }
+          </code>
+        </pre>
+
+        <h3>Validações</h3>
+
+        <p>Quando usamos um tipo em um input, por exemplo type="email", automaticamente ocorre uma
+          validação daquele campo, ou seja, verifica se o que foi digitado tem um formato de e-mail.
+        </p>
+
+        <p>Além disso podemos usar alguns atributos para criar mais validações.</p>
+
+        <h4>required</h4>
+
+        <p>O atributo <strong>required</strong>, pode ser usado, sem nenhum valor, apenas o nome do
+          atributo, para indicar que aquele elemento é obrigatório.</p>
+
+        <h4>minlength e maxlength</h4>
+
+        <p>Esses atributos determinam o número mínimo e máximo de caracteres de um input.</p>
+
+        <h4>min, max e step</h4>
+
+        <p>Os atributos min e max determinam o mínimo e o máximo de um valor em um input com
+          type="number". O atributo step define de quanto em quanto o número aumenta quando usamos
+          as setas do lado do input.</p>
+
+        <h4>CSS :valid e :invalid</h4>
+
+        <p>As pseudo-classes valid e invalid são usadas para estilizar inputs válidos e inválidos
+          respectivamente.</p>
+
+        <p><a
+            href="https://developer.mozilla.org/pt-BR/docs/Web/Guide/HTML/Forms/Form_validation">Clique
+            aqui</a> para saber mais sobre validação de formulários.
+        </p>
+
+        <p>Vejamos agora um exemplo de código que mostra as propriedades vistas acima:</p>
+
+        <p>No index.html:</p>
+
+        <pre>
+          <code>
+            &lt;label for="nome">Nome:&lt;/label>
+            &lt;input type="text" value="" id="nome" required minlength="2" maxlength="15" />
+            &lt;label for="decada">Década de Nascimento:&lt;/label>
+            &lt;input type="number" name="decada" id="decada" value="1990" min="1890" max="2010" step="10">
+          </code>
+        </pre>
+
+        <p>No style.css:</p>
+
+        <pre>
+          <code>
+            input {
+              display: block;
+              margin-bottom: 15px;
+            }
+
+            #nome:invalid {
+              border: 2px solid red;
+            }
+
+            #nome:valid {
+              border: 2px solid green;
+            }
+          </code>
+        </pre>
+
+        <h3>Eventos</h3>
+
+        <p>Uma utilidade muito grande dos inputs são os eventos relacionados a eles. Os mais usados
+          são: change, input e submit. Veja o exemplo abaixo, que faz algo simples, escreve em um h1
+          o que o usuário escrever no input.</p>
+
+        <p>No index.html:</p>
+
+        <pre>
+          <code>
+            &lt;input type="text" id="texto" />
+
+            &lt;h1 id="cabecalho">&lt;/h1>
+          </code>
+        </pre>
+
+        <p>No app.js</p>
+
+        <pre>
+          <code>
+            let texto = document.getElementById('texto');
+            let cabecalho = document.getElementById('cabecalho');
+            texto.addEventListener('input', function () {
+              cabecalho.textContent = texto.value;
+            });
+          </code>
+        </pre>
+
+        <h3>Exercícios</h3>
+
+        <h4>Barra de Pesquisa</h4>
+
+        <p>Crie uma barra de pesquisa que atualiza os resultados a cada tecla digitada pelo usuário.
+          Lista para pesquisar:
+        </p>
+
+        <pre>
+          <code>
+            let filmes = [
+              "Um sonho de Liberdade",
+              "O Poderoso Chefão",
+              "O Poderoso Chefão II",
+              "Batman - O Cavaleiro das Trevas",
+              "12 Homens e uma Sentença",
+              "A Lista de Schindler",
+              "Pulp Fiction: Tempo de Violência",
+              "O Senhor dos Anéis: O Retorno do Rei",
+              "Três homens em Conflito",
+              "Clube da Luta",
+              "O Senhor dos Anéis: A Sociedade do Anel",
+              "Forrest Gump: O Contador de Histórias",
+              "Star Wars: Episódio V - O Império Contra-Ataca",
+              "Inception",
+              "O Senhor dos Anéis: As Duas Torres",
+              "Um Estranho no Ninho",
+              "Os Bons Companheiros",
+              "Matrix",
+              "Os Sete Samurais",
+              "Guerra nas Estrelas - Uma Nova Esperança",
+              "Cidade de Deus",
+              "Seven: Os Sete Crimes Capitais",
+              "O Silêncio dos Inocentes",
+              "A Felicidade Não se Compra",
+              "A Vida é Bela",
+              "Os Suspeitos",
+              "O Profissional",
+              "O Resgate do Soldado Ryan",
+              "A Viagem de Chihiro",
+              "A Outra História Americana",
+              "Era uma Vez no Oeste",
+              "Interestelar",
+              "À Espera de um Milagre",
+              "Psicose",
+              "Casablanca",
+              "Luzes da Cidade",
+              "Intocáveis",
+              "Os Tempos Modernos",
+              "O Pianista",
+              "Indiana Jones e Os Caçadores da Arca Perdida",
+              "Os Infiltrados",
+              "Janela Indiscreta",
+              "O Exterminador do Futuro 2: O Julgamento Final",
+              "De Volta para o Futuro",
+              "Whiplash: Em Busca da Perfeição",
+              "Gladiador",
+              "O Grande Truque",
+              "O Rei Leão",
+              "Amnésia",
+              "Apocalypse Now"
+            ];
+          </code>
+        </pre>
+
+        <h4>Menu</h4>
+
+        <p>Crie um menu que quando em telas com largura menores que 600px, cria um botão que ao ser
+          clicado abre (e fecha) as opções do menu. Use um input do tipo checkbox para isso. Tente
+          fazer sem usar JavaScript.</p>
+      </article>
+    </main>
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+    <script src="./src/js/menu.js"></script>
+  </body>
+
+</html>

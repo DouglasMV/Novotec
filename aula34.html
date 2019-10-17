@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Aula 34 - setTimeout e setInterval</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+  </head>
+
+  <body>
+    <button id="menu-btn">X</button>
+    <nav id="menu">
+      <ul id="menu-ul"></ul>
+    </nav>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <main>
+      <article>
+        <h2>Aula 34 - setTimeout e setInterval</h2>
+
+        <h3>setTimeout</h3>
+
+        <p>A função setTimeout recebe dois argumentos: uma função; e um valor numérico.</p>
+
+        <p>O que acontece é que a função passada como argumento é executada após um tempo. Esse
+          tempo é o valor numérico passado como argumento, em milissegundos. Veja o exemplo:</p>
+
+        <p>No index.html:</p>
+
+        <pre>
+          <code>
+            &lt;h1 id="cabecalho">Cabeçalho!&lt;/h1>
+
+            &lt;button id="btn">Clique aqui!&lt;/button>
+          </code>
+        </pre>
+
+        <p>No app.js:</p>
+
+        <pre>
+          <code>
+            let cab = document.getElementById("cabecalho");
+            let btn = document.getElementById("btn");
+            
+            btn.addEventListener('click', function () {
+              setTimeout(function () {
+                cab.remove();
+              }, 1000);
+            });
+          </code>
+        </pre>
+
+        <h3>clearTimeout</h3>
+
+        <p>
+          Quando declaramos uma função do tipo setTimeout, podemos salvá-la em uma variável, e
+          podemos usar essa variável como parâmetro da função clearTimeout para cancelar o
+          temporizador. Veja o exemplo:
+        </p>
+
+        <pre>
+          <code>
+            &lt;h1 id="cabecalho">Cabeçalho!&lt;/h1>
+
+            &lt;button id="btn">Não apagar!!&lt;/button>
+          </code>
+        </pre>
+
+        <p>No app.js:</p>
+
+        <pre>
+          <code>
+            let cab = document.getElementById("cabecalho");
+            let btn = document.getElementById("btn");
+            
+            let apagar = setTimeout(function () {
+              cab.remove();
+            }, 1000);
+            
+            btn.addEventListener('click', function () {
+              clearTimeout(apagar);
+            });
+          </code>
+        </pre>
+
+        <h3>setInterval</h3>
+
+        <p>Essa função, semelhante a setTimeout, recebe uma função e um valor em milissegundos como
+          parâmetros. Essa função é executada a cada intervalo de tempo, veja o exemplo:</p>
+
+        <p>No index.html:</p>
+
+        <pre>
+          <code>
+            &lt;h1>Segundos: &lt;span id="segundos">0&lt;/span>&lt;/h1>
+          </code>
+        </pre>
+
+        <p>No app.js:</p>
+
+        <pre>
+          <code>
+            let segundos = document.getElementById("segundos");
+            let contador = 0;
+            setInterval(function() {
+              contador++;
+              segundos.textContent = contador;
+            }, 1000);
+          </code>
+        </pre>
+
+        <h3>clearInterval</h3>
+
+        <p>Semelhante a clearTimeout, podemos cancelar uma função do tipo setInterval usando
+          clearInterval, veja o exemplo:</p>
+
+        <p>No index.html:</p>
+
+        <pre>
+          <code>
+            &lt;h1>Segundos: &lt;span id="segundos">0&lt;/span>&lt;/h1>
+
+            &lt;button id="btn">Parar o tempo!&lt;/button>
+          </code>
+        </pre>
+
+        <p>No app.js:</p>
+
+        <pre>
+          <code>
+            let btn = document.getElementById("btn");
+            let segundos = document.getElementById("segundos");
+            let contador = 0;
+            
+            let tempo = setInterval(function () {
+              contador++;
+              segundos.textContent = contador;
+            }, 1000);
+            
+            btn.addEventListener('click', function () {
+              clearInterval(tempo);
+            });
+          </code>
+        </pre>
+
+        <h3>Exercício</h3>
+
+        <h4>Carousel</h4>
+
+        <p>
+          Algo muito comum em websites é o chamado Carousel, que consiste em um display de imagens
+          que muda a imagem em un intervalo de tempo. Abaixo temos o começo de um código de uma
+          página com um Carousel. Termine o código, fazendo o carousel funcionar.
+        </p>
+
+        <p>No index.html:</p>
+
+        <pre>
+          <code>
+            &lt;main>
+              &lt;div id="carousel">
+                &lt;img id="imagem" src="https://i.imgur.com/CpUwdqY.jpg">
+              &lt;/div>
+            &lt;/main>
+          </code>
+        </pre>
+
+        <p>No style.css:</p>
+
+        <pre>
+          <code>
+            * {
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+            }
+            
+            main {
+              width: 100%;
+              min-height: 100vh;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            
+            #carousel {
+              width: 80vw;
+              min-width: 320px;
+            }
+            
+            img {
+              width: 100%;
+            }
+          </code>
+        </pre>
+
+        <p>No app.js:</p>
+
+        <pre>
+          <code>
+            let imagens = [
+              "https://i.imgur.com/CpUwdqY.jpg",
+              "https://i.imgur.com/UjArfKT.jpg",
+              "https://i.imgur.com/xZ0DY9J.jpg",
+              "https://i.imgur.com/3I4GSUx.jpg",
+              "https://i.imgur.com/G1C9eHf.jpg",
+              "https://i.imgur.com/1SKyAO1.jpg",
+              "https://i.imgur.com/1bkw53h.jpg",
+              "https://i.imgur.com/017J7BU.jpg",
+              "https://i.imgur.com/miziBNQ.jpg",
+              "https://i.imgur.com/qvGq3E3.jpg",
+              "https://i.imgur.com/dPPBo6Y.jpg",
+              "https://i.imgur.com/S9d7ztL.jpg",
+              "https://i.imgur.com/hB1H5g5.jpg",
+              "https://i.imgur.com/j76CnLU.jpg",
+              "https://i.imgur.com/cJ28use.jpg"
+            ];
+          </code>
+        </pre>
+      </article>
+    </main>
+
+    <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <script src="./src/js/menu.js"></script>
+  </body>
+
+</html>
